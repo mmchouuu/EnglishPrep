@@ -1,0 +1,4172 @@
+[
+  {
+    "source_key": "speaking-p1-topic001-q001",
+    "content_hash": "3c3d6fcb0a53a9fe53a8567e4151a2c8e058d684b7bf0078baf543872f1b8c0b",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic001-q002",
+    "content_hash": "a87d53d73929f7c05a654ad3ab08f54c9b07fe632e0be341b42a15c91b1a1eb0",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic001-q003",
+    "content_hash": "4eb3ba30f97ae569e753b50eba22f363599bb73bfc100f99fb45567e764efe91",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic001-q004",
+    "content_hash": "2897eeccd9d87d8eaecd4f0bcfb65e34fe2bf175735b7a519111e3f15ab432eb",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic001-q005",
+    "content_hash": "7d9bc3f1df999076033916a5cc2548592158dd4ba453247f7e43255ad4cfc404",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic002-q001",
+    "content_hash": "562973afa1d9bf166c405d1d0d6d874f57d0de020c5c4a7b8f0d75fc46a6706d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic002-q002",
+    "content_hash": "d1025f6f3cc1f7e570f01a34958b469e44d61ff6a102b03619c3074bcc5cb059",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic002-q003",
+    "content_hash": "bd838717877682a01938f2af65e6f1ec85d4492b5f60339a4612e8b96d933734",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic002-q004",
+    "content_hash": "abaa2eda326a90a52bf859a2e31d9e1146504b6e857b5617e1e600ecf161ea5d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic002-q005",
+    "content_hash": "abe30c5cd5a89488a7724b65b3259f94c66048527e0d1d927c08a1b20ae416b9",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic003-q001",
+    "content_hash": "371cac60d1dc18fbf9d381b0698f88c3c1413edaadccd4352a688c454b1f5a07",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic003-q002",
+    "content_hash": "4748e65f21310a994fa577ffaf93b181093944aeb22c4137b0c804546d1cb9de",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic003-q003",
+    "content_hash": "c8ff1e2da7d3ce3163247cf821310d9f022b9d328ad524b0634b26ba97abc28e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic004-q001",
+    "content_hash": "98bb5328c2c3706b2527cfa4f68fb7dd4b3a150003f283b5cde0d5ee9d6e0e32",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic004-q002",
+    "content_hash": "3278b20b606507392102c80f742c7b4a2a023452ef75ee304b53e978b9c1a272",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic004-q003",
+    "content_hash": "4adc299760706f34d275f5ee84a6657ac8415b7b5e0146268f4e9ff951f6ec1a",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q001",
+    "content_hash": "da29311eb1be0fdb21f34d16a072f7fc384683585104460a59035638d2778040",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q002",
+    "content_hash": "c2a3ff92fa4bd328592dd05498dc13a9af6b7869db0b43b1ca9dd814f6198754",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q003",
+    "content_hash": "833b220dbb6687aa75157705644394254a7588dee108e75504a9f44411dd4d56",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q004",
+    "content_hash": "0e8e5a5d232f1b3df20a89d88dcc13dd8f82f9d2255992e768e02d78d6278162",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q005",
+    "content_hash": "70e5e2f41e0b770db057c11c3b70a674e002f5946bb5ee62f04faa59314c8b31",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q006",
+    "content_hash": "7d72aa1309f4e5cefdc719745cd1ead21b372bd8e745db5834159770c5492195",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q007",
+    "content_hash": "ef350de1c09fb889136faf6c44039f43ba0a9f9b784bac019a533a44585043f9",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q008",
+    "content_hash": "0ef995836dd38e9863263bb069e017ce14074628a6e6f96570304312c6a3bc76",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic005-q009",
+    "content_hash": "b8101317007f422c09e72cad827f50917a98e1ddb3cde06531d7c049e1b96842",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic006-q001",
+    "content_hash": "f023347ce29a3ed00fc6cc5be76a6185bb1fbe006752bf10ffcdb2bf62465019",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic006-q002",
+    "content_hash": "11abe8b78ad8bdb1d815e122c4c90dd2c94c0d3d8bac7d8c74c411f30dc555ae",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic007-q001",
+    "content_hash": "7a9b22dd905e8305c6d016684f67a38a9743ba3fd922d9cf5831a4450fbe4527",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic007-q002",
+    "content_hash": "13025b8964616df9d2e25427f256c7540184bca683714908c2e862d7ac21f8b3",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic007-q003",
+    "content_hash": "2d79a1005e1f2aa1d682830f1a815d5b5874c5b44110654dd110f465657838f7",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic007-q004",
+    "content_hash": "98ef66c87ee78f33b7b3ee9749b2a3d567cb810722d946846d37faf393ab6871",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic007-q005",
+    "content_hash": "df2437754d27c0b13e0a463e0874d43a4a1d22df0919062739735db3cf1cb7e4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic007-q006",
+    "content_hash": "9797446c0404790aa9f2bbbca10839bc2635daa33ac6217dbf5d605cc0920e1c",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic007-q007",
+    "content_hash": "6421cc6756617f2364b47264d7f313ac6a90cd6a15b735bbed9a77c6acca8c2b",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic007-q008",
+    "content_hash": "bf1088b08fcb70cd21445de11e0cdd17d23848f1818fce27b00efd61d94cbfa4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic008-q001",
+    "content_hash": "3124401167a68c287b1b4ec9956061012dbcf288332564eb48e5fcaf75319ea5",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic008-q002",
+    "content_hash": "90518bb458bdde7bd1fa19ef49bd475b24d4b9a4ab2d2140d56cae9b7d6aabce",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic008-q003",
+    "content_hash": "cfb221cea1ba2f8dbadba2c5a7d35fbcc1dfacd6ba4e57e527c5e2db7ddbfb6e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic008-q004",
+    "content_hash": "824d5dd3ff882d9ca00b44237b6b2856d7f5f2793364e54093f8f8588e36d1a4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic008-q005",
+    "content_hash": "a781df06dc171c3a7f5ed6112f93368b188d5f52640922a4647cb751ab479212",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic008-q006",
+    "content_hash": "6190415cca54fca7638321280a36f42013d8ddd423c56e7835a1108dbb003acd",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic008-q007",
+    "content_hash": "2bd4cc9a495fb1675245e5ca12a3598e4c7d14171cb1f3aed510bb3b53ec9dab",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic009-q001",
+    "content_hash": "3e014e63ee128e39d37a8ab51b8c3e39240fa4c69cca3390c6278dd56d6d14b8",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic009-q002",
+    "content_hash": "2aa492823c5be66378f869a4da2c389e939a0c05615f4b6213f6946e22abf7cb",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic009-q003",
+    "content_hash": "193d20eb07215b331cec7e4b5cc6a6c591f0dc9d56473f8ad008efaeb66b1260",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic009-q004",
+    "content_hash": "29e35298602dacdf25df27bd33ea406955cd1690b95b000fa9b2953c7f8a08c1",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic009-q005",
+    "content_hash": "a7791a94c86c7fbe6dd1282e6f17a5e7df7624f69159c5421444b0fb7b6d174d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic009-q006",
+    "content_hash": "4fa681be7e93d02cdd94d7db0a7860f4032fa6f9c70d51fc03f2d9e0d042a2e6",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic009-q007",
+    "content_hash": "4be587ea9c47562d27178f525ebee685cd0e8c6d2cb431868dd69048546943d7",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic010-q001",
+    "content_hash": "21a769faa510a26e436e2f087683dfc74c5dc8fb88c1b09f3cd5eb59cd796730",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic010-q002",
+    "content_hash": "a4ecb383904cd0f2e3f3d5412634ad7bd65aa5610f8f6fd1a96d043887d289e1",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic010-q003",
+    "content_hash": "466be1a4e7877cf23b012cd5c8920309830555425578789a9dba47903ea15c71",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic010-q004",
+    "content_hash": "05856fc27dc1506f8101d2804319952907005378ba1c720db6e0018c60ad9bd8",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic010-q005",
+    "content_hash": "1791ae89e82ef5d0342a5ab624c807696fa5d3bdcedb9d1d60855d4cd72aace5",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q001",
+    "content_hash": "7035d21faf8a8d49e5f2cc55a72a5445197bb7abdfb9429324c21037080b0199",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q002",
+    "content_hash": "ef1739358448deec2d6ac22425c458c40a6e86b5773af9d032578b6e4e6a86ad",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q003",
+    "content_hash": "dc0bd0f882f2043ac8fd39082c8d1747572cf8cf449c911614d39b34390ffbbe",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q004",
+    "content_hash": "8a9ab4a0bcb743fb087d4315dcd26b74b937bccd475cf11e0615674948edced4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q005",
+    "content_hash": "e766e87c6041d68000647d13dba9c216b1c8e4df45735f99e0b42d7124116b45",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q006",
+    "content_hash": "55a8f7de12b77c0f193238986ede7f12c47090a10c3fed7698be474d9067d183",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q007",
+    "content_hash": "02701e85be884f28eee199668f76019ff46e55c629a8bd8f24112d8f61251b08",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q008",
+    "content_hash": "4aab035d230b18950232dcb886226d77b1119760e8f6a318d9a7b97c4326949e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q009",
+    "content_hash": "c9de3e06bd1b581ad2c182019f97ec8ee02bbd353f04d3cf5749f8651bfd88c4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q010",
+    "content_hash": "7d5f1c409182eaefa191e16ae65fd320e2decaa59e8f47a366d5e87c37c0f75f",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q011",
+    "content_hash": "096ec9bd7688e75e4887522cdbe11e3d904071e723d49d00fceed95be0fd0793",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q012",
+    "content_hash": "2c39661d86982fb956ecf7d4836d01867cc9165e27104ea0e6bba5bf36df2c4f",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q013",
+    "content_hash": "ee849caa7eee4d1bc0c2e301c12e1da35e9060dc177bcd09527c273c0da491ce",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic011-q014",
+    "content_hash": "6ff97e5e32a1a2ce551a573cd15722c158633494df2bebf63accdc7b1ec8c9a5",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q001",
+    "content_hash": "d68570922e68b5c4664186a99c8146cbd9782f52615ec0b3cfb8ea02c9bbc42d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q002",
+    "content_hash": "7c4b00f9f97fe781397eb3e3162ff9e80c4651943f1fbd43facde2f27436e513",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q003",
+    "content_hash": "a2191ab3cb1f214761934a702eb2448fc640837c993d89c35b59e40b11a4a0de",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q004",
+    "content_hash": "a4b4f4ac515b96a33a0bf83cf9a0be4de9f0ad037e337edb9944ad74d9126187",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q005",
+    "content_hash": "497cff658d31d44042210aa0068fdb9a505a90e1f8b8f76383cd76984895932d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q006",
+    "content_hash": "d7e2f69dfffa688c3060f31fcd0805855743c05266ab60e2f0e6edb845ea16dc",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q007",
+    "content_hash": "be20a29174c1bf98174970bf3574e51aa3bbe10554ff0c829bc588be76423ab8",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q008",
+    "content_hash": "aaadc2d93ae5b1a9372f113e96fed5f5bacb78ad0314a4f618ed50f1a0fa698d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q009",
+    "content_hash": "bcab5000ee24ad6abb2e5feadaababfc10496637ec8525bafbb6de397fd324ee",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q010",
+    "content_hash": "cf3c8a9f73756c32c5a4ddb07654000b1618f52d64f44d5391b414441dee9302",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q011",
+    "content_hash": "198eb8325680040d38e97b37a2de93dc31d7cfc4d78c0004f326c2cfcefd9a55",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q012",
+    "content_hash": "f82f0ae6ff2a115006e756026e2ecc5aa4fba756a238fc43f915955454701056",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic012-q013",
+    "content_hash": "9138889e806f1dd39949912fb1d54157e17e712ad8d42534f08729b42d089d1f",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic013-q001",
+    "content_hash": "5fc4f4f3e27a2c2f5d24c2d4544345986ffb716ea4fbc745990175f01d4aea39",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic013-q002",
+    "content_hash": "d49c1ad041ff9b673f9295878565ec34da3b9c22ddd091bfa620dc84b95965a4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic013-q003",
+    "content_hash": "853fd7fdc7e7d98a0745ca1511a0924b1a3e340a0bf8cd438d35f2ed26403093",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic014-q001",
+    "content_hash": "5eafd6c14dd50f34260342c454c69159fb479fd4a5236f19746400ba83b03e97",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic014-q002",
+    "content_hash": "057dbda621fb3457a7eafca0b104ce83503efb61903788d1b1f0d9236010fd6e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic014-q003",
+    "content_hash": "e73e6c0a13269cf77fd86446720e6cb9a09585e104ead1f43e3ad04f1b8c97eb",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic014-q004",
+    "content_hash": "0a61f5abaa3c0f758aef7dfd3aadb64f1f9ee88b2a6aa95e9a61e9cd5b316cca",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic014-q005",
+    "content_hash": "06b1583580c041cd2e1f844724fd2cb5588f46d888358ed3292194a53836fc2d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q001",
+    "content_hash": "47332b685ec4a93879aba40adf44637db45b4c7f98cb377aab5b0afa12ec1443",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q002",
+    "content_hash": "ccf47c74d0901441bf23226b8e6f174c50189e79eeb7f8504a5f49dafc9215f3",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q003",
+    "content_hash": "77ee4b886ce0dda4595a81c7790430edc954e32d757fa4c5519338b739292f35",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q004",
+    "content_hash": "bef81d83e4d531853dcb2f5923761172cb8652e1d213bd2be5207f32f08a18d7",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q005",
+    "content_hash": "58081ddcfdeb5b8c67d93f025231ea919c7635aa02eeaa85a8063cfb5c015c05",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q006",
+    "content_hash": "5583d25e5a2a1b2fa674764c1b19005252bdf581eede3d78cddf3ffa598bbde4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q007",
+    "content_hash": "407dcee6f975aa585884944ee07bca52add7f349e9e0b7c8c9390a23dac07402",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q008",
+    "content_hash": "58d34d7be3cfe49fd0165dc7020453eca3244e426b4e236ede68ee0b8c3f5361",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q009",
+    "content_hash": "7b4de27e53bc1d7940610d14109ab45f4fc4092c9e3cabf1b42bba1962403537",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q010",
+    "content_hash": "b95157810d6d76867db6473ce3ddf101ce7d68d16476abf944284b2e5c293c59",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q011",
+    "content_hash": "c3dc22ffdb1783bb393ffbdc8e41f623322784aebbff22513633b5b646d8df42",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic015-q012",
+    "content_hash": "87acb79011591bed65870c4132b7b7d034f59a4de8100b463edbbff15f09cc60",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q001",
+    "content_hash": "316ec7a39a40c11dd286dc8e60ec61c261cf0ea285bf9ed802c1e5d28cd59f0d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q002",
+    "content_hash": "d6e1064bedeb234578426f8fb1bf3e33a49f6a5f121b2f3f4a88ffd19953c7b3",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q003",
+    "content_hash": "9b389bbbc53a14646ae09b396774324e91fdcf19446ddfa189516d3a7fc71c3e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q004",
+    "content_hash": "2cc4a9494f4ebbd0cd0dbc51636686c3ec7b73f009cc7fc75729d5ea00d1d9a4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q005",
+    "content_hash": "033ea3c0acbff45672a90b23c3b83e8c534ac7708b8dc224a77075f17cfa1734",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q006",
+    "content_hash": "f030843473802e699ee0a0cdf6f77d810b931d87e989fbdc17b7616e0313b666",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q007",
+    "content_hash": "eb8f4dcdb7fe0b613c92d259f6f488ec573d191e78dbc3cfc548ecc630b80008",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q008",
+    "content_hash": "44bfc563e538437934f15cde564953a1f7cd68e9458f84aa4a2f7048fdf9d142",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q009",
+    "content_hash": "0d1063d82fe974e4a7afe1a2368fc72ade46ce613b33f889c7636f03f87effb4",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q010",
+    "content_hash": "a4a3d333ae67db53c490b46ff7677d9c272005f7cd38e5f1f96729403f25c6aa",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q011",
+    "content_hash": "a860359ced058eff0938e99f79b46d16afa9f8b2e734f635d10d85d77023dd94",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q012",
+    "content_hash": "f267fcfac8ea74653e85462463bdbb205891c4226c5de2149a39cbbdfb99ae76",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q013",
+    "content_hash": "1f1ec3382ec605cdd6be6f3281c3a99f06a00f65241776770eff8e80f3f02f01",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic016-q014",
+    "content_hash": "b64f220505bc05954cc8d39df9d5fd40ab11713fb3ac0792653785ee2cc7c0b7",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q001",
+    "content_hash": "694222eaf9ba375c50061fceda36dd0ca8745b5efa4ea565d2359d65d3ff9d96",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q002",
+    "content_hash": "092f3bcd25fc0ce624dfbd4f66ba6327f6043f619e5af32d1c3dcdcd5d5aa502",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q003",
+    "content_hash": "e04944e879390a78e3fa2b23c58a6ea9d59f9e9240c202b8bde6ebcd7ec78c4b",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q004",
+    "content_hash": "eead3d9dbf8afa9c194d1685e9f5aa3432cf8f1817b97d673afebdc31aa8833e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q005",
+    "content_hash": "a4b38198bce4632b5d3ed901a70ae89709e205cc6e477f5b56d1e8a41fb3b7e1",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q006",
+    "content_hash": "039a3569df4053f4bcb0e0a775d77cd72b1777f160145e596f55e3733c0ecd8e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q007",
+    "content_hash": "5d37fd9617a369c5952af677f4d145cd863d667e0830b9f7b994891974689d3f",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q008",
+    "content_hash": "1dba909ada99fa1845ec67a0d715340ea3cf71657fc6aaedb16e46598367e748",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q009",
+    "content_hash": "d4a47d31d6fc30cce5aaac623468446caab25518445b0b9418b1cac0b0bf5b15",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q010",
+    "content_hash": "4ad7cf1f01dcdd46a8054d04bce2f93707579d3bd38cdbcad41222e6a8f44227",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic017-q011",
+    "content_hash": "f8d5b05c6f5a40ce3906306ba86fc56d1cdddb4c3eed40b547c0ef0c5d85f816",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic018-q001",
+    "content_hash": "356edab863e03e9643673384e6befcd534a1201c1b10f64db378cd74e5260fb1",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic018-q002",
+    "content_hash": "c37d703414cc3d065bd02e8e79ca02265973a70e7e69654f6830018d95b9486e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic018-q003",
+    "content_hash": "42f01a0d84c57f01c5b7fe85bcfed8b66f2a01c2007108dfd36a77a8faf0f5ee",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic019-q001",
+    "content_hash": "679886dcf09bde85a04c515a159d28be4791268519e8f55a1d7a49f452369154",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic019-q002",
+    "content_hash": "ac4ea39c35a6db170acd6a79bfb9cf93fc98f57edba343508b694ba9e6bf8bf2",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic019-q003",
+    "content_hash": "f72e343c788c05c6dc794006ce0b24eeb72d8a06b7eff8a22c0da2843afafb24",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic019-q004",
+    "content_hash": "01b73796f5d45cad0b5080155a2a8db5dc4527c46ddfba0824ec81c27c298340",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic020-q001",
+    "content_hash": "76d3528926019444d5295eb1fea75fc42b5c33061a2be716d59bbe0ec71a67d8",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic020-q002",
+    "content_hash": "eb7c3a565816ffb8dc1c75efc7f1f70296067843368eb95c24b91020b2d616ba",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic020-q003",
+    "content_hash": "2b41132af405dd3c8e89f6eb959daaa0fd3db6611b2b954c0b896084e1a6eb6e",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic021-q001",
+    "content_hash": "dd00844da6f194f817c7bf95045110194dd5fb2865e62b5a8fe01489a479d4c8",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic021-q002",
+    "content_hash": "fa90ca546bedb3a00610993e8c627cda2563f7ed48fadae32aca631552f00204",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic021-q003",
+    "content_hash": "a8c38587100315d3c74b29a5a8686b7a5ecaf5beee61b438040c0d3f80a091d1",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic022-q001",
+    "content_hash": "8f5a28612266b0864b2705692180a68c74fad67c7f0f2e981800a939a01b5701",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic022-q002",
+    "content_hash": "377cb1df674b95b893e773c12ed579d084586b47c0ab73f611cf12685cdaa3bd",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic022-q003",
+    "content_hash": "cd52f4956aeb82005f4231bfd868aebbc0f4a0d822c94c9b1aded7488de395b2",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic023-q001",
+    "content_hash": "aca2e0e7c36c5fd513715d0f58d53336d7d6f11fd376cbcb783f65f8911d456d",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic023-q002",
+    "content_hash": "c1b99586bcf0e009e9f0b5fed44a6639a6b6200fdafa44cae59f0e47759d922b",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic023-q003",
+    "content_hash": "735a0d47b72ec76240d0ede2643e852a4c1801f1330c32d5f70c9a7113a73b1a",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic023-q004",
+    "content_hash": "4074b3dc7d9cf23f0343ca76aa6a76b1a10800859286c3a0cffa3a55aaedc1b6",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic023-q005",
+    "content_hash": "dbcde06864159dee422a389c4172f078ad856d23aebecad2fa954e2409313999",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic023-q006",
+    "content_hash": "698b9472c126a54c30598ea0bb7b59aa84aa5cec0e448ab6925a009951df01de",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p1-topic024-q001",
+    "content_hash": "910058a8a271d5c5497b17def7abe9abbd929d47a9dfee55756f3f8a7215b403",
+    "part_number": 1,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p2-set001-q001",
+    "content_hash": "9fc3d23da1777c8c84f8422d1b8c4de443f9337f30bb4b86a9937a04360cf656",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set001-q002",
+    "content_hash": "7f607008a86bb0e1d41b46a4c13a59e7e58971abda3703a2edcd6fa9535a0d98",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set001-q003",
+    "content_hash": "1c1abf913a32ffe3d5ac28824ab8ce6784cfc9e4e3358a8f2baf826e4e4c8ffe",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set002-q001",
+    "content_hash": "1ba0995888db3113c52f513c93464239c3756f55209ff030d884d96e05327256",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set002-q002",
+    "content_hash": "73af99b6a5141f21a0c44362c57e8c3b08728689fc736a8dae812113101dfdcb",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set002-q003",
+    "content_hash": "8047f794c0dec153aff118c8f941d695b96de036763b9a03f51dbab9dfb26e21",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set003-q001",
+    "content_hash": "935a1c6fcd87fd4c20020d0b2e4a032d28d4aa28f9aae8a49f82a4018f132cab",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set003-q002",
+    "content_hash": "d0fa40cad9189607eb81affcc608d024e66e562bb7823a04c5d7426226e8f35e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set003-q003",
+    "content_hash": "e8a8f5f0107085da97b2b8f5ee58867b9baf139cf36674b7e2985122aabce97f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set004-q001",
+    "content_hash": "18a20a5d1e526206ec79c1b070a6b951df6cd7601df1539c93e0d439a677f76b",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set004-q002",
+    "content_hash": "b2b60e012a231f72ff014808a98906709c36b4895508749de2a1840eeb33237e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set004-q003",
+    "content_hash": "08fd66aca20b4b3bc91c99e87f17e92d9455efbbf38ca8727c7bd0289fd678b3",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set005-q001",
+    "content_hash": "6c936a43080294d57d1b8e44eab0faeed209e5eb7b2e6ee6e0916a7b8c158bb5",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set005-q002",
+    "content_hash": "f0753c720dc5b8710edab665d1a5f2c37aa57901c5aa3cd32f4868cff2c11587",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set005-q003",
+    "content_hash": "ace42569c48a105c88e5044bc85ab4f9cdaadef132d490594896970c52a0c2a6",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set006-q001",
+    "content_hash": "b81c9820a40ee2188040a94ab0344ebde532277423b82f5b17e07ab040382824",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set006-q002",
+    "content_hash": "c107102a1fe6c7b2f9d1074d70a467e6d4cca3e1ccecbc9088b3b22d6dbc84f5",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set006-q003",
+    "content_hash": "6530cabcb696d5d16464b8d19e1b9b2c6a66511440ad8155174cd6d0d44f8edb",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set007-q001",
+    "content_hash": "d13ca1088830e2da52f3fecf797044baa711198e914546b74dbd40644a620c32",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set007-q002",
+    "content_hash": "ac682e954b5b77e6d0b86c3a9fcfa81505e3c93a7d915d6645a1b9da4603dfdc",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set007-q003",
+    "content_hash": "630e9973fb751243b6601faf257a370ebc1151da2000c1121706fb901e7aa9eb",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set008-q001",
+    "content_hash": "1f67cdce84ffa91891484ef8081d728610963b778950087748334bb4f1619dcd",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set008-q002",
+    "content_hash": "98cf6d20b31b4f45aad05be251776ea8989afac68d6139bdebaa82bb0ca0fe62",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set008-q003",
+    "content_hash": "1979244302d5dd4e53aef9a32fb007ec5e497abd9a5e16c645eab15e14ba08c9",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set009-q001",
+    "content_hash": "9726f01a66d742bb4194feb7aaa8a5c9c7fc43d0f16bdcdecabf2e851f013c88",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set009-q002",
+    "content_hash": "04f1af07cb2d27fd154cd55872f839c558b391f662a26748d05e348dd2d10c32",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set009-q003",
+    "content_hash": "3f3965d72d43a429b2671e83ea2c7484c9688179302ae3947576f5462ad41a34",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set010-q001",
+    "content_hash": "a064bf1052b83ff0a8bec04ff70a5c3336487411bbfe7b51d53d0d898b3a7033",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set010-q002",
+    "content_hash": "591fdaa0f84f7745f003e4b86ed2429fdc783d7dd41146fa5a88c2da1828be05",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set010-q003",
+    "content_hash": "c1dba20f4152174c0e603c0f5d0b0bfb6567af434c1572f8abd540572c17c8e8",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set011-q001",
+    "content_hash": "fbba817b3c69e5852512dd773a964f6df7e529e1bb65cb34905cbd78e4687717",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set011-q002",
+    "content_hash": "7dafac8ce6ef7b393338b522041d49ad16e3ec3f2e88b307e904f9a050e30130",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set011-q003",
+    "content_hash": "fae5a13bba51a2508fb9dd936882ab510aaeff43801dd515682c5d3d105a4119",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set012-q001",
+    "content_hash": "c60c919d3da94df6b511e50ace4a3acddbe5c2325550581ccbb43b64f61bc8cc",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set012-q002",
+    "content_hash": "8044eba19f397efb7cd9cbcf5cf144fc07d86f858f9f9535dcf6e22c025e7537",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set012-q003",
+    "content_hash": "d6b14913f6ad235f8b3ed51c8c819bc5a86c8d8234230579d843a953ca0b77f6",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set013-q001",
+    "content_hash": "65ad812a83023cb0f92ecf86711b5fa0af27175840a34880b0da2fabbb00cad4",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set013-q002",
+    "content_hash": "f52b18d74f1f54a0f898676dca4ab59d17ae73bc1ffce1689947fa3d6c454cd2",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set013-q003",
+    "content_hash": "6cd71037617da472dbd7a1be838cc4c415dc00891ed683a97d44decf4549cb96",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set014-q001",
+    "content_hash": "65cdfdcdab7a8daea9ff151d1f8bed694965aa131f77862c2c9b3e836e3dce4a",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set014-q002",
+    "content_hash": "7a7c58cb877cc57c0a73d7b4611ea7b628f6472977e3180afd9e2500bbe7484a",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set014-q003",
+    "content_hash": "cc3f856d821c93d73ecf8d2a8f1ec64afa12d783f8b878684b608d828be99bc7",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set015-q001",
+    "content_hash": "f65ea35f894a4c09bea614ddd9003a691d7fb6b98cb2a276cf157fd0a36a371d",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set015-q002",
+    "content_hash": "b7107dce72d4580d8f2e0e70aa3182194312eb66ab3da4fcdc929f530e549241",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set015-q003",
+    "content_hash": "b841a74077015b08fa6f95465ea8d07d22d1faf8354c43f4416f9becc0311526",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set016-q001",
+    "content_hash": "f9670d63126436e264e73161e1a7d069a9441177b4cad2b833ff8d0edb4b245d",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set016-q002",
+    "content_hash": "39fc3b70b8efaa08d0e4140f5da8357d972331e2c2a96167c0f6c58d9a077db1",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set016-q003",
+    "content_hash": "4f6334272ff52efa96453b17ba678cacfc3803517451268c1516af32c1a2e159",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set017-q001",
+    "content_hash": "95fcf739c59b2c5be05a4571a75897b3790d098740905e22f47ebf806c8f0614",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set017-q002",
+    "content_hash": "bd96de0f25bd1bc310ab4a7c69f5f4ddb703b8e9cab566191534c5b75386c82a",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set017-q003",
+    "content_hash": "f89f8d3aa3b1bdd7b56ce8949e29ff489e7e741781256faa956411decf52a7b7",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set018-q001",
+    "content_hash": "cc3099ca6f5db477eb4db591a14329e5eb322869f646fe6f274d2df02a66370a",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set018-q002",
+    "content_hash": "0a4807a39e283c3ab979102f572d957a1d35cf4df201b5bcdbff693a7d65fdf1",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set018-q003",
+    "content_hash": "04382d42f8311abdfc372590b41d27bea19893ceab3efd2df66f25ea442cbd22",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set019-q001",
+    "content_hash": "ea70d45e2109233478227ccd32576c494092f2b4ded7c56b5af70ded1fec125e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set019-q002",
+    "content_hash": "4eb33ddec79408b3ec7492921d2eaf31b976a183f52f073bc735ed52f4bd9b02",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set019-q003",
+    "content_hash": "dc1a36df8062c096f60816e0ac8a06378a7f0f6cc874c30d495a6b3eb4c7c11b",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set020-q001",
+    "content_hash": "a226031999185eafbcc572d3d0690e438ad62fb2529c7c0a8f48733bfe980d4f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set020-q002",
+    "content_hash": "3c9c45c25efe362771b4616545e1374acf44902ee4a453598b354ba20e732631",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set020-q003",
+    "content_hash": "fe78953648b5991e623e8fcf7f2938c700cb4dabc59c67338bc0102db4e9360f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set021-q001",
+    "content_hash": "482788d097ddce71942bc10b8e368513f91487d0ba4b17a62ec7726d3ca4209d",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set021-q002",
+    "content_hash": "46e8a3b0701f4bf4f3c5d753b4e4b1bacb24befc1ccb1e95a10a1ae807184cf8",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set021-q003",
+    "content_hash": "5600e0c2d99688441cff8b0307354f7fbceeb932cac124ac902dc0a2fdd94611",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set022-q001",
+    "content_hash": "9cc4866e286e767a20bdc45d3a8d429e1adf1d5254b8c1879f753c91f5cbda1f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set022-q002",
+    "content_hash": "4d0cde01d4fdf43926c5252aacd8f47e194b6c17325af06377dff593166709f0",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set022-q003",
+    "content_hash": "b1608c17441535df9136a3063aea7e04bf2779773cca9bc39353c56d8b544c68",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set023-q001",
+    "content_hash": "e625fa033257071a9e4807ca4a29e7a863537fcf7bbfc9896b3c2eff315c04da",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set023-q002",
+    "content_hash": "9420925feba0f1ba79e10176789844076051e84690753c200ce6ef4a535ecfa5",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set023-q003",
+    "content_hash": "fdaca2d7037af40d5a824245ce772833a09e85854f1a87280b6b4386f2a7dc73",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set024-q001",
+    "content_hash": "8dfea4535a22a8a9201ac9b2836b047bf9fb55cac31cf9e0160e40d6bd362614",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set024-q002",
+    "content_hash": "e4181048c56eab3d5ed652f1ab372b95fd25b074b27bff5fcc724465ce952220",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set024-q003",
+    "content_hash": "06f731c19448d7292b4d3cb8fed05d3d9ecfe80633f8e8c3295e9078d66c4d9f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set025-q001",
+    "content_hash": "2ed407e580412b2687bdec7fcdaf5762a96afd85af6404a0daf512ff9efe6c2c",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set025-q002",
+    "content_hash": "62c907960051b6f7e6c8caa3f2e34549c1bb93db6037478f725a83650a419b45",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set025-q003",
+    "content_hash": "817fffbcb927a2a78664c92422a3247db84b6cd11692f7527bb76fdd17734eb9",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set026-q001",
+    "content_hash": "f6e744a75bf7b2250ef388a708612b761885fd57f697659a55e5481839225df0",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set026-q002",
+    "content_hash": "3c49612190f8c5ac2c67b7eb3406585ca47be6b7ba8581f932196d0f1490d3cf",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set026-q003",
+    "content_hash": "2d5d0cf386db98b1bd6954b03b7d05547ca8871347c58a7cde9dffef7a458f2f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set027-q001",
+    "content_hash": "f774834aca6bafd6d91631f35c777ea8689dcd98766d7c710ba590ad7809877a",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set027-q002",
+    "content_hash": "c73e52231aa0580c38fea4827e6c963339253c7630d56f35b1b085d877b56d9d",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set027-q003",
+    "content_hash": "d4c8c006132bca2032c0b33a12d959fc96ade3b863fb3837d46962cd9f241a56",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set028-q001",
+    "content_hash": "e20d55a1b1f5967ec48672098f7803c18840bf8fcb2c9478d995b7d5d7a8a358",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set028-q002",
+    "content_hash": "b4a3b5d0b41c710443fe5afc1d5c697aa0baaf267dc2207a52a44ef057164b2e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set028-q003",
+    "content_hash": "1df3aecdf00b6b801a08f131c1187495034e954686549f634b37acb358a38a63",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set029-q001",
+    "content_hash": "ea67f508bae339f5eafa544a0cb7f399171d72b9115896a05f256c9953b710c3",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set029-q002",
+    "content_hash": "5b24d10e507209732e828e9194aaf37e924757c080a8b8b0ceb1164095e96bed",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set029-q003",
+    "content_hash": "419b86862274eef9d79be5d13fe19fd0fd4024083f7ab0febc913b3944afb918",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set030-q001",
+    "content_hash": "16cacc03fef24f82dce39adca09ecd298837082c42fd2b49c2ce7bd307045be3",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set030-q002",
+    "content_hash": "fe0c772ae947a6bf7793c5602b6e5c2d0d1c2b648070629b81d5b56a6c6aba66",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set030-q003",
+    "content_hash": "2f4ffd063c2cac8ba83401e0596725f1ec1a992660d3e3463f7cf689c45859f1",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set031-q001",
+    "content_hash": "1dedd0d2a663f4ac238b9276ee2fb7c6bcaa3723218f27e5f4cf84a48653341e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set031-q002",
+    "content_hash": "3765f15a715813a3048149816a8aa994a44aeca66b7bbfe3347d3acc9704d746",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set031-q003",
+    "content_hash": "039138f8d118566ceb0ea7064497d52d5d0601af7d091ab58041915d09247542",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set032-q001",
+    "content_hash": "7a2cb262792d98d2451b30b8bb98c6198461e7594395693677d6f0e9bc0c3d93",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set032-q002",
+    "content_hash": "d44b9454e193bd0c1b5d0a5c9bf30370ecc8a49ac4310da22383ed181cd1843f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set032-q003",
+    "content_hash": "74b08a20459831ca71b6e435fa1ce88da8b4cb14744cc51839c0578a2dd9f09b",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set033-q001",
+    "content_hash": "319e4279f37d627e954641e6992a9928a39d9f8b07661ae58157995c241c30d0",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set033-q002",
+    "content_hash": "9c93868e735224886eb6b3d072d04a04fb3b3eac7135e6bf924dec2739d9514e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set033-q003",
+    "content_hash": "adc9c9901b685fcc23f4da15e4f1565617ffe804aa5f826348f40b4abd260cf6",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set034-q001",
+    "content_hash": "efe67fc3b93161cc10997610c0c246c3ccc846153a91476969323d8dd635ea22",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set034-q002",
+    "content_hash": "855a8ec7008d1aab988e605add57ecdd63f0e6f6826f69881e570bd0215dc6ba",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set034-q003",
+    "content_hash": "625cb39d08ea01194ddaf95c905b67e54a3713a60e7cd3996688de427919e001",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set035-q001",
+    "content_hash": "3177621cb02d995c705239df41129580e7de1a07c15c37b6c256740589a634e3",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set035-q002",
+    "content_hash": "201e321fe6eb0787d5c680bf2ba07f0958832419d42e6d0d6d3dc3550875cdfa",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set035-q003",
+    "content_hash": "d49520fb08ff59771ecc4ef680cf0799fd025bfc819a3d6138d08cfe03248d40",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set036-q001",
+    "content_hash": "74b67628e1adea00819eb010c7953abb79aff37a8f1dc99ae506fae4584e0854",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set036-q002",
+    "content_hash": "73139a2b32f640d697df0dd6d8887e8efd2ac0cccdc4e5287ee0055e0c586bde",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set036-q003",
+    "content_hash": "2616813e38e19e7e7e5923b93ad6e8e9b2caea73022d2b4f8e010c792f42411d",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set037-q001",
+    "content_hash": "6b627a344d22bd57fd5ed501b60e1408a2a7f908d90692fa75455a703b246e8d",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set037-q002",
+    "content_hash": "7aee6e120a290fe683b9179ccfe3a1f8ba2ef194ad8f193be9cc8d3bc6a42fc8",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set037-q003",
+    "content_hash": "3235ef5bb116ba16608e55ff9ce3fd53a39f80b1f75b80a0025cb3a3a9831afa",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set038-q001",
+    "content_hash": "08bafd98dbea761e797ccbdbd2c627a01b8a4499fb8851492b7ece76b0df5a6f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set038-q002",
+    "content_hash": "0291cc2e18c9b86a5b3fd27b4dcd4944b46725c528406d48a939b284681e466e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set038-q003",
+    "content_hash": "14c6a9f389e75c51277071be3fb78ff1de10380d9278a2c4675c530e73adefec",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set039-q001",
+    "content_hash": "0118cc98108308c16feda82498ec97ed5da1499df1234746ad36f46818b9c59e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set039-q002",
+    "content_hash": "3badb5fd74c8516f1118e656283b7483b1fc2599d1a5810a4ce5fac68e77550b",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set039-q003",
+    "content_hash": "562ad7270e571b07470a8510be9243f7ba80cef3c1644dce35a26d340904f1cd",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set040-q001",
+    "content_hash": "e1379b5706e43ad26b1a38cbfcefc97b8b3ed55c2b4345d19bd302a4cb4eee76",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set040-q002",
+    "content_hash": "52c4027aa79e006aac1f6716c43021d98009d8972061bf68269e462a86dc8309",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set040-q003",
+    "content_hash": "ee993e9b94f5993601420679bde9a70ad5355aef1f36ad40db0e5fa3194d05bf",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set041-q001",
+    "content_hash": "376df46797fed401b4675ad2b57906184cfe5876338dcd40127b3578b7101171",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set041-q002",
+    "content_hash": "54f3254d829e9ffa500b0ae06bb55f50af5809d322b87303a7dd7f2bd1428461",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set041-q003",
+    "content_hash": "67857dee125169abc3b8c89cc1e3a06e0423ed60fdeefb8b99b5dc1ce6ef86f1",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set042-q001",
+    "content_hash": "5d38d8b9e7039de091d90a3548d1dbcd8cafcd6a31503a58faa95e02b8bf5e8a",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set042-q002",
+    "content_hash": "91acfcea04ebcf7d0756b7a06a8557520df0ebfefeda3ff2c79d6523d5c03538",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set042-q003",
+    "content_hash": "41551e156b822c8f792fa02017b2ca3ca5362d9c887f9e0a48bbc72f11f50766",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set043-q001",
+    "content_hash": "1153ee7bff2f3e3121ccfd59eb144b77170b11a0b9c35192d63d2cfa453eee68",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set043-q002",
+    "content_hash": "c454d9b5442e2f0a6fb0a173f77d2c40a67850b12539590acaed2619d654c92e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set043-q003",
+    "content_hash": "541a089452aab3748423795046badfbb2cf7b68dfa77a8a8e2ac6e153082414e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set044-q001",
+    "content_hash": "dfaf2f8e4812fe5e9979c46c8f42caac5be65191ac44916489b2e05a2400bb69",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set044-q002",
+    "content_hash": "e16bdc5d317c3d0650aa9d741c16ce560c237c272c07bd1066b144e7da9c6598",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set044-q003",
+    "content_hash": "304562fc8609029da933852e9e273e60ef0f7bc0f22f9aefd7d585fd0bccdce3",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set045-q001",
+    "content_hash": "5db5b2ac250d0b4e0152b5c3f0d848c115637189312a3394965f147111325959",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set045-q002",
+    "content_hash": "dc748988dc7886619474cf938f31c743ce794174763783c6ef475d3bd3f47188",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set045-q003",
+    "content_hash": "253b5e7584948a734ab23c4a958cca0a238234aa65e92b6825649db320aeb615",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set046-q001",
+    "content_hash": "f9a3e3e3302ce9a97320f51f9e21d5bdb96be016fb276f15317f528cbda67385",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set046-q002",
+    "content_hash": "49cc09958611a5d4820dcee6bf5cfff6f6d20245f244d5338ce004c2a24f78e7",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set046-q003",
+    "content_hash": "48601c59753e2ea38fb838c221099e694b186c9e1022df869348040347c268f0",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set047-q001",
+    "content_hash": "641df14755695a743db4af78035915a93a2e6aabb02143775e0ebdc9c07cec75",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set047-q002",
+    "content_hash": "ae41c3bd3bb01ab8543383e93c50a52a0ed07509c61b2d3507f4c489d7fed9d8",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set047-q003",
+    "content_hash": "d8d08a873cd45d925e8e2879d5afc49e1ec847be9e4c4454d54ff082108c4866",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set048-q001",
+    "content_hash": "3e7e69dfe950a20421a9763d9862fa524a66e77e818e3802b984e665ddc8b26a",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set048-q002",
+    "content_hash": "5e17ed242e5ad2e47a36c1a09aed956ae07b77c0fbf378cc5b01c26ea867ec07",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set048-q003",
+    "content_hash": "fa6ab687f0696404e3cd60e43b10f65e4ef1bf35f954a210ad539124c4990cbf",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set049-q001",
+    "content_hash": "94b227dbf5ab3fbfb7d930f98cd416c3bd9a8dd26cc78e91785f73f6cbbf2dab",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set049-q002",
+    "content_hash": "66d3ac93fc7e981910c1d9b39dc685480241cc3c99bc2c7ef52ddc0d9db9da59",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set049-q003",
+    "content_hash": "025022d79eecb6051f584f6b36ec9ed06e82b6983b94d7d88f8ee83520624125",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set050-q001",
+    "content_hash": "0eb38ad15de21c5426beaba188614c2f22ecc88ab4355759b38315f40b9adc50",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set050-q002",
+    "content_hash": "cda2cd06f3b5968309b27b6df06fd6636ad010a3abc6b50f92eadbc36dc3558a",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set050-q003",
+    "content_hash": "47841f71964ec6cd9ef3796078d6b72797f9a526b7ce1c05fc613cbd87a3856f",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set051-q001",
+    "content_hash": "6a74591fad4b7042f45af69f9c0cbcf1caf0bc1a7f95a829450e3d0b60e0d762",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set051-q002",
+    "content_hash": "4e2ae6b6394503e28cfd380f1a598735344b226287c891452db94fa2d3651768",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set051-q003",
+    "content_hash": "8dcbac04587f531daa4a64ab90ddf132555d6ccab0cbc6ede4bade3044f16d9e",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set052-q001",
+    "content_hash": "96c15cddd286034877f7091f09869630129ef908e5feb5943a7e40c5870e4d44",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set052-q002",
+    "content_hash": "60b77773f23fdb32d516f25f0dbe60816db4c737fc2d000f5a61b6114baf0bfa",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p2-set052-q003",
+    "content_hash": "fc3aed3ece9a9694218348f1377b6b62eeaf318eb1f0f5feb9ee5e39b3cf7ee8",
+    "part_number": 2,
+    "question_type": "photo_description"
+  },
+  {
+    "source_key": "speaking-p3-set001-q001",
+    "content_hash": "374c9eed5f8c43b10a16f4f8b15cfa9fa13c7875a8defdd7c42185acf1351bcd",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set001-q002",
+    "content_hash": "ea8b69d867d5af0a19e992c8db6b245401f9ba218290b545049f17d4f654ad7d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set001-q003",
+    "content_hash": "795db72808da666ecd8adab4dc1d8547d112229565735c6ddf380d752b3926fa",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set002-q001",
+    "content_hash": "43a2403f8e709e33d2b0e34d3118f443932a5feac0739332206778ab236ba4de",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set002-q002",
+    "content_hash": "b272de8c2ec6d6b9190091cc8254edc0eab92568fa1df51945a7deb99449e559",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set002-q003",
+    "content_hash": "6bd9937584b49825153aca7a2e39388298be63c3165ba13cb30df89e9daf29e1",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set003-q001",
+    "content_hash": "e0da8e9e8029c2a69e399576e02fa189ef84a42e7719eab8875580498c94a260",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set003-q002",
+    "content_hash": "77b0b68ae5824d15e938421e5e1742a09a716a3c709f539f42603257d3071062",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set003-q003",
+    "content_hash": "6d9f5ddf65ac78cb48b34f24b14c53b4e874f8286846a72af6ec4529b29a8453",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set004-q001",
+    "content_hash": "f985d1d3a1bbcfda5f03e832f619a0374a4414a9cfbefbea5edcedbdd85b8212",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set004-q002",
+    "content_hash": "9c04e170ebec1f8c0de40f3f6f191bdbafd2097d2be06a486f99c7b1b130923d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set004-q003",
+    "content_hash": "3fc0ebd9ddf618e615a3a89e947db722f67c6a163dad0196b61ab9152e2d3878",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set005-q001",
+    "content_hash": "2a330164c2f2724f896886c5e25221394675e28a172e22fb11b764e03830c07d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set005-q002",
+    "content_hash": "d66f69dac43bdf6e6298416e0a8e87b6201d20580013a7533e594550744a9a40",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set005-q003",
+    "content_hash": "3c882c040ffdb2651d6ceb6e53dba26a153bfc1e6cb1e082b92fc14224c1dd91",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set006-q001",
+    "content_hash": "c7c059a24943012dadacf3efa685fd652e6a796f616aecafad56590b01fd3ff8",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set006-q002",
+    "content_hash": "96825effce0e0c6856adc7ccfcfd93a5c2fbec21c54890fe0b220b6cbbead94f",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set006-q003",
+    "content_hash": "92fb6c063e0cb1f53b9293f905f16c31ad74a73d886af811729249df02ed4460",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set007-q001",
+    "content_hash": "bd216f7bf7d4f02ee0efe8f66bdac71489529ade483a862557c2441741906e28",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set007-q002",
+    "content_hash": "09b59eaa2c647c0fe574246ed937ad03964ce63cc295b4b82e2097266a61b5fe",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set007-q003",
+    "content_hash": "c01bdd35ad2a745b19197fbb3a65d337f6a654ab272560c8921b31fb88668b33",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set008-q001",
+    "content_hash": "774debdbb2a12296cd82ffccbd55716588800431ae0e1b9609b89c48f5d6e437",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set008-q002",
+    "content_hash": "dd75699e01710752bfb82d469b24559ebd2cad621dae2845b8b11de16e97652a",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set008-q003",
+    "content_hash": "e7aa610cede1dafe46e45721a10b59d4aa1050760bbb2e01476183c212e33cb5",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set009-q001",
+    "content_hash": "71112ddbf604abf860655bf606b7a1b75247060eb0a35154a68d6ef563466146",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set009-q002",
+    "content_hash": "0039c56dd2f2acfcd646ab7a03357c300fd83589442a4a8b38908b7d20ae961d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set009-q003",
+    "content_hash": "f6fa1a1b5fbd5134196003b7bb5560ed7bad81133cd473769e98c385879bccc9",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set010-q001",
+    "content_hash": "139fa02f81f81928b8035af180db3bbb4a0b4c55524c40d2e22dd38a108ca426",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set010-q002",
+    "content_hash": "750e0e08b63d9b325bc323505a10d5e30ced6fd41de0b57870f5a6304562e85a",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set010-q003",
+    "content_hash": "f8375a4e6b43d2c46722ffbfc4f29badd43dfef106224005b7a1973b42f552e1",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set011-q001",
+    "content_hash": "dad515a0cc8549d79962a82c8f6c7f8b40200d7439b530f0bd177c9fd7f17a1b",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set011-q002",
+    "content_hash": "d8100d7e02bba16b279e423680fa17955df2193a204fa39451e78063fe3fc334",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set011-q003",
+    "content_hash": "79885f510f1cd4b2ce1e1d1d7b6727c7dccf9abf0cb8694e6ac9f13deeb344f1",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set012-q001",
+    "content_hash": "85e0b63451eb730ebe16812a9399879b8e9bf028272f2d93c7d44f8aff96e168",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set012-q002",
+    "content_hash": "58bebb839c663ec1bad12f1202a51baef50e4893d98cdc3ac6568cdfe3f9d8ac",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set012-q003",
+    "content_hash": "3ca8d63bec5b17664c1494dd8066e724e6b4ef263153431abe7601be261fd8a2",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set013-q001",
+    "content_hash": "23e3030475d8860a64245d53baf11a49d369b4ea2cfbc2c429ecf54cec4bec44",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set013-q002",
+    "content_hash": "d6f00c6e39703f500f46bdff82ba76ee4effa7fdefe34ab03b23da7643dd5ccc",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set013-q003",
+    "content_hash": "3c402fa899d9bc770bd2027f584665e7831dda6acaf66a48c584b32089447305",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set014-q001",
+    "content_hash": "c414395f9f0e974e0d44e334863c9a2a472563f7b3d484ff991586bc1e91b53f",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set014-q002",
+    "content_hash": "08b545122f5ad1cb14ed32edd16df97679e314e3d00f7478e820b20a7e17613d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set014-q003",
+    "content_hash": "681c2c141053bb8bbaa774cef20b463aeb4171e0385b85e0f88400b14df9901e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set015-q001",
+    "content_hash": "f6e617c40f5b198092c06580634ed07e43b419d82e601e0deff2a5479ea5fb84",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set015-q002",
+    "content_hash": "cb3c5d3f420bb3cb8f7e32026001d8d61649c2717e882e20b1097fece2877135",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set015-q003",
+    "content_hash": "a94b13db29a3206ee559992aacf395b1a8cd95fb47ed3023df7819bce525a458",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set016-q001",
+    "content_hash": "4c3a33811f3e070d744faa38931174aead8165019edfdc34ee028bb1f23c1855",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set016-q002",
+    "content_hash": "da389d70cd7dc054fff43423de8a0f7b6e1cac6ca2954f329acc9f321eec690d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set016-q003",
+    "content_hash": "5d6a75ed0cbdf42b363754348835a72a8110865e4dc736a49a5a3a024e1a611b",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set017-q001",
+    "content_hash": "6cc6f629b7569c483c4d6ce36156c43a393986c51dc173f1dce9e3035aafac40",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set017-q002",
+    "content_hash": "269014efc134219479c13b7d30987b57952946d1217f1208ac32ab50987a86a5",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set017-q003",
+    "content_hash": "60269f2c44a9694a9fe174d399e1e10e9e4e62c3d2f746d9405b8e001d068c43",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set018-q001",
+    "content_hash": "b52d250d47f082a3de207444d53ae2717c9dfd369e89ff6a41903d2bc44e9311",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set018-q002",
+    "content_hash": "f38d436fb5b0531af517650cb9fc340d8a0ae2b53051943d81b1d731d03f6d7d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set018-q003",
+    "content_hash": "c7042fd49e5f57c65b69a2445c26452fabf493290d5a79aa74e09b0ddb871e4d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set019-q001",
+    "content_hash": "a507815827df35db91cde302aa63699aadf05ae698a65c4f3c953a312950aa4d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set019-q002",
+    "content_hash": "39b20cdc8d534ea7b7c23b385a6d51ec66599d961acbfde3a6a5bf6577c6bca6",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set019-q003",
+    "content_hash": "0eeb593842006a86e7da311dd1d79c33177571ca688533141e311236b5d1f0fe",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set020-q001",
+    "content_hash": "bc93a4c700c09fa413b0331a74a32c21cb0223b68f4d5b9525bba416e1f4c93b",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set020-q002",
+    "content_hash": "6d5eb92e333306f1ac68678c4ee6b3189f9a9570adf30a301b707a03d62ae921",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set020-q003",
+    "content_hash": "0e95fe7d42b874b17d1acadcdd5c6fd210b8f3e4bb5279f81c059fde4ae9daf9",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set021-q001",
+    "content_hash": "dfec79990173bf7a240eae6653e370f8544a78c9538b411b8eec5cf795b2645a",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set021-q002",
+    "content_hash": "70c329789f4f7c20b29fe5e5a90c8c990fb55ab75c535ee29c4c3c92fdc50e59",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set021-q003",
+    "content_hash": "dce7b7baba1994b7455eea7bac9dd228f8d14913658ff62f6ccbf2ab44a3f2da",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set022-q001",
+    "content_hash": "e2920201fdd655feea674c148f43349e1380acadc9199c887f9079a3a161dce2",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set022-q002",
+    "content_hash": "1baf54cf5b2dd7f5ae3012e8d1e36ef66850a865ccc65916f545678cf85f8fc5",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set022-q003",
+    "content_hash": "50326d8ab1a0def7729910798449b8980de2e8381855700aa533f632b90da5ef",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set023-q001",
+    "content_hash": "cc8f4c37d0ca553d7faf021aecb69dfbfca29782f8b977bc0504fe933edcb6d5",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set023-q002",
+    "content_hash": "8f7b3cbad0e7a8c96fb6a4bd3650d8931458ca56f3c1b419cfd0ba06d8427e5a",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set023-q003",
+    "content_hash": "808681386761d895cb17cbae8a73026cf952ee3220f0b28e7e159e635e0fd667",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set024-q001",
+    "content_hash": "7208aa7fc5a8e4b24c0c1ebe735473e437b1c385d83446811081861ffaacd257",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set024-q002",
+    "content_hash": "56ea6446369f3b376a2b16515565888cf57c8187a8407efe6b9d61a897fd1a36",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set024-q003",
+    "content_hash": "e06ce33951155c49654f36da551ef293d641cd0b875ab052ab62bd0b810b0d06",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set025-q001",
+    "content_hash": "0faeb6f3278f690ace0f2c18fb7a3142c13fbcbe4030c8844806a5df64c96389",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set025-q002",
+    "content_hash": "2ad50f865e3c7791e82d71a6a75ef470f1a46d99dcff6b819cb0271ef253d1a7",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set025-q003",
+    "content_hash": "01addb06c15bcfe34279c26dcc715afba5f2ea7d350f6b885a8b0db3a184ba60",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set026-q001",
+    "content_hash": "2e806e13555296f52a739b7921040f8f36f05649494af897400826b6fc01ea2c",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set026-q002",
+    "content_hash": "4a0f77dae93e0c101d1bcf4d3780bd85e5ab288d8fc535024ba4f24e51c49181",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set026-q003",
+    "content_hash": "c17c3f6df0c97ba1a3a58bbb4f210b62f1dce92cc25ad5a3d91831d9d39b4c0e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set027-q001",
+    "content_hash": "98355949af2af663bcfe451b017bb383386314ea20f748021f9517a302dfea08",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set027-q002",
+    "content_hash": "276992361d4e9d3583f252fb44b490fc16b1c608e045fb1e2aff0275dfdbab9d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set027-q003",
+    "content_hash": "d9295ad3dc80c9aee9577adbe3a1d86eca6683374c4378d39e97fcebe9af1113",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set028-q001",
+    "content_hash": "2bd6b68473b2d5668af10dfc23f741e6acca0f95ffce3dd641e583824031ea28",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set028-q002",
+    "content_hash": "baf3949e2ab7c1011df84c5a749905af46ddcfb301c55f9eb494580865719156",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set028-q003",
+    "content_hash": "f7c156bd818cfdd45cb89181c752d486eb00562efa8f678c13cfd8519af7869d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set029-q001",
+    "content_hash": "56df8046e613631f6e3f393260bf3102eca468054d7d9be9213c503ba6f2a87b",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set029-q002",
+    "content_hash": "47fa84a08c87e91db1ee29fd9b473bd901b54b24ededd980d3558faeeb8c045e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set029-q003",
+    "content_hash": "db5465153b5480a2970dfcfa7223aa0511ab85d3d3a767b666545ff07132931f",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set030-q001",
+    "content_hash": "834c8a531e2e2613ba616ad4aeede840b322d37040067ed1328bc7e2ea019a23",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set030-q002",
+    "content_hash": "19b70f52c3de1e11763c1ca6ad704523ecacbd0de673765465953f71b350fb61",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set030-q003",
+    "content_hash": "f02c651bfa3732ca68c45eef4e44ef0949bb6545716e87f0cd246a98e589c939",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set031-q001",
+    "content_hash": "d9b6c50f1b69d57b8ad54ea5c64f9c683b24861d685dc0e23920c1c7f2cd5c5d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set031-q002",
+    "content_hash": "c3d5b29f3f41f98e83f41bd6847395adb8222b10f9792578ae5f8eac6cd03406",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set031-q003",
+    "content_hash": "2613e360c7415117728ccdef3eebf17199e43806aedecb8b3b01ec49b1c9c1cb",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set032-q001",
+    "content_hash": "59ac3928339e8a605e00aeb855a733bd9308aa92f3962b21b7bc8d047a6b865d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set032-q002",
+    "content_hash": "00e92d9191dcd32cd679fbd6020d9ec662a5eff78efb124426844aa6615fd3e3",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set032-q003",
+    "content_hash": "1850c4f31d0b27c243ba1962a578316e1deb931ff885a703ffebe3d397ce3116",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set033-q001",
+    "content_hash": "df3c89a3978fa32e4cefe43d90fdf51cbc8850342b9bc8b320a69d80e4e94562",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set033-q002",
+    "content_hash": "ddfb8f1865b011d781e3328f820ebd91cb8635ba9df926bff39dea3554692c36",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set033-q003",
+    "content_hash": "5468a8138ca57f3d550a3137817ad996502c3e3b1a85297a96dcc3b5cd5d2be7",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set034-q001",
+    "content_hash": "4f7aabcf6d58d449fd6eafacab640a093fc01b8aa66ba4b824f85efdeb8c2c51",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set034-q002",
+    "content_hash": "226209f768274aedf68ac6d665ad07be54d023343554753d0316c3a73f2711f9",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set034-q003",
+    "content_hash": "1f5536fc0b90202b83b762fa27d502688d9ddef0bf174f857e3868a268d7b19d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set035-q001",
+    "content_hash": "6bfe543f210e1bc6ef5f66b8d3dd875ab1c33b478285b26a9a4771e21b2ca225",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set035-q002",
+    "content_hash": "aeaea265d9880757471418b7381de759a6e478fab308d69bb054dba2892a8d63",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set035-q003",
+    "content_hash": "66adc97ae13e0fd3c8bb391701ab021d055bd69ca75497ab6be314f3b277d9bf",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set036-q001",
+    "content_hash": "2809046e275b60d98a966ae0f6cd42d504d1486991560df0d85c37dbdaa12715",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set036-q002",
+    "content_hash": "c009954b6707c1bd68eecd6d6aa47b3d4fc4a5f196f7de438336b2763ea5ea06",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set036-q003",
+    "content_hash": "dd2c63375dba053d16fef4d6ce4d1abc36b60d9b2135de1489c9572e18b81c5e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set037-q001",
+    "content_hash": "0eba228cf5f8c6804122bba54a2acbe877a35b5638ac9d7394bdbdcc3eeb9f96",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set037-q002",
+    "content_hash": "64cbbf6521d6876b83c425dca4d6acc055e60090b650ca91ee69022f951faab5",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set037-q003",
+    "content_hash": "b1a8b0b87ff58661ffdc55ee8b41233e05b299acdc8651d6fcec831a461b61ff",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set038-q001",
+    "content_hash": "1559aa8acda30fe041fdded37ef1d1d260804597d16851d369e3a5f03ad17043",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set038-q002",
+    "content_hash": "482d144a17e8bbe850790e37cdb9aa18ba550ac9ff791749f2ca76378bdc0d50",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set038-q003",
+    "content_hash": "1dfee9d37d27c6a03a9b4a7c392e443edf16dc78f1e28a8bc789ad6f5f4d2eb3",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set039-q001",
+    "content_hash": "aa14b165087eeccdcf0e9c950b2010e777e327081a2a3605319d1895c6cf7d20",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set039-q002",
+    "content_hash": "f7e5c03f36881c594b8756247704c3b67b5f4f12075780456675cbd599f0ddcf",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set039-q003",
+    "content_hash": "5ed3f026718c73b8fdb7868cae6e48c55af06cc9ed545c7e86d58f1dc05939f8",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set040-q001",
+    "content_hash": "f8dcc50852429ac865e7984cd6a7c88cf10e067e2b9abb9b153c2931306e5443",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set040-q002",
+    "content_hash": "7542b60cbff6c7f77bf3c90429969b3bca228fd515545d68f6c86898868ce56b",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set040-q003",
+    "content_hash": "5969d6078d379708eb053cd488eee4b62a822ce617d1b765aaa7006c6572dd2f",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set041-q001",
+    "content_hash": "71dfa9fc0ba3e34fe6a32acdb307ae22fd09a446b8ad074ef33a28e6a251ca02",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set041-q002",
+    "content_hash": "e9479cb5e48a3b7f2d4518adb1c2bedc9ef1c71ccf016607df153086b04e650a",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set041-q003",
+    "content_hash": "3ac6140600b2cd8864474b544bcd2389a036649ad94887b56cd115c78b267091",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set042-q001",
+    "content_hash": "4a71715cc3217b7d32a8169fdb3c455ddd3d48dba557cd25dd007fa1a5798c6f",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set042-q002",
+    "content_hash": "31d9eb556adf8588701e0462782b6c31e7a6aa1918618b8ed947edbc16b1f0ea",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set042-q003",
+    "content_hash": "eda75053369d051ad9b106f83b9635a57fe0dbdf8a0bda21cdce75c747eb9253",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set043-q001",
+    "content_hash": "aab343350aa69dfb598da438f504573c5d9d459f3a55a0317ccd193fbfbb1506",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set043-q002",
+    "content_hash": "8407605bc37ca346bc9907d6ee1dc0b69337e1b9301252e76d7ca076ebe27f33",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set043-q003",
+    "content_hash": "7a4f6ff4453e2e410e4c51dd8d64d14d94d17f88c664b299ea097d3f86ab8279",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set044-q001",
+    "content_hash": "285e5b4fb06d8c5bf8b1584e021ce5144e55f792dbffd2c5cf630ca0ca62e3c1",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set044-q002",
+    "content_hash": "cad2d881843cb3a3dbd48322303beda9ef7b8622ad85e1988fe1dbfdb97a7f87",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set044-q003",
+    "content_hash": "f8a467a69960a9edf23c5928b421e2b87e2f8ca82a3c7a2f426d1986bf73872b",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set045-q001",
+    "content_hash": "4f305b4fe96335b5a4e978b58e5c2e602c4d8b492a605ae36d17bf4b39cccae7",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set045-q002",
+    "content_hash": "4b807f0598f0df1ef9b222956c50fcbb9259bae4a59a7dd3a95042d7bfed785b",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set045-q003",
+    "content_hash": "703f368b9a717a9129b1eddf7f34a45dfb3cab87a1a16801843faeb15059403a",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set046-q001",
+    "content_hash": "6260e103d6d7ef1ec688a32a546c50d0c69a30b9cf180cacffd9392816b0c9c9",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set046-q002",
+    "content_hash": "70390e6d16b0b050ad375af1993e13a1f662f8c61e37236bd6b3393e84776889",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set046-q003",
+    "content_hash": "cbc4bdfef2638e440bc4e7cc2d7aa62d368df101f613bef60f51c3d1b225694b",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set047-q001",
+    "content_hash": "d3f30fdbb845d740ec767b9f7b5a7d2c41677f3bd4dc8d38a3f65f215470dcc7",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set047-q002",
+    "content_hash": "f0c786e4a687af6ef75b6df836ee76fba55bebba64cd8174163057c906e42eef",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set047-q003",
+    "content_hash": "4cfae82eb9cf67e05c4c72d55661050e61a7afc10694b1190ec31ee871db1e74",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set048-q001",
+    "content_hash": "ce9acff6b7617a2831406f8f455013df926364fdf0c304213b26b6f6b1d90776",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set048-q002",
+    "content_hash": "73d834f6000388457df38b3ff400a01e6bec9bc317d618d643fd28c591606e14",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set048-q003",
+    "content_hash": "e9a2b69da011b5afa42b7ea1b8cd67286b53bf4a9ded8ec048276d9b84e7f285",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set049-q001",
+    "content_hash": "7c18d6cb4a78a10fa05e5ae8318125b6a34ee38ff913ebb41abedf9500abef6d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set049-q002",
+    "content_hash": "33b89b6a5415bd6f4ecaead4f8a134140a52c95dd88d1f58fa0298b25eeadc80",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set049-q003",
+    "content_hash": "6fda11447623d57dbb596f50b3bc6839de651969bedd669045d38a73b927d261",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set050-q001",
+    "content_hash": "8f5df19312514e408e71d0d4a291fe4b126289e268adbb5c3ddb47c3b52a944d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set050-q002",
+    "content_hash": "bfaa1a545b5968dca13dcc3f1a01befc5982104e2576dacb36c39c3f33b24bae",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set050-q003",
+    "content_hash": "ca79ba950d7c284ce9220b2f1e68995f6b83bf74750f6c8b041acc549c3aa4e2",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set051-q001",
+    "content_hash": "d83667b7e43942c20005d86ae8145bcac620fb36ac0a571e7581f68f094476fb",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set051-q002",
+    "content_hash": "b7a908cf805a89858d77fbac20a3b75a9797fe3e16172f15e62e78348c9a37d1",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set051-q003",
+    "content_hash": "fa7a5bc435573c17f83e2f62a35e9ae32ec3722cc3d8ca67e35dbd5c0f2216f8",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set052-q001",
+    "content_hash": "a5954787abb0194bb5684807c77471c8cf5d3c86d58fb6d8dffa6bb26f79f79f",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set052-q002",
+    "content_hash": "16a255160c30ab8b92d0fa674a808ab4483963ed95b1c66f5df042008de1e7e8",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set052-q003",
+    "content_hash": "c6a605c5d9affffa6c689ce43d0328d85d6a19d166e4f05c59ca4842581f1235",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set053-q001",
+    "content_hash": "e2411bccfd6f5ff6e34c6b464ef0612bcd8d3d316d3c1fc39acc5dba2283dff6",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set053-q002",
+    "content_hash": "41c2226687026f0bfd0066893281c65e0d02a44e0b10d1574c3f51581d9f2422",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set053-q003",
+    "content_hash": "0949970205c90cf0ae5b44c6282352402f328e2216844e315181d0aabebf7e09",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set054-q001",
+    "content_hash": "3e84688ff7aa8a73311cf5b6c58d1d691503fcf1cb093420465937a280f8e794",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set054-q002",
+    "content_hash": "50c12d0c9d4ff7319c736079c2c4349a295f27a84babc366135257cf778caf1a",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set054-q003",
+    "content_hash": "19a4f86a45be447e928d97a0aa4b62999aa9c914c9ba96883343018cb2eee2b8",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set055-q001",
+    "content_hash": "c16ff4969acda4de19578aa64390b7a8bfb151c8e44de420ea2070d043950ad9",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set055-q002",
+    "content_hash": "7e1fbfd626a5a456f8d2a97708d345610324309f655eb372f12fb6ad8a5baf22",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set055-q003",
+    "content_hash": "cf29a4ec7d299f4cf5469d9a06abbffd6a023b6f6d631f992863dc4df5076ecd",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set056-q001",
+    "content_hash": "73be21c6fd1fcdc85c50238cf8c73fff580fb8a56114d6197f257f901986789d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set056-q002",
+    "content_hash": "4b22aa09107af7d02cdcd30c7a2bc937d2a34f34b16c221d37884183ec8bff20",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set056-q003",
+    "content_hash": "60e69b291836f1a378836816032b37ba0be988dda2b6cef6320e3ebbefa1e3b0",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set057-q001",
+    "content_hash": "775a13328b0d69514009b0e2ee71560c294de87db65f50399071738924b2caf1",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set057-q002",
+    "content_hash": "a08691d75a84f2547558e226fdc2b0ab16ff92c36b3b2eeb81b65c5feff7c60e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set057-q003",
+    "content_hash": "1a582857b3ad680a808f6ca38df89b11b5c15042618ca8ebae5188e2cd35b598",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set058-q001",
+    "content_hash": "7740fb6646a5c4c6b7f977a694463ecf68b0e12ba7e4e2a86f487b5e2335ad88",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set058-q002",
+    "content_hash": "6fff124e246f470e4fb12064726876733d1feadc507d116353132b74e88f3578",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set058-q003",
+    "content_hash": "5e8d999e1a511210f1ee0cb184d1d9fdd703503507ec1b4b23bfef4fe0990de2",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set059-q001",
+    "content_hash": "ec84069f4a7f537e9a8640527e7f76b30dbc55f0bfb742d053ff18be030dca2a",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set059-q002",
+    "content_hash": "1ae09105679d9dece4747f9773919d0647725813fe2fc7f8ea140a55f924362e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set059-q003",
+    "content_hash": "6b97ed3728243ede260c1b088fff86e61ec13ee015ef5d5acc4ab80e05cc7226",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set060-q001",
+    "content_hash": "d35b92a9ad00db866a7dde9436a1eb60ff0cd0b5982f49b48eda450c2b115215",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set060-q002",
+    "content_hash": "14a760d8b01bfac227f7a30884adeac8f228b1766a6ea6423bdb8b5b7853eb25",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set060-q003",
+    "content_hash": "ab32279b85608e7059e36d105e4f3c6bba5ac8e25f0caf6164a7297a39e7c2d7",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set061-q001",
+    "content_hash": "08891abc219a0600921fb3a0fda14990acf5032dc246da341d0f486ecdfa794e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set061-q002",
+    "content_hash": "78463ca2de871a48edbc4b4716d8eceaa8bacf3b9d2097028f668dbb650ba054",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set061-q003",
+    "content_hash": "5958cf50b32c2b89500e1e74cdd000e857629969c09d228b262d268c6593ad65",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set062-q001",
+    "content_hash": "97f4e981af04a0266e57defc3bbf17f26cd878d34a45f9c24446cb98b7e88920",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set062-q002",
+    "content_hash": "ae1dddebd43b19c2a91e71e1de122f94efad856245bbd436f4deae69fdbb41eb",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set062-q003",
+    "content_hash": "dec5c2a2bccfb3767bda97a2c282213b22149853e296156e14bb6b2cbd754b45",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set063-q001",
+    "content_hash": "f86b034f7fa0aa8bd7632bafb7b540e33d51d8be2c3880198addf87eb2c95a48",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set063-q002",
+    "content_hash": "773bee36c8242f36bc9774a24c344e238e709fdbc72ea3a2418bac2f47fbbf1c",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set063-q003",
+    "content_hash": "5c93a400d62cb624ab0c1f23ea124b36910c1d2f95a55e6162bf196915308b67",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set064-q001",
+    "content_hash": "55fb9128929065597c2d6edde8b8451e2d1a12704f94e1d03af4d101f302cf77",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set064-q002",
+    "content_hash": "c513af9fa8c857e05b0627d272e6cf6eb82fffa0e62e54b3a7cfdc6647d4d873",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set064-q003",
+    "content_hash": "44381fcc903e143653bdd7b97c101b04b5355cde97a1be5cc5147d2a1e49e2fb",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set065-q001",
+    "content_hash": "bf98a95d66e25c792deec8b65aff8d37752bf71818719ae061e59e644e0ae73d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set065-q002",
+    "content_hash": "3d9f20409e2b308168f7afa9a95dedcddf0978ff5c7841c0d217177d1376de12",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set065-q003",
+    "content_hash": "0366f19f7274723c27fa12c6dfa9b2eb557b5640ff0cf24eab21e93ba5d93647",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set066-q001",
+    "content_hash": "c5817153f88a578e776b11232df5d6800e7439408032d3ac514169e5067060eb",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set066-q002",
+    "content_hash": "d6f098d696098c1cc37e815ef7597ca99401ae78bcf1e695477daade3d6d79a5",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set066-q003",
+    "content_hash": "4030b5b358b0793460c464dbd592038ffc3d99e5ad167e64136b817a6bd716f0",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set067-q001",
+    "content_hash": "324766371f0b560ef8ac0632eb08bd7c6ced418700ef4f5c21a5f1cf54985430",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set067-q002",
+    "content_hash": "ee41f9e5654acf0e41b4e8f382bbf4d9536415d751d9721ba104157683c8d611",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set067-q003",
+    "content_hash": "e06d0940759ef26d6af52d9b733f00a78e8eea4736090a828f1a8e85412a4d36",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set068-q001",
+    "content_hash": "5f7c701884f2d7b116bd0c7b4c51137158d981c1ac1b67dd0b44eb3310c0673d",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set068-q002",
+    "content_hash": "9e2df6f75e232d8abee918e89c3dbe1cf1e5c8ecc95c75f93ced3f6c5023faad",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set068-q003",
+    "content_hash": "53983c1e8025a0a96ec672c708e1d7c67b8214b817005132303b378fa62fb33c",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set069-q001",
+    "content_hash": "eead1e4edaec051ed5fd4f3fd05120a350ab9c92b761089ed49b4947cbf4c13e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set069-q002",
+    "content_hash": "f95a595a874278f369cb96c2b1e7e201a191b989ee42fffb80361e88d3ebb858",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set069-q003",
+    "content_hash": "c35c3fc6512988366daa665cff848b1df588fde70cd5a1e701912bdff51f942c",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set070-q001",
+    "content_hash": "e46e81f4d4e065cef2734921c05712ebb5273880f73b9b8b07450c48779ec726",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set070-q002",
+    "content_hash": "32437c5df1f9abf9642d9de0d9ade4cf48d14c24dd48d117ebfeb0e9d693646e",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set070-q003",
+    "content_hash": "6a84454a2d54c0b7ffcf5903ad2169838245327e7c1a75e87bf6aa5c6267541c",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set071-q001",
+    "content_hash": "4956581c9da9e92e79ed6b9395673d0fb4de90f34a0da83b3126d9fcca1fa1bc",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set071-q002",
+    "content_hash": "b84f1d96010ba181acfd87662f1585822f9f270e8b9e5a614ce0d3e9740e12a0",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set071-q003",
+    "content_hash": "fb4b5c28737a8aed3458b21d555cb9eab9fe50a7c9aee9866174c6b31d281c92",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set072-q001",
+    "content_hash": "5b04255bf49fc422a3b85f4d02a32f1bfb432fb5ab03bf923b852a16c38bd050",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set072-q002",
+    "content_hash": "b8d45152c45c5865638e1b786828e539c797c4f1da6c4a081f3f5ca77534d44c",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p3-set072-q003",
+    "content_hash": "90160bc4df58f7bfb6841a95a40ac7d8a0c836a4b0b89a30bf0674ef3a6c45e8",
+    "part_number": 3,
+    "question_type": "photo_comparison"
+  },
+  {
+    "source_key": "speaking-p4-topic001-q001",
+    "content_hash": "a6a7b9b7ac8eced7b29e5819a00d919b888f97fc8c385bdb7b75669a2615e7e2",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic001-q002",
+    "content_hash": "bdb664fbcf3609659c57bddeefc3f6922124c399f26928d3c84bb5d6cf7795b5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic001-q003",
+    "content_hash": "a865f60dd955440cc0678bde4a7ddf62657eddad507ffa8f9e8957dc4e9c668b",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic002-q001",
+    "content_hash": "ccb12ab4f8d047da3d9d2d751323c3b660eb9ad5e0f2a275dd4cd351a940fcbe",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic002-q002",
+    "content_hash": "944414f80f7e46c28defd6731b46327cf48bede0c528071b7793c6258664ca98",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic002-q003",
+    "content_hash": "3be403a0bfbdd69a5b9d8cd35d7d242deaaaa8cbe55b84c9a685bea7d7549a31",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic003-q001",
+    "content_hash": "731d5b2b6787766c3de02eadea8b410b1cef8e4847fb0e975360f3dfa9f9f396",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic003-q002",
+    "content_hash": "1957826dca817a0f63c7fbd87e62b2fddc9fe2c185e581734f1005350ae98ac5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic003-q003",
+    "content_hash": "14441c807ded16cd22187e8a9a3c4e11d923b0a17c96e6685ef89d2ce0fbf8af",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic004-q001",
+    "content_hash": "fae3f5ccf7752af81d70a06351591a7e34f30aae64c90390b5144878059fb7f5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic004-q002",
+    "content_hash": "42cf85aabab2c28e5c62ee7d8fb916a160e746f766997569ed1fd10d9a820f40",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic004-q003",
+    "content_hash": "033a0d412fbbfb4064afbdc86d752fac2b5435a61d026cfc6c17b97d3d7dea6c",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic005-q001",
+    "content_hash": "82914588b648905d719b72d110b8d4d9cf3f534087c8c4b3a8f340c32f6f0bcf",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic005-q002",
+    "content_hash": "ccd4cae057511faa6c4274f4ae89fed203e17acdb76f8361e96c613935d4fcc3",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic005-q003",
+    "content_hash": "19c920a61a9cfe7d4016ddcfacd0964c62f0ff92c7a6eef4556358b2fe60038f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic006-q001",
+    "content_hash": "cadd0d4d332ee19695e8b29041711080014196ede29ac7a1f71a4129e2b550b7",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic006-q002",
+    "content_hash": "aa452bcc5867b562bb3aa322061e4074c8573fe30fd49775ea84fe305ab1dfdd",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic006-q003",
+    "content_hash": "ff3fd7b842953c982149d45874cbe284b9b32cb8557aa3a61bd0f0cb9b17cf31",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic007-q001",
+    "content_hash": "ce5dcf7b45103d3a734058c5ac5b646f60c046e83be52291560c6f79c9849643",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic007-q002",
+    "content_hash": "4108ec1e89215cfb6085c09dd5dfc18a10011cb252a7ea750e59c97897c32eaa",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic007-q003",
+    "content_hash": "e67709014f596f4eb1f608e4e77a0b964a0caaf1875a44ab8126573371bafeb2",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic008-q001",
+    "content_hash": "8331f0e26aa06033de73bc2f4eceec460264c015bf7c10aa4f7246dc0a96bc29",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic008-q002",
+    "content_hash": "1934347410932abe6f14cb2ab7cba7ae785592d6588bd05adcb8b9d1e48b8895",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic008-q003",
+    "content_hash": "c753bee6efeffee1d4b738087e73fa02b3bb45e6430f35771aba155e31e0fa8a",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic009-q001",
+    "content_hash": "2700ea707bb47e4e5896dd1aec55eb1d73c4c46a0844111912ab49fe0659eabd",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic009-q002",
+    "content_hash": "9ed8248894d8494be543609e3cf6a88814710ba514b3552f45a345ee96db59a0",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic009-q003",
+    "content_hash": "ddb164eeca12725e14b4c7962cbc47fdb6ddacf398528d66cf8045499f847189",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic010-q001",
+    "content_hash": "403a2909d2fcf0fc6a9205116bdc2ebe3bb25fd48f2b314fa5695074fe034d73",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic010-q002",
+    "content_hash": "feb96c5b1e583cec964982e1f14a54c166abdb3f10d6bac1ea607147594d9789",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic010-q003",
+    "content_hash": "5dd0894a4a57ef7013e7c50b483b37f83fe46d80b138df652fec9fd280e305aa",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic011-q001",
+    "content_hash": "cf8e84579e461c0d813b7a042416a4d7854fa6130ced1e5da449863030e2d472",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic011-q002",
+    "content_hash": "dccf4cf629b488f1f1f48a9bc05d1d41e4cb0fc7c3b47ddef5e6cc46e22624fb",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic011-q003",
+    "content_hash": "70b6d5fd744123d945a27552f2631d98037ea8f3fe677d9ca349ff97fa8332b0",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic012-q001",
+    "content_hash": "52d4e3515d4df4f12a918381de6dbcca7550130ff7b7d7f6df5a9a739fd9b2c7",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic012-q002",
+    "content_hash": "4abdb89c1c1de333a1c0a232463cb7bb6d2ccc17b1cda279614167ed80d2018e",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic012-q003",
+    "content_hash": "10950b654a40aa9d1578e15021d601235e15b098365cb36e2db857c0eb6e0e29",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic013-q001",
+    "content_hash": "542826a5f2e124326dac81067fde41c6873a38a2c429078dc7cbbf6ce4a97884",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic013-q002",
+    "content_hash": "6067730b77c3a3d5ce854432f2962d82051af4a517555a18b2b03e67023cb8ca",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic013-q003",
+    "content_hash": "1a5cfb81a3782d1ab77daf0f3459cbd42cb2e836ef73253ae886b8bcbecbafcf",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic014-q001",
+    "content_hash": "fae2cc19ab8b38f4eb686715e42baf432270310f17957e5de3f3e39ea60b5b6f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic014-q002",
+    "content_hash": "7e75437cfe60b159939474ec4c117ab8a06b539ace856489211524432fbcdf50",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic014-q003",
+    "content_hash": "cade651a4251929a365c34c9dde03a9630330cd33052f9c9a176572129c75bd3",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic015-q001",
+    "content_hash": "b8edbf3e3815892c377e19180b65ba5c2ffffdc4796d7920ede98c772e05a75b",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic015-q002",
+    "content_hash": "92a2db14883d04388d863e7be198f178440979de0068ef4a37100a229c89c701",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic015-q003",
+    "content_hash": "b52e12efa2166f9e5d1fd31fe4c8dafc910fae323a9dd718532fbd070b5761f6",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic016-q001",
+    "content_hash": "7397bdfb8156c149171c9d4d11e4e67cbe192aa08ff16a0994994fd7b344033f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic016-q002",
+    "content_hash": "adf2923b6868b5ad5675eacf8634246e6b497ec716009686f9674640f01380be",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic016-q003",
+    "content_hash": "99bdb2ca7ab91764e7680d4e6e52f13f13e11a2599d918887b579ef7d55e9c2c",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic017-q001",
+    "content_hash": "39d3663d525e5a1140d109079e94290e416293537713d73712cbd1876859d879",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic017-q002",
+    "content_hash": "333e862b75ed77876f62e381a39084cd5d2059a8319482cf76ad5f2e2631a415",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic017-q003",
+    "content_hash": "6d4721a383c045f3cb4492d9eb2497efadaf3e7cdabcfc1d834efc8fbe805571",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic018-q001",
+    "content_hash": "3c3d8f0a07af99af41c8dcaefcb977a1fec46986d83fc25761e804c2ba0251b1",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic018-q002",
+    "content_hash": "ae5adcd3359a69f7f19fa12393f0902b20ba312933e2e0d953d8b66acd601f62",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic018-q003",
+    "content_hash": "6a44f0f3d4a6577ce47352129d5531a0c418232385ff1dcb0299f2b80257c9d7",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic019-q001",
+    "content_hash": "a8c44b2f3472fe3a5c4705f02729717efc904e45140349a566561bad2b9623b6",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic019-q002",
+    "content_hash": "2d39bd3496dd6731f16046bb4c186410d4821783274e317a02dab52417c81c57",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic019-q003",
+    "content_hash": "2c039b4c896aa69792ca01a50ca9f9b850ce3c48a2e0ad88454b2c66b6c42240",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic020-q001",
+    "content_hash": "9d292e2d2b22ccd3b25c99622de2afe87f4148e736fe93d37c73784878d52ece",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic020-q002",
+    "content_hash": "08e4a7732dd59bba1c0a10543ee852e93ea02e95d192415c8ecd6cd91b54e883",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic020-q003",
+    "content_hash": "4be49db261d3fde33e717a9c6a2f8e7d88a9d37a0bbc41bc4e3a874e093f5e03",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic021-q001",
+    "content_hash": "ce8f6879a59e8e72ae0920ec782d7c76a0add057f543063caf7e2479bafb5a92",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic021-q002",
+    "content_hash": "8a45e43e10ff443a101b9964ecfa856aa55d489f01b473af7c9e92d42c30d570",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic021-q003",
+    "content_hash": "6a5dea27fe13b7d93a9deb24383de1066dda2dcbcd68fc25d3530756306ee994",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic022-q001",
+    "content_hash": "51d9565f38d5292df7764bb14ea2e5cea8e184a7877b7e7ddc4be6dd9881da99",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic022-q002",
+    "content_hash": "acf54f2df822497a228d85fc7cc4abdbb4350a0690386b9cbfd13ea44d29ca69",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic022-q003",
+    "content_hash": "d169e5a28af87b7d0ccf3954aea259905fca59b050777f328cebb5fd24ca6d88",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic023-q001",
+    "content_hash": "5f17ac4cfe5f5b5d6bc0a1cabd2932ba53b59410be114b88c9cc4d695ea3a670",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic023-q002",
+    "content_hash": "38c0d02e3f403a1f5f55d2c807a9749c7fd965b540c3afee3b5fc2d668fba905",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic023-q003",
+    "content_hash": "a7da468ba2cc9a1c2fec0000f17b41c2c4199c766b83e32c3a7b03b503b5d98d",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic024-q001",
+    "content_hash": "320752ac822c1046d66d2aaf27b1bc1a208edce9faf25e1616835222eb4cbe9f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic024-q002",
+    "content_hash": "0410c3fd849d56dd210177a0999d05995c18b2f4cf10b2b8ecf59572394c8312",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic024-q003",
+    "content_hash": "43c1c75cbad3e946d47edb266db374d2966719ade9b2f2fee2992d060cc18c9e",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic025-q001",
+    "content_hash": "260ef08f2b969b857d12cd9a8dd33a3db2585d6ecb9b2e4525e075aa95b56c5f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic025-q002",
+    "content_hash": "37682f6750e8779cbb0e943783999a9d36d1f2d2b4f9f95686042fa353d65dc2",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic025-q003",
+    "content_hash": "62da0dd52ce39f11aec31697fa6cf89f7a0d2a90927f7fec221d49f71c09f47f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic026-q001",
+    "content_hash": "887bd1101b3376213bb41bbc4d97117f9708276b5ab494b8338a0c561d5d8f0f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic026-q002",
+    "content_hash": "5522b3430c7404c034cf73aab0858978237934fc5940aa9363b4884b42f92040",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic026-q003",
+    "content_hash": "8faf2888e5bf210b876a314fb9f0c96b5945e88e4e7a0d98bd3bc895059456f1",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic027-q001",
+    "content_hash": "ee464ac194311a495de752c6be1cfaff580de85c7cbe86be0eae9d6c93fcf5dd",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic027-q002",
+    "content_hash": "4b285f8394c82b94ee43193e1f321a8ddba7082947576a8f821c686974daf8f7",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic027-q003",
+    "content_hash": "220945d084a43b076fab241f2f1cad2c67b4cae3aa3326943b0d941533f242de",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic028-q001",
+    "content_hash": "1ec5a7818a78ffdb7e788bc171e057d079a81d592a5a1689554dc80b5fdcd953",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic028-q002",
+    "content_hash": "7bb7b9a99e06ba3803e953a93073b7ea6e819c934f1380a479377b7267a55fd3",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic028-q003",
+    "content_hash": "bcfd6f9ed7e11d741fc941820d3e4bad7474a24947f2861ed0b3694eda9c96d2",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic029-q001",
+    "content_hash": "3c289607d7a93b3c8e9afa66d768e82ae8ab9cdc970bfe5c83aa89d41b90060b",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic029-q002",
+    "content_hash": "2b9c29603a68e07885eb42239fdf934503b24f9eb0bd2c9ff98a11c0ac7a0c45",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic029-q003",
+    "content_hash": "6f94fed7c86d03134c9c5151282633dd25b5fe6785d23cccd58268d7714676f7",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic030-q001",
+    "content_hash": "145cd04b44d28b31388f2dbc900477f7d2c17dcc2a04ba00ab3af78cecc90ef2",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic030-q002",
+    "content_hash": "c0273ea37e86afbb72e036c204134e2d3c9c759d050d4e135ff2b9e62d9b0249",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic030-q003",
+    "content_hash": "7c8fc4c2548184ee7fe3813410ac00dd995df9b3c9d635233e780491bc3da6c4",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic031-q001",
+    "content_hash": "ca7abeb81b66d464de539f98baf1da0b6d30eee14452f00f94559d4ef1e2344f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic031-q002",
+    "content_hash": "137ba834f7faab0ba6683c9938e290994fd037552897456f2b5846c0b4dfb9aa",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic031-q003",
+    "content_hash": "273baa11c3ac3b1f3114035b06cd257ba99fa526a160987381ded181a4503488",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic032-q001",
+    "content_hash": "7472f8be8d4f7644907f2edefaba43704df4d4be7f19d47f5247672fce003c4b",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic032-q002",
+    "content_hash": "bc383287730ef496f9b71c6bda82ff1e9a227db5c4cdafd4bd22bf3f3e3c7eb5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic032-q003",
+    "content_hash": "d60d70c49c3bcd2b15d53b4d79daa03decf075875c845c781722be0e44e0d86b",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic033-q001",
+    "content_hash": "a2d15b484ad2c72151a60fc4ee5748ee07e27e2e3e920803bf1f035ca7963720",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic033-q002",
+    "content_hash": "81fef46c1ec5185c8d743485b473d509bf855dfde694fdc81d0e02d12beb1f1c",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic033-q003",
+    "content_hash": "f922be2e7f6ae4f962f53387bdc4815e1f820e7ae7d9f583f88382ced1a6693e",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic034-q001",
+    "content_hash": "f79854175cc31666b253f1cbebecde03a598bba8394ef70f2fa9d736f1692082",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic034-q002",
+    "content_hash": "694dfac1fe9261a83dd5a9c56c168fd57571582fe6df04434cdf0a15aed6a0be",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic034-q003",
+    "content_hash": "98bfc278ed1c01530227a6f65847c0d1ec71541439928745921fa1f8571d02e7",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic035-q001",
+    "content_hash": "8ca20a5428ef98fcd45dd428904e5e7ce065e151e279696a2416925532467870",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic035-q002",
+    "content_hash": "373265cbdb5f32713c146b78ef5cf83dc2855c057c36a6eff2d200a6032fb9e5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic035-q003",
+    "content_hash": "43b724462b4ef5f2544902b0238c52e6efa44ea2d18cec54aacd593900d5db54",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic036-q001",
+    "content_hash": "f3cd3a647daf84c4700bf06e9778dfb2947ec59cdfff8d95f684f3aec1bcbed5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic036-q002",
+    "content_hash": "264086f28bfc1010d2afc1a4fc4db8d13d235aaa2001fc25f9fa52806c3e9a5c",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic036-q003",
+    "content_hash": "7a0fd667e79704ba1c493bd137d0d13e8d6fc9076be30173eed7ad053fe418c1",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic037-q001",
+    "content_hash": "16f174ab2c72d412f02a8d14f34b5c68688165dd556919c4354094edba4d7358",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic037-q002",
+    "content_hash": "d4521b1a04bf7b73db8abcbbedf60d27fccb5e02409390467f7f8bf1abe396e0",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic037-q003",
+    "content_hash": "98edc47f30915a03e90265483e472c4065b6412d750ee650697555cf2f1209e5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic038-q001",
+    "content_hash": "9d489aa7adaa5c79eef82391b49fb6859b2c417d5554f291f1e9cbdaa3381cc8",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic038-q002",
+    "content_hash": "8c660f582421812b25bfaf6f40a3557917a85480fedf8043ae0076726453542e",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic038-q003",
+    "content_hash": "211b1104b6514e2f9cfb7be52132c3d32621c8fc740d67140c5b2dfc07d7801a",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic039-q001",
+    "content_hash": "be639a8492daa5cb7aa2a8fc0dad059438252b0efc42ce59968d906e1c680c4c",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic039-q002",
+    "content_hash": "300487163fdeeebc0c7447120bd2cb33392350174d2ff199f7a04eae3d6426f3",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic039-q003",
+    "content_hash": "ccb9eba03d5bc83200d458c825ea81c859d8a16f3484adc906350fe4fb0d0e02",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic040-q001",
+    "content_hash": "e5e345d201e75738b3818f021be000f9f595a1b5ec9c996f57dea7e07404ea8c",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic040-q002",
+    "content_hash": "fe9f794c5919a6f162ac76c8bcf6fe535a781de4c6a78101f65588a58700aa6e",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic040-q003",
+    "content_hash": "ffd91b15e38f367d86927779a8de9336c71108c385ca172f9cd561463b758e9d",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic041-q001",
+    "content_hash": "7b3bfd87b2f343dd3ac3d20718fa25156dca2041a23a90d77b42b9491669e95a",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic041-q002",
+    "content_hash": "5a91246d2f6e495e6c591258596d2342eccd367ebc9491dad9d5333fa80d9bc1",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic041-q003",
+    "content_hash": "fcd0cc30294ad9f37dbe166f696d0a966a1feeb4fc9703d268738c4aca10103b",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic042-q001",
+    "content_hash": "2cbe2179800e8cced6891d91c5b5789cfa41953d10f87c1141bd19670390d688",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic042-q002",
+    "content_hash": "6fb015dd83222a6457939a95c173b17e9797b20e594276bfeea1dcd78c3c0a08",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic042-q003",
+    "content_hash": "da8725fd6ca13d9ceab887426ec3664b0e880377dfd108190b54ed8a4d76c249",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic043-q001",
+    "content_hash": "566de20679f9599b449e7b6d51e21228eb7d2f56cde23827da299fcdd0e84f93",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic043-q002",
+    "content_hash": "8382fd7f9e74d04783bdbd38fd3b8e539b8697e49b3e1e59a6be26b6fc34efc1",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic043-q003",
+    "content_hash": "55d5e1ff9bc43cbecbac5b525105970905c69cadc9b675b40a94a3c2d40be817",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic044-q001",
+    "content_hash": "41740b2bbac04c85b4b6de03f75280c08655fb9cce0a357898b15f5b4d9fa522",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic044-q002",
+    "content_hash": "c5b2b7db999a9c0f57b8f2ed753e0188ce61a81519bab3dbd55f331a4b02b236",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic044-q003",
+    "content_hash": "7774f0681d752d3429f3d0c27e1b9add725079a3e9bd41a7c0cb5ce792c0f885",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic045-q001",
+    "content_hash": "23800d80fbe43ee28fbf984f0da7c1528f1ca63e9f081ead455854b85c3210ec",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic045-q002",
+    "content_hash": "3d917402c6ac1fa1b306f29ed80d4790130c863775dd928b9d14e6e3f39dd22b",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic045-q003",
+    "content_hash": "7f6cbc4314b78a5925eefa9add5b7b22f93c44ecbdeaf71e7723db034e133a3e",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic046-q001",
+    "content_hash": "4dba5d77b4ddefad7f8f83bdb39c4ac68fd9c816c6ec5e754ebb2b2748278c17",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic046-q002",
+    "content_hash": "8189a1f4381f9246d8402705daa8af823d8effc555b96ad48e7c3f9de0926e3f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic046-q003",
+    "content_hash": "562fc5210d42d3a98d4e9cd8b5a827fb603ee023ab4045e2ce4f54c0ca4e4c47",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic047-q001",
+    "content_hash": "45ceb97480775da2aacd2e9ba6422079aa00d9380ff1c72765820333dc010388",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic047-q002",
+    "content_hash": "d9e20327be39f360097686d0221c6d99f9158736bb89d402469d36929a3f99e8",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic047-q003",
+    "content_hash": "9836123d89067d8d02cbe6e47f32568ff4cbe226f9934644a183a9946c8c15c3",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic048-q001",
+    "content_hash": "eb97d00ff4ecdf7315d22eac69a275f721b2be61f0a1d1f11c14bb9d18107d38",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic048-q002",
+    "content_hash": "509273e0f00b289c6fd3311ce73ee484d15355e92c15eb3520c9ae4a091712e5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic048-q003",
+    "content_hash": "3d2cbcdd302d74a0b2ec8f226ba3eab2c9c6e6ec45005a4a44e93bf2213fb9be",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic049-q001",
+    "content_hash": "166075aa81bd4a905f10036ea4ab735a6284ae8336aa3a642b0c9cff739b9d24",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic049-q002",
+    "content_hash": "34e2345f7b6741f5dfde6c1dfcd8581c2f56446e10ad477c9971547fb6e64084",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic049-q003",
+    "content_hash": "67669226d8d8324a293280ff469308b1749752944d380edc4104c2a98b520c72",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic050-q001",
+    "content_hash": "e9b2dc75e6fb7ebb23a50aa9fc6648069eefe25fc22a1e511fb8b0a838e4f70f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic050-q002",
+    "content_hash": "14bd7cee79e23dce1f7c9baf75e860870371b5fa91cb8a9998b69e2290d416b0",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic050-q003",
+    "content_hash": "ba054781993962124f4c914b37517274f0f14a83e4e52e219ff2dc832d522d60",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic051-q001",
+    "content_hash": "34d3305fc6d5eb3b05a57288008ab4f9798f21ef3421276506f2cf3d90d79c24",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic051-q002",
+    "content_hash": "f8fc4ccc28ea0681788a9ca57b36e14f6e4afc3172dfce252463a1a35d9bace1",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic051-q003",
+    "content_hash": "5375605d536de5072e21b284ead6a03a33534f9cd478c65e0fed66609647a20f",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic052-q001",
+    "content_hash": "b76cf2e81be5ed120dec41b4d47a3db16960158d0b403c7ad21de6e795d1216a",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic052-q002",
+    "content_hash": "ffc0c898f1b05a2922b6f143315b368667e8a140412b781c0961baf371751cac",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic052-q003",
+    "content_hash": "c7ba23e20a0904e8da3b0e87993fceaca76dc7ac1064b95462257d7dbda0f5e5",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic053-q001",
+    "content_hash": "8117ebbd6d1072a0941224effa3167ec6f15f385c325ee14f9f90787539417a9",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic053-q002",
+    "content_hash": "d1bd843d098aa527e4d965d7d3f5aef32bed28465a35e1b2a3318f9e0e5ab798",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic053-q003",
+    "content_hash": "db0234b155829f304231f0d39dc32bdbee031a64a7d22a0761d07db3a24f34bb",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic054-q001",
+    "content_hash": "6e32f508cdfd45cbf6da29cf6bc4ed4bfca6df75020f5591c7936c7a74cb7c76",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic054-q002",
+    "content_hash": "1994287a9993999b2edf6d0ddd1f73b2891092b3f166d0e3ab06d10705cd462b",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic054-q003",
+    "content_hash": "2de7bd54e0eb2dcd02af42906ae3b7ce8dbe66efd520cd6d93eb0a604a366d91",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic055-q001",
+    "content_hash": "ea3841c854445616297ffb11134cf0b0c9f8035ce0e5912ae31e4d1a389f71a3",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic055-q002",
+    "content_hash": "ba0ad964ba6466667220ff572de227675f574faeafc80aaed2ca2c8d69b5fc72",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic055-q003",
+    "content_hash": "03fd630432e7d3cefc44a349f7e9dbc5082c42c1b2b141fd6bdd17a4e092244d",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic056-q001",
+    "content_hash": "e0cba9f408a867e98c0483b344a7a8f2f00560f83e4f0f0073ec403f33d2073c",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic056-q002",
+    "content_hash": "90a753b6a970304acfbffd07cef91a29d19349e336348e524c276cbe69d6e4c8",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic056-q003",
+    "content_hash": "854474baf89c2208097ccba57d87a5d09b25e21b6cc97668f960e6ab28d5c7df",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic057-q001",
+    "content_hash": "c99455abff3bb30bd7020b41a9c376702b2abdf9d811b14cf23ba967f7161502",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic057-q002",
+    "content_hash": "263237383405f819d75468184d79e6f9e0c17b799733a6d3b5c1303a482743aa",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic057-q003",
+    "content_hash": "fc4dfc5353b94c3d9a051924a1c828ba982271c288920c810069822406f23977",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic058-q001",
+    "content_hash": "0fded781e9a26f80b815700c56400bda5bf6290c94890fc1623a0280550bd376",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic058-q002",
+    "content_hash": "b2f9bdf2bee45c529e2d349f4532d3aed4a998296bca896415f71d89a9bcb252",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  },
+  {
+    "source_key": "speaking-p4-topic058-q003",
+    "content_hash": "a63626ebe42d5aa429cbfc0d507847343d8a0552a7c35d729e2492f9ad794bbb",
+    "part_number": 4,
+    "question_type": "speaking_recording"
+  }
+]

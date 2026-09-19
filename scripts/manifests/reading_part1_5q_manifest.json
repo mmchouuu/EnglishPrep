@@ -1,0 +1,130 @@
+{
+  "importRunId": "09a769a2-eb16-4f79-a195-9bebe707ed6d",
+  "timestamp": "2026-09-10T13:48:43.954Z",
+  "skill": "reading",
+  "partNumber": 1,
+  "sourceFile": "docs/02-reading.md",
+  "totalParsed": 5,
+  "questions": [
+    {
+      "questionNumber": 1,
+      "sourceKey": "reading_p1_q1",
+      "content": "Take the bus to the main ______.",
+      "options": [
+        {
+          "optionKey": "A",
+          "content": "station",
+          "displayOrder": 1
+        },
+        {
+          "optionKey": "B",
+          "content": "run",
+          "displayOrder": 2
+        },
+        {
+          "optionKey": "C",
+          "content": "walk",
+          "displayOrder": 3
+        }
+      ],
+      "correctOption": "A",
+      "contentHash": "cc3947437334a63e64a371ad99c28aff51a562ee7d9fbb7fc0104c8d2034ce33"
+    },
+    {
+      "questionNumber": 2,
+      "sourceKey": "reading_p1_q2",
+      "content": "I saw some shoes in the ______ of one store.",
+      "options": [
+        {
+          "optionKey": "A",
+          "content": "market",
+          "displayOrder": 1
+        },
+        {
+          "optionKey": "B",
+          "content": "window",
+          "displayOrder": 2
+        },
+        {
+          "optionKey": "C",
+          "content": "shoe",
+          "displayOrder": 3
+        }
+      ],
+      "correctOption": "B",
+      "contentHash": "4009a1caacf7c80eb3bdde721400403891cb7ed1e7f655b213d73c087276de45"
+    },
+    {
+      "questionNumber": 3,
+      "sourceKey": "reading_p1_q3",
+      "content": "I get up early in the ____ and I go running.",
+      "options": [
+        {
+          "optionKey": "A",
+          "content": "morning",
+          "displayOrder": 1
+        },
+        {
+          "optionKey": "B",
+          "content": "friends",
+          "displayOrder": 2
+        },
+        {
+          "optionKey": "C",
+          "content": "leave",
+          "displayOrder": 3
+        }
+      ],
+      "correctOption": "A",
+      "contentHash": "958deaaee3fa4a52d2c01c6b0f3a590aaec54e59be1ac509df2c09b1dd23d371"
+    },
+    {
+      "questionNumber": 4,
+      "sourceKey": "reading_p1_q4",
+      "content": "Everyone is ______.",
+      "options": [
+        {
+          "optionKey": "A",
+          "content": "friendly",
+          "displayOrder": 1
+        },
+        {
+          "optionKey": "B",
+          "content": "melty",
+          "displayOrder": 2
+        },
+        {
+          "optionKey": "C",
+          "content": "noisy",
+          "displayOrder": 3
+        }
+      ],
+      "correctOption": "A",
+      "contentHash": "50a801863d35ffd95fce6e63bdc57ac401aa648e514daeee424e48792f30f76c"
+    },
+    {
+      "questionNumber": 5,
+      "sourceKey": "reading_p1_q5",
+      "content": "I start ______ in the morning.",
+      "options": [
+        {
+          "optionKey": "A",
+          "content": "sleep",
+          "displayOrder": 1
+        },
+        {
+          "optionKey": "B",
+          "content": "early",
+          "displayOrder": 2
+        },
+        {
+          "optionKey": "C",
+          "content": "angry",
+          "displayOrder": 3
+        }
+      ],
+      "correctOption": "B",
+      "contentHash": "09d9c860814d4d7b33aa8fd7688b7a70c1baad351668ba8bf4fff1e4a64ba9ed"
+    }
+  ]
+}

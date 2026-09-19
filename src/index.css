@@ -1,0 +1,85 @@
+:root {
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --dashboard-bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-muted: #f1f5f9;
+
+  --text-heading: #0f172a;
+  --text-primary: #1e293b;
+  --text-body: #334155;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --border: #dbe4f0;
+  --divider: #e2e8f0;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success: #10b981;
+  --warning: #f59e0b;
+
+  --radius-card: 14px;
+  --shadow-card: 0 4px 14px rgba(15, 23, 42, 0.07);
+}
+
+.dark {
+  --dashboard-bg: #090d16;
+  --surface: #0f172a;
+  --surface-muted: #1e293b;
+
+  --text-heading: #ffffff;
+  --text-primary: #f8fafc;
+  --text-body: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --border: #334155;
+  --divider: #1e293b;
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--dashboard-bg);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+}
+
+.dashboard-hero {
+  min-height: 156px;
+  height: auto;
+  overflow: visible;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
