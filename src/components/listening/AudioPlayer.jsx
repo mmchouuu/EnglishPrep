@@ -30,16 +30,16 @@ export function renderFormattedTranscript(text = '', isDarkMode = false) {
   // 1. Strip all Segment headers completely (e.g. **Segment 1 ??? ...**, Segment 1 —, etc.)
   cleaned = cleaned.replace(/(?:\*\*)?\s*Segment\s*\d+[\s\S]*?(?:\*\*|\r?\n|$)/gi, '');
 
-  // 2. Insert newlines before any speaker label (Person A:, Person B:, Man:, Friend:, W:, M:, etc.)
-  cleaned = cleaned.replace(/(?<=\S)\s+(?=\b(?:Person\s+[A-D]|Man|Woman|Friend|Sister|Brother|Mother|Father|Customer|Clerk|Receptionist|Assistant|Officer|Doctor|Patient|Teacher|Student|Speaker\s*\d*|W|M):\s*)/gi, '\n');
+  // 2. Insert newlines before any speaker label (Person A:, Person B:, Man:, Friend:, Ahmed:, Rose:, etc.)
+  cleaned = cleaned.replace(/(?<=\S)\s+(?=\b(?:Person\s+[A-D]|Man|Woman|Friend|Sister|Brother|Mother|Father|Customer|Clerk|Receptionist|Assistant|Officer|Doctor|Patient|Teacher|Student|Speaker\s*\d*|W|M|[A-Z][a-zA-Z0-9_\s]{0,20}):\s*)/gi, '\n');
 
   const lines = cleaned.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
 
   return (
     <div className="space-y-3.5 font-medium leading-relaxed font-sans text-sm">
       {lines.map((line, idx) => {
-        // Match speaker label prefix at start of line
-        const match = line.match(/^((?:Person\s+[A-D]|Man|Woman|Friend|Sister|Brother|Mother|Father|Customer|Clerk|Receptionist|Assistant|Officer|Doctor|Patient|Teacher|Student|Speaker\s*\d*|W|M)):?\s*(.*)$/i);
+        // Match speaker label prefix at start of line (including names like Ahmed, Rose, etc.)
+        const match = line.match(/^((?:Person\s+[A-D]|Man|Woman|Friend|Sister|Brother|Mother|Father|Customer|Clerk|Receptionist|Assistant|Officer|Doctor|Patient|Teacher|Student|Speaker\s*\d*|W|M|[A-Z][a-zA-Z0-9_]{1,20})):?\s*(.*)$/i);
 
         if (match) {
           const rawLabel = match[1].trim();
@@ -343,8 +343,20 @@ export const AudioPlayer = ({
 
   const handleRateChange = (newRate) => {
     setPlaybackRate(newRate);
-    if (!isUsingTts && audioRef.current) {
+    if (audioRef.current) {
       audioRef.current.playbackRate = newRate;
+    }
+    if (isPlayingRef.current && isUsingTts) {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        try {
+          window.speechSynthesis.cancel();
+        } catch {}
+        setTimeout(() => {
+          if (isPlayingRef.current) {
+            playTurnSequence();
+          }
+        }, 50);
+      }
     }
   };
 

@@ -142,31 +142,38 @@ function OpinionMatchingTopicSet({
                     </span>
                   </div>
 
-                  <select
-                    disabled={showResult}
-                    value={selectedVal}
-                    onChange={(e) => onSelectAnswer(qId, e.target.value)}
-                    className="px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 shadow-2xs focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    style={{
-                      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
-                      borderColor: isDarkMode ? '#334155' : '#cbd5e1',
-                      color: isDarkMode ? '#ffffff' : '#0f172a'
-                    }}
-                  >
-                    <option value="" style={{ color: '#64748b' }}>Choose person</option>
-                    {persons.map((p) => (
-                      <option
-                        key={p.key}
-                        value={p.key}
-                        style={{
-                          backgroundColor: isDarkMode ? '#111827' : '#ffffff',
-                          color: isDarkMode ? '#ffffff' : '#0f172a'
-                        }}
-                      >
-                        Person {p.key}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="flex flex-col items-end gap-1 shrink-0">
+                    <select
+                      disabled={showResult}
+                      value={selectedVal}
+                      onChange={(e) => onSelectAnswer(qId, e.target.value)}
+                      className="px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 shadow-2xs focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      style={{
+                        backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+                        borderColor: isDarkMode ? '#334155' : '#cbd5e1',
+                        color: isDarkMode ? '#ffffff' : '#0f172a'
+                      }}
+                    >
+                      <option value="" style={{ color: '#64748b' }}>Choose person</option>
+                      {persons.map((p) => (
+                        <option
+                          key={p.key}
+                          value={p.key}
+                          style={{
+                            backgroundColor: isDarkMode ? '#111827' : '#ffffff',
+                            color: isDarkMode ? '#ffffff' : '#0f172a'
+                          }}
+                        >
+                          Person {p.key}
+                        </option>
+                      ))}
+                    </select>
+                    {showResult && !isCorrect && q.correctPerson && (
+                      <span className="text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 rounded-md border border-emerald-300 dark:border-emerald-800">
+                        ✓ Correct: Person {q.correctPerson}
+                      </span>
+                    )}
+                  </div>
                 </div>
               );
             })}

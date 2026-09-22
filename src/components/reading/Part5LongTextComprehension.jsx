@@ -57,6 +57,8 @@ function HeadingMatchingTopicSet({
               const secId = sec.id;
               const selectedVal = userAnswers[secId] || '';
               const isCorrect = showResult ? (results ? results[secId] : selectedVal === sec.correctHeadingKey) : null;
+              const correctOption = headingOptions.find((h) => h.key === sec.correctHeadingKey);
+              const correctLabel = correctOption ? correctOption.text : sec.correctHeadingKey;
 
               let selectBg = isDarkMode ? '#1e293b' : '#ffffff';
               let selectBorder = isDarkMode ? '#334155' : '#cbd5e1';
@@ -124,6 +126,11 @@ function HeadingMatchingTopicSet({
                         </option>
                       ))}
                     </select>
+                    {showResult && !isCorrect && sec.correctHeadingKey && (
+                      <div className="mt-1 text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 truncate max-w-full">
+                        ✓ Correct: {correctLabel}
+                      </div>
+                    )}
                   </div>
                 </div>
               );

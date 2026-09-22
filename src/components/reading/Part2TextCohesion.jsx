@@ -101,6 +101,8 @@ function OrderingSetCard({
       <div className="space-y-3 mb-6">
         {orderedSentences.map((s, idx) => {
           const isCorrectPos = showResult && setObj.correctOrder && setObj.correctOrder[idx] === s.id;
+          const targetPosIndex = setObj.correctOrder ? setObj.correctOrder.indexOf(s.id) : -1;
+          const targetPosNumber = targetPosIndex >= 0 ? targetPosIndex + 1 : null;
           const isBeingDragged = draggedIndex === idx;
 
           let itemBg = isDarkMode ? '#1e293b' : '#ffffff';
@@ -153,6 +155,12 @@ function OrderingSetCard({
               >
                 {s.text}
               </span>
+
+              {showResult && !isCorrectPos && targetPosNumber && (
+                <span className="px-2.5 py-1 rounded-lg text-xs font-bold border shrink-0 bg-rose-100 border-rose-300 text-rose-800 dark:bg-rose-950 dark:border-rose-800 dark:text-rose-200">
+                  Correct position: #{targetPosNumber}
+                </span>
+              )}
 
               <div className="flex items-center gap-1 shrink-0">
                 <button
