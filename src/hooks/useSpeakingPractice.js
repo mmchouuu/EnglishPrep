@@ -6,7 +6,9 @@ import {
   getUserAttempts,
   getAttemptDetails,
   saveResponse,
-  toggleBookmark as toggleBookmarkApi
+  toggleBookmark as toggleBookmarkApi,
+  normalizePracticeScope,
+  findMatchingAttempt
 } from '../services/practiceService.js';
 import { submitQuestion as submitQuestionApi, submitAttempt as submitAttemptApi } from '../services/submissionService.js';
 import { getEvaluation, getAttemptEvaluationStatus } from '../services/evaluationApiClient.js';
@@ -179,24 +181,32 @@ export function useSpeakingPractice({
           setIsEmpty(true);
         }
 
-        // 2c. Restore existing attempt or create new one
+        // 2c. Normalize scope & restore existing attempt or create new one
+        const isTopicOrSetMode = (practiceMode === 'topic' || practiceMode === 'by_topic' || practiceMode === 'core');
+        const targetGroupId = isTopicOrSetMode ? (selectedGroup ? selectedGroup.id : null) : null;
+
+        const scope = normalizePracticeScope({
+          skill: 'speaking',
+          mode: practiceMode,
+          partNumber: activePart,
+          groupId: targetGroupId
+        });
+
         const userAttempts = await getUserAttempts(authUser.id, client).catch(() => []);
-        const existingAttempt = userAttempts.find(a =>
-          a.skill === 'speaking' &&
-          a.status === 'in_progress' &&
-          Number(a.part_number) === Number(activePart)
-        );
+        const existingAttempt = findMatchingAttempt(userAttempts, scope);
 
         let currentAttempt = existingAttempt;
         if (!currentAttempt && adapted.length > 0) {
-          currentAttempt = await createAttempt(
-            authUser.id,
-            'speaking',
-            practiceMode,
-            activePart,
-            selectedGroup?.id || null,
-            client
-          ).catch(() => null);
+          if (!isTopicOrSetMode || targetGroupId) {
+            currentAttempt = await createAttempt(
+              authUser.id,
+              'speaking',
+              practiceMode,
+              activePart,
+              targetGroupId,
+              client
+            ).catch(() => null);
+          }
         }
 
         if (isCancelled) return;
@@ -233,7 +243,8 @@ export function useSpeakingPractice({
   // 3. Toggle Bookmark API
   const toggleBookmark = useCallback(async (id) => {
     setMarkedQuestions(prev => ({ ...prev, [id]: !prev[id] }));
-    if (authUser?.id) {
+    const isValidUuid = typeof id === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+    if (authUser?.id && isValidUuid) {
       try {
         const client = getBrowserSupabaseClient();
         await toggleBookmarkApi(authUser.id, id, client);
@@ -456,9 +467,16 @@ export function useSpeakingPractice({
             }
 
             if (!resolved) {
-              const fallbackEval = buildLocalFallbackEval(responsePayload);
-              setItemEvaluations(prev => ({ ...prev, [qKey]: fallbackEval }));
-              return fallbackEval;
+              const timeoutEval = {
+                id: evalId,
+                status: 'failed',
+                error_code: 'TIMEOUT',
+                error_message: 'Thời gian chờ AI đánh giá quá lâu. Vui lòng bấm Chấm lại.',
+                question_id: qKey,
+                solution: { model_answer: getSmartSpeakingSampleAnswer(qMeta.prompt || qMeta.question) }
+              };
+              setItemEvaluations(prev => ({ ...prev, [qKey]: timeoutEval }));
+              return timeoutEval;
             }
           } else if (res?.evaluation || res?.status === 'completed') {
             const completedEval = res.evaluation || res;
@@ -468,15 +486,26 @@ export function useSpeakingPractice({
         }
       }
 
-      await new Promise(r => setTimeout(r, 400));
-      const fallbackEval = buildLocalFallbackEval(responsePayload);
-      setItemEvaluations(prev => ({ ...prev, [qKey]: fallbackEval }));
-      return fallbackEval;
+      const errEval = {
+        status: 'failed',
+        error_code: 'SUBMISSION_FAILED',
+        error_message: 'Gửi bài phát biểu thất bại. Vui lòng thử lại.',
+        question_id: qKey,
+        solution: { model_answer: getSmartSpeakingSampleAnswer(qMeta.prompt || qMeta.question) }
+      };
+      setItemEvaluations(prev => ({ ...prev, [qKey]: errEval }));
+      return errEval;
 
     } catch (err) {
-      const fallbackEval = buildLocalFallbackEval(responsePayload);
-      setItemEvaluations(prev => ({ ...prev, [qKey]: fallbackEval }));
-      return fallbackEval;
+      const errEval = {
+        status: 'failed',
+        error_code: 'SUBMISSION_ERROR',
+        error_message: err.message || 'Lỗi gửi bài đánh giá phát biểu.',
+        question_id: qKey,
+        solution: { model_answer: getSmartSpeakingSampleAnswer(qMeta.prompt || qMeta.question) }
+      };
+      setItemEvaluations(prev => ({ ...prev, [qKey]: errEval }));
+      return errEval;
     } finally {
       setSubmitting(false);
     }

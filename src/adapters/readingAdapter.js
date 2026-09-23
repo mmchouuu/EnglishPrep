@@ -53,30 +53,11 @@ export function adaptPart1Data(questions = []) {
       text: cleanHtml(opt.content)
     }));
 
-    let correctAnswer = normalizeCorrectAnswer(q.correct_answer) ||
-                        normalizeCorrectAnswer(q.correctAnswer) ||
-                        normalizeCorrectAnswer(q.metadata?.correct_option) ||
-                        normalizeCorrectAnswer(q.metadata?.correct_answer) ||
-                        normalizeCorrectAnswer(q.metadata?.answer);
-
-    if (!correctAnswer && Array.isArray(q.options)) {
-      const correctOpt = q.options.find(o => o.is_correct || o.metadata?.is_correct);
-      if (correctOpt) {
-        correctAnswer = correctOpt.option_key || String.fromCharCode(65 + (correctOpt.display_order || 1) - 1);
-      }
-    }
-
-    if (!correctAnswer && options.length > 0) {
-      correctAnswer = options[0].key;
-    }
-
     return {
       id: q.id,
       sourceKey: q.source_key,
       prompt: cleanHtml(q.content),
       options,
-      correctAnswer,
-      explanation: q.explanation || q.metadata?.explanation || null,
       displayOrder: q.display_order || idx + 1
     };
   });
@@ -101,20 +82,8 @@ export function adaptPart2Data(questions = [], group = null) {
       display_order: opt.display_order
     }));
 
-    let correctOrder = normalizeCorrectAnswer(q.correct_answer) ||
-                       normalizeCorrectAnswer(q.ordering_metadata?.ordered_keys) ||
-                       normalizeCorrectAnswer(q.solution_data?.ordered_keys);
-
-    if (!Array.isArray(correctOrder)) {
-      correctOrder = rawSentences.map((s) => s.id);
-    }
-
     // Scramble sentence list for initial UI layout
     let sentences = shuffleList(rawSentences, q.id || q.source_key || `p2-set-${qIdx}`);
-    const isAlreadyOrdered = sentences.length > 1 && sentences.every((s, idx) => s.id === correctOrder[idx]);
-    if (isAlreadyOrdered && sentences.length > 1) {
-      sentences = [sentences[1], sentences[0], ...sentences.slice(2)];
-    }
 
     let rawTopic =
       q.passage?.title ||
@@ -140,9 +109,7 @@ export function adaptPart2Data(questions = [], group = null) {
       title: topicName,
       topicName,
       instructions,
-      sentences,
-      correctOrder,
-      explanation: q.explanation || q.metadata?.explanation || null
+      sentences
     };
   });
 
@@ -213,22 +180,12 @@ export function adaptPart4Data(questions = [], group = null) {
     });
 
     const adaptedQuestions = chunkQuestions.map((q, idx) => {
-      let correctPerson = normalizeCorrectAnswer(q.correct_answer) ||
-                          normalizeCorrectAnswer(q.correctPerson) ||
-                          normalizeCorrectAnswer(q.metadata?.correct_person) ||
-                          normalizeCorrectAnswer(q.metadata?.correct_option) ||
-                          normalizeCorrectAnswer(q.metadata?.answer) ||
-                          personKeys[idx % 4];
-
       return {
         id: q.id,
         num: idx + 1,
         globalNum: idx + 1,
         text: cleanHtml(q.content),
-        sourceKey: q.source_key,
-        correctPerson,
-        correctAnswer: correctPerson,
-        explanation: q.explanation || q.metadata?.explanation || null
+        sourceKey: q.source_key
       };
     });
 
@@ -322,22 +279,12 @@ export function adaptPart5Data(questions = [], group = null) {
 
       paraText = paraText.replace(/^(?:Paragraph|Section|P)?\s*\d+[:—\.]?\s*/i, '').trim();
 
-      let correctHeadingKey = normalizeCorrectAnswer(q.correct_answer) ||
-                              normalizeCorrectAnswer(q.correctHeadingKey) ||
-                              normalizeCorrectAnswer(q.metadata?.correct_heading) ||
-                              normalizeCorrectAnswer(q.metadata?.correct_option) ||
-                              normalizeCorrectAnswer(q.metadata?.answer) ||
-                              String(idx + 1);
-
       return {
         id: q.id,
         key: String(idx + 1),
         label: `Paragraph ${idx + 1}`,
         text: paraText,
-        sourceKey: q.source_key,
-        correctHeadingKey,
-        correctAnswer: correctHeadingKey,
-        explanation: q.explanation || q.metadata?.explanation || null
+        sourceKey: q.source_key
       };
     });
 

@@ -63,23 +63,6 @@ export function adaptListeningPart1Data(questions = []) {
         text: cleanHtml(opt.content)
       }));
 
-    let correctAnswer = normalizeCorrectAnswer(q.correct_answer) ||
-                        normalizeCorrectAnswer(q.correctAnswer) ||
-                        normalizeCorrectAnswer(q.metadata?.correct_option) ||
-                        normalizeCorrectAnswer(q.metadata?.correct_answer) ||
-                        normalizeCorrectAnswer(q.metadata?.answer);
-
-    if (!correctAnswer && Array.isArray(q.options)) {
-      const correctOpt = q.options.find(o => o.is_correct || o.metadata?.is_correct);
-      if (correctOpt) {
-        correctAnswer = correctOpt.option_key || String.fromCharCode(65 + (correctOpt.display_order || 1) - 1);
-      }
-    }
-
-    if (!correctAnswer && options.length > 0) {
-      correctAnswer = options[0].key;
-    }
-
     const audioInfo = extractAudioInfo(q);
     const requestedVoiceProfile = assignVoiceProfile(q.source_key || `lis-p1-${idx + 1}`);
 
@@ -102,8 +85,6 @@ export function adaptListeningPart1Data(questions = []) {
       topic: q.metadata?.topic || q.metadata?.source_section || "Short Conversation",
       question: questionText,
       options,
-      correctAnswer,
-      explanation: q.explanation || q.metadata?.explanation || null,
       audioUrl: audioInfo.mediaUrl,
       audioContent: finalAudioContent,
       transcript: audioInfo.transcript || fallbackTranscript,
@@ -187,22 +168,13 @@ export function adaptListeningPart2Data(questions = [], groupOrGroups = null) {
 
     const items = chunkQuestions.map((q, itemIdx) => {
       const personLabel = `Person ${String.fromCharCode(65 + itemIdx)}`;
-      let itemMatch = normalizeCorrectAnswer(q.correct_answer) ||
-                      normalizeCorrectAnswer(q.correctAnswer) ||
-                      normalizeCorrectAnswer(q.metadata?.match) ||
-                      normalizeCorrectAnswer(q.metadata?.correct_option) ||
-                      normalizeCorrectAnswer(q.metadata?.answer) ||
-                      options[itemIdx % options.length]?.key ||
-                      String.fromCharCode(65 + itemIdx);
 
       return {
         id: q.id,
         questionNumber: itemIdx + 1,
         sourceKey: q.source_key,
         speaker: personLabel,
-        prompt: personLabel,
-        correctAnswer: itemMatch,
-        explanation: q.explanation || q.metadata?.explanation || null
+        prompt: personLabel
       };
     });
 
@@ -296,20 +268,11 @@ export function adaptListeningPart3Data(questions = [], groupOrGroups = null) {
     }
 
     const statements = chunkQuestions.map((q, sIdx) => {
-      let stAnswer = normalizeCorrectAnswer(q.correct_answer) ||
-                     normalizeCorrectAnswer(q.correctAnswer) ||
-                     normalizeCorrectAnswer(q.metadata?.answer) ||
-                     normalizeCorrectAnswer(q.metadata?.correct_option) ||
-                     options[sIdx % options.length]?.key ||
-                     'man';
-
       return {
         id: q.id,
         questionNumber: sIdx + 1,
         sourceKey: q.source_key,
-        text: cleanHtml(q.content),
-        correctAnswer: stAnswer,
-        explanation: q.explanation || q.metadata?.explanation || null
+        text: cleanHtml(q.content)
       };
     });
 
@@ -408,31 +371,12 @@ export function adaptListeningPart4Data(questions = [], groupOrGroups = null) {
           text: cleanHtml(opt.content)
         }));
 
-      let correctAnswer = normalizeCorrectAnswer(q.correct_answer) ||
-                          normalizeCorrectAnswer(q.correctAnswer) ||
-                          normalizeCorrectAnswer(q.metadata?.correct_option) ||
-                          normalizeCorrectAnswer(q.metadata?.correct_answer) ||
-                          normalizeCorrectAnswer(q.metadata?.answer);
-
-      if (!correctAnswer && Array.isArray(q.options)) {
-        const correctOpt = q.options.find(o => o.is_correct || o.metadata?.is_correct);
-        if (correctOpt) {
-          correctAnswer = correctOpt.option_key || String.fromCharCode(65 + (correctOpt.display_order || 1) - 1);
-        }
-      }
-
-      if (!correctAnswer && options.length > 0) {
-        correctAnswer = options[0].key;
-      }
-
       return {
         id: q.id,
         questionNumber: qIdx + 1,
         sourceKey: q.source_key,
         question: cleanHtml(q.content),
-        options,
-        correctAnswer,
-        explanation: q.explanation || q.metadata?.explanation || null
+        options
       };
     });
 

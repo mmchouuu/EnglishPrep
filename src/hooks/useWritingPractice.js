@@ -6,7 +6,9 @@ import {
   getUserAttempts,
   getAttemptDetails,
   saveResponse,
-  toggleBookmark as toggleBookmarkApi
+  toggleBookmark as toggleBookmarkApi,
+  normalizePracticeScope,
+  findMatchingAttempt
 } from '../services/practiceService.js';
 import { submitQuestion, submitAttempt } from '../services/submissionBoundary.js';
 import { getEvaluation, getAttemptEvaluationStatus, submitResponse } from '../services/evaluationApiClient.js';
@@ -240,18 +242,29 @@ export function useWritingPractice({
 
     async function initAttempt() {
       if (authStatus !== 'authenticated' || !authUser || loading || rawQuestions.length === 0) return;
+
+      const isClubMode = (practiceMode === 'byClub' || practiceMode === 'club' || practiceMode === 'by_club');
+      const targetGroupId = isClubMode ? (activeGroup ? activeGroup.id : null) : null;
+
+      // Mandatory DB contract rule: Club practice REQUIRES a valid groupId
+      if (isClubMode && !targetGroupId) {
+        return; // Wait until activeGroup is available
+      }
+
+      const scope = normalizePracticeScope({
+        skill: 'writing',
+        mode: practiceMode,
+        partNumber: activePart,
+        groupId: targetGroupId
+      });
+
       setAttemptLoading(true);
 
       try {
         const client = getBrowserSupabaseClient();
         const existingAttempts = await getUserAttempts(authUser.id, client).catch(() => []);
 
-        const matching = existingAttempts.find(
-          a => a.skill === 'writing' &&
-            a.status === 'in_progress' &&
-            a.part_number === activePart &&
-            a.practice_mode === practiceMode
-        );
+        const matching = findMatchingAttempt(existingAttempts, scope);
 
         if (isCancelled) return;
 
@@ -274,7 +287,7 @@ export function useWritingPractice({
             'writing',
             practiceMode,
             activePart,
-            activeGroup ? activeGroup.id : null,
+            targetGroupId,
             client
           );
           if (!isCancelled) {
@@ -336,26 +349,21 @@ export function useWritingPractice({
 
   const handleToggleMark = useCallback(async (itemKey) => {
     setMarkedQuestions(prev => ({ ...prev, [itemKey]: !prev[itemKey] }));
-    if (authUser && typeof itemKey === 'string' && !itemKey.includes('_')) {
+    const isValidUuid = typeof itemKey === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(itemKey);
+    if (authUser && isValidUuid) {
       try {
         const client = getBrowserSupabaseClient();
         await toggleBookmarkApi(authUser.id, itemKey, client);
-      } catch (err) { }
+      } catch { }
     }
   }, [authUser]);
 
   const [activeEvaluation, setActiveEvaluation] = useState(null);
   const [itemEvaluations, setItemEvaluations] = useState({});
 
-  const handleClubSubmit = useCallback(async (clubKey) => {
+  const handleClubSubmit = useCallback((clubKey) => {
     setSubmittedClubs(prev => ({ ...prev, [clubKey]: true }));
-    if (attempt) {
-      try {
-        const client = getBrowserSupabaseClient();
-        await toggleBookmarkApi(authUser?.id, clubKey, client);
-      } catch { }
-    }
-  }, [attempt, authUser?.id]);
+  }, []);
 
   const handleSubmitSingleQuestion = useCallback(async (questionId, responsePayload, qMeta = {}) => {
     const qKey = questionId || 'q1';
@@ -550,12 +558,46 @@ export function useWritingPractice({
                 if (latest) {
                   const fullEval = { ...latest, solution: solutionData || latest.rubric_result?.solution };
                   setItemEvaluations(prev => ({ ...prev, [qKey]: fullEval }));
-                  if (['completed', 'failed', 'needs_review'].includes(latest.status) || pollCount >= maxPolls) {
+                  if (['completed', 'failed', 'needs_review'].includes(latest.status)) {
                     clearInterval(pollInterval);
                   }
                 }
+                
+                if (pollCount >= maxPolls) {
+                  clearInterval(pollInterval);
+                  setItemEvaluations(prev => {
+                    const current = prev[qKey];
+                    if (current && ['completed', 'failed', 'needs_review'].includes(current.status)) {
+                      return prev;
+                    }
+                    return {
+                      ...prev,
+                      [qKey]: {
+                        id: evalId,
+                        status: 'failed',
+                        error_code: 'TIMEOUT',
+                        error_message: 'Thời gian chờ AI đánh giá quá lâu. Vui lòng bấm Chấm lại.',
+                        question_id: qKey,
+                        solution: solutionData
+                      }
+                    };
+                  });
+                }
               } catch {
-                if (pollCount >= maxPolls) clearInterval(pollInterval);
+                if (pollCount >= maxPolls) {
+                  clearInterval(pollInterval);
+                  setItemEvaluations(prev => ({
+                    ...prev,
+                    [qKey]: {
+                      id: evalId,
+                      status: 'failed',
+                      error_code: 'POLL_ERROR',
+                      error_message: 'Không thể kết nối đến máy chủ đánh giá. Vui lòng bấm Chấm lại.',
+                      question_id: qKey,
+                      solution: solutionData
+                    }
+                  }));
+                }
               }
             }, 1500);
             return res;
@@ -563,16 +605,27 @@ export function useWritingPractice({
         }
       }
 
-      // Fast fallback simulation when edge function is pending or attempt.id is missing
-      await new Promise(r => setTimeout(r, 400));
-      const fallbackEval = buildLocalFallbackEval(responsePayload?.text);
-      setItemEvaluations(prev => ({ ...prev, [qKey]: fallbackEval }));
-      return fallbackEval;
+      // If attempt.id is missing or submission failed
+      const errEval = {
+        status: 'failed',
+        error_code: 'SUBMISSION_FAILED',
+        error_message: 'Gửi bài làm thất bại. Vui lòng thử lại.',
+        question_id: qKey,
+        solution: { model_answer: getSmartSampleAnswer(qMeta.prompt) }
+      };
+      setItemEvaluations(prev => ({ ...prev, [qKey]: errEval }));
+      return errEval;
 
     } catch (err) {
-      const fallbackEval = buildLocalFallbackEval(responsePayload?.text);
-      setItemEvaluations(prev => ({ ...prev, [qKey]: fallbackEval }));
-      return fallbackEval;
+      const errEval = {
+        status: 'failed',
+        error_code: 'SUBMISSION_ERROR',
+        error_message: err.message || 'Lỗi gửi bài đánh giá.',
+        question_id: qKey,
+        solution: { model_answer: getSmartSampleAnswer(qMeta.prompt) }
+      };
+      setItemEvaluations(prev => ({ ...prev, [qKey]: errEval }));
+      return errEval;
     } finally {
       setSubmitting(false);
     }

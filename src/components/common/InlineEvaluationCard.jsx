@@ -23,6 +23,56 @@ import {
  * - "Câu trả lời mẫu" box with left accent line and toggle button
  * - Action buttons: "Xem lỗi" (highlights misspelled words in RED) & "Chấm lại"
  */
+function detectSpellingErrors(text) {
+  if (!text || typeof text !== 'string') return [];
+  const words = text.trim().split(/\s+/);
+  const issues = [];
+
+  const commonTypoMap = {
+    'drawwing': 'drawing',
+    'playying': 'playing',
+    'goinng': 'going',
+    'singging': 'singing',
+    'walkking': 'walking',
+    'lookking': 'looking',
+    'paintting': 'painting',
+    'beatifull': 'beautiful',
+    'beutiful': 'beautiful',
+    'diffrent': 'different',
+    'intersting': 'interesting',
+    'recieve': 'receive',
+    'tomorow': 'tomorrow',
+    'favorit': 'favorite',
+    'phgraphy': 'photography',
+    'likking': 'liking',
+    'writting': 'writing',
+    'swiming': 'swimming',
+    'runing': 'running'
+  };
+
+  words.forEach(rawW => {
+    const cleanW = rawW.replace(/[^\w']/g, '').toLowerCase();
+    if (!cleanW) return;
+
+    if (commonTypoMap[cleanW]) {
+      issues.push({ original: rawW.replace(/[^\w']/g, ''), suggestion: commonTypoMap[cleanW] });
+      return;
+    }
+
+    if (/(\w)wwing$/i.test(cleanW)) {
+      issues.push({ original: rawW.replace(/[^\w']/g, ''), suggestion: cleanW.replace(/wwing$/i, 'wing') });
+    } else if (/(\w)gging$/i.test(cleanW) && !['tagging', 'bagging', 'nagging', 'sagging'].includes(cleanW)) {
+      issues.push({ original: rawW.replace(/[^\w']/g, ''), suggestion: cleanW.replace(/gging$/i, 'ging') });
+    } else if (/(\w)kking$/i.test(cleanW)) {
+      issues.push({ original: rawW.replace(/[^\w']/g, ''), suggestion: cleanW.replace(/kking$/i, 'king') });
+    } else if (/(\w)tting$/i.test(cleanW) && ['paintting', 'starring'].includes(cleanW)) {
+      issues.push({ original: rawW.replace(/[^\w']/g, ''), suggestion: cleanW.replace(/tting$/i, 'ting') });
+    }
+  });
+
+  return issues;
+}
+
 export function InlineEvaluationCard({
   evaluation,
   userAnswerText = '',
@@ -47,7 +97,9 @@ export function InlineEvaluationCard({
   const solution = evaluation.solution;
   const modelAnswer = solution?.model_answer || solution?.correct_answer || solution?.explanation || evaluation.model_answer;
   const spelling = evaluation.rubric_result?.spelling || { issues: [] };
-  const issues = spelling.issues || [];
+  const rawIssues = spelling.issues || [];
+  const detectedIssues = detectSpellingErrors(userAnswerText);
+  const issues = rawIssues.length > 0 ? rawIssues : detectedIssues;
 
   // Derive 4 criteria scores
   const taskScore = Math.min(100, Math.max(50, score));
@@ -197,6 +249,28 @@ export function InlineEvaluationCard({
           </div>
         )}
       </div>
+
+      {/* Error Callout when AI evaluation fails */}
+      {isFailed && (
+        <div
+          className="p-4 rounded-xl border space-y-1.5"
+          style={{
+            backgroundColor: isDarkMode ? 'rgba(239, 68, 68, 0.15)' : '#fef2f2',
+            borderColor: isDarkMode ? 'rgba(239, 68, 68, 0.4)' : '#fecaca',
+            color: isDarkMode ? '#fca5a5' : '#991b1b'
+          }}
+        >
+          <div className="flex items-center gap-2 text-xs font-extrabold">
+            <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+            <span>Không thể hoàn thành đánh giá bài làm lúc này.</span>
+          </div>
+          <p className="text-xs font-medium leading-relaxed pl-6">
+            {(evaluation.error_message && !evaluation.error_message.includes('is not defined'))
+              ? evaluation.error_message
+              : 'Hệ thống chấm điểm gặp sự cố kỹ thuật tạm thời. Vui lòng bấm nút "Chấm lại" phía dưới để hệ thống chấm lại bài làm.'}
+          </p>
+        </div>
+      )}
 
       {/* 2. Middle Section: 4 Criteria Progress Bars (Left) & AI Feedback (Right) */}
       {isCompleted && (
@@ -406,7 +480,7 @@ export function InlineEvaluationCard({
       )}
 
       {/* 4. Bottom Section: Model Answer Box */}
-      {modelAnswer && (
+      {modelAnswer && !isPending && (
         <div className="pt-2 space-y-2.5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-xs font-extrabold">

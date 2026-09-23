@@ -14,11 +14,13 @@ DO $$
 BEGIN
   IF EXISTS (
     SELECT 1 
-    FROM information_schema.table_constraints 
+    FROM information_schema.key_column_usage 
     WHERE constraint_name = 'practice_response_evaluations_pkey' 
+      AND column_name = 'response_id'
       AND table_name = 'practice_response_evaluations'
+      AND table_schema = 'public'
   ) THEN
-    ALTER TABLE public.practice_response_evaluations DROP CONSTRAINT practice_response_evaluations_pkey;
+    ALTER TABLE public.practice_response_evaluations DROP CONSTRAINT practice_response_evaluations_pkey CASCADE;
   END IF;
 END $$;
 

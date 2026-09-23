@@ -201,9 +201,6 @@ export async function getQuestions(filters = {}, page = 1, pageSize = 10, client
         aptis_content_blocks (
           id, block_type, title, content, media_url, metadata
         )
-      ),
-      aptis_question_answers (
-        correct_answer, explanation, solution_data
       )
     `)
     .eq('skill', skill)
@@ -259,34 +256,7 @@ export async function getPracticeSet(groupKey, client = null) {
 }
 
 export function normalizeCorrectAnswer(raw) {
-  if (raw === null || raw === undefined) return null;
-  let val = raw;
-  if (typeof val === 'string') {
-    const trimmed = val.trim();
-    if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
-      try {
-        val = JSON.parse(trimmed);
-      } catch (e) {
-        return trimmed;
-      }
-    } else {
-      return trimmed;
-    }
-  }
-
-  if (typeof val === 'object' && val !== null) {
-    if (val.correct_option !== undefined) return normalizeCorrectAnswer(val.correct_option);
-    if (val.correct_answer !== undefined) return normalizeCorrectAnswer(val.correct_answer);
-    if (val.correct_person !== undefined) return normalizeCorrectAnswer(val.correct_person);
-    if (val.correct_heading !== undefined) return normalizeCorrectAnswer(val.correct_heading);
-    if (val.answer !== undefined) return normalizeCorrectAnswer(val.answer);
-    if (val.option_key !== undefined) return normalizeCorrectAnswer(val.option_key);
-    if (val.match !== undefined) return normalizeCorrectAnswer(val.match);
-    if (Array.isArray(val.ordered_keys)) return val.ordered_keys.map(k => String(k));
-    if (Array.isArray(val)) return val.map(k => String(k));
-  }
-
-  return val;
+  return null;
 }
 
 /**
@@ -309,20 +279,6 @@ export function formatSkillPayload(qRow) {
     };
   });
 
-  const answersObj = Array.isArray(qRow.aptis_question_answers)
-    ? (qRow.aptis_question_answers[0] || {})
-    : (qRow.aptis_question_answers || {});
-
-  const rawCorrect = answersObj.correct_answer !== undefined 
-    ? answersObj.correct_answer 
-    : (qRow.correct_answer !== undefined 
-        ? qRow.correct_answer 
-        : (qRow.metadata?.correct_answer || qRow.metadata?.correct_option || qRow.metadata?.answer));
-
-  const correctAnswer = normalizeCorrectAnswer(rawCorrect);
-  const explanation = answersObj.explanation || qRow.explanation || qRow.metadata?.explanation || null;
-  const solutionData = answersObj.solution_data || qRow.solution_data || qRow.metadata?.solution_data || null;
-
   const basePayload = {
     id: qRow.id,
     skill: qRow.skill,
@@ -335,13 +291,13 @@ export function formatSkillPayload(qRow) {
     metadata: qRow.metadata || {},
     options,
     content_blocks: contentBlocks,
-    contentBlocks: contentBlocks,
-    correct_answer: correctAnswer,
-    explanation,
-    solution_data: solutionData
+    contentBlocks: contentBlocks
   };
 
-  // Defense-in-depth sanitization: Strip subjective evaluation / model answers for writing & speaking
+  // Defense-in-depth sanitization: Strip all solution/answer metadata
+  delete basePayload.correct_answer;
+  delete basePayload.explanation;
+  delete basePayload.solution_data;
   delete basePayload.answer;
   delete basePayload.model_answer;
   delete basePayload.sample_answer;

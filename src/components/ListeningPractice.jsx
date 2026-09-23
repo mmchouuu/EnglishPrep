@@ -63,12 +63,15 @@ export const ListeningPractice = ({ isDarkMode = false }) => {
     submittedQuestions,
     submitted,
     results,
+    checkingQuestions,
+    checkErrors,
     submitting,
     submitError,
     saveStatus,
     handleOptionSelect,
     handleToggleMark,
     handleSubmitSingle,
+    handleCheckQuestion,
     handleConfirmSubmit
   } = useListeningPractice({
     activePart: activePart || 1,
@@ -333,6 +336,10 @@ export const ListeningPractice = ({ isDarkMode = false }) => {
                   onToggleMark={handleToggleMark}
                   submittedQuestions={submittedQuestions}
                   onSubmitSingle={handleSubmitItem}
+                  results={results}
+                  checkingQuestions={checkingQuestions}
+                  checkErrors={checkErrors}
+                  onCheckQuestion={handleCheckQuestion}
                   mode={currentMode}
                   isDarkMode={isDarkMode}
                   groups={groups}
@@ -355,6 +362,10 @@ export const ListeningPractice = ({ isDarkMode = false }) => {
                   onToggleMark={handleToggleMark}
                   submittedSets={submittedQuestions}
                   onSubmitSet={handleSubmitItem}
+                  results={results}
+                  checkingQuestions={checkingQuestions}
+                  checkErrors={checkErrors}
+                  onCheckQuestion={handleCheckQuestion}
                   onSelectSet={handleSetChange}
                   mode={currentMode}
                   isDarkMode={isDarkMode}
@@ -379,6 +390,10 @@ export const ListeningPractice = ({ isDarkMode = false }) => {
                   onToggleMark={handleToggleMark}
                   submittedSets={submittedQuestions}
                   onSubmitSet={handleSubmitItem}
+                  results={results}
+                  checkingQuestions={checkingQuestions}
+                  checkErrors={checkErrors}
+                  onCheckQuestion={handleCheckQuestion}
                   onSelectSet={handleSetChange}
                   mode={currentMode}
                   isDarkMode={isDarkMode}
@@ -403,6 +418,10 @@ export const ListeningPractice = ({ isDarkMode = false }) => {
                   onToggleMark={handleToggleMark}
                   submittedQuestions={submittedQuestions}
                   onSubmitSingle={handleSubmitItem}
+                  results={results}
+                  checkingQuestions={checkingQuestions}
+                  checkErrors={checkErrors}
+                  onCheckQuestion={handleCheckQuestion}
                   onSelectSet={handleSetChange}
                   mode={currentMode}
                   isDarkMode={isDarkMode}

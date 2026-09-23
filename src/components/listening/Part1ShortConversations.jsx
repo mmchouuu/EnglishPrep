@@ -1,10 +1,14 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useRef } from 'react';
 import { 
   Check, 
   CircleCheck, 
   ChevronLeft, 
-  ChevronRight
+  ChevronRight,
+  Loader2,
+  AlertCircle,
+  X
 } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { AudioPlayer } from './AudioPlayer';
 import BookmarkButton from '../reading/BookmarkButton';
 import TopicHeaderBanner from '../reading/TopicHeaderBanner';
@@ -17,14 +21,39 @@ export const Part1ShortConversations = ({
   onSelectOption,
   markedQuestions = {},
   onToggleMark,
-  submittedQuestions = {},
-  onSubmitSingle,
+  submitted = false,
+  results = null,
+  checkingQuestions = null,
+  checkErrors = null,
+  onCheckQuestion,
   mode = 'full',
   isDarkMode = false,
   groups = [],
   activeGroup = null,
   onSelectGroup
 }) => {
+  const firedConfettiRef = useRef(new Set());
+
+  // Fire confetti ONCE per correct evaluation ID / response ID
+  useEffect(() => {
+    if (!results) return;
+    Object.entries(results).forEach(([qId, res]) => {
+      const isValidResult =
+        res?.status === 'completed' &&
+        typeof res?.isCorrect === 'boolean' &&
+        res?.correctAnswer !== null &&
+        res?.correctAnswer !== undefined;
+
+      if (isValidResult && res.isCorrect === true) {
+        const confettiKey = `${qId}:${res.evaluationId || res.responseId}`;
+        if (!firedConfettiRef.current.has(confettiKey)) {
+          firedConfettiRef.current.add(confettiKey);
+          confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+        }
+      }
+    });
+  }, [results]);
+
   const currentGroupIdx = useMemo(() => {
     if (!groups || groups.length === 0) return 0;
     const activeKey = activeGroup?.group_key || activeGroup?.key;
@@ -76,15 +105,25 @@ export const Part1ShortConversations = ({
 
       {questionsToRender.map((currentQ, renderIdx) => {
         const actualIdx = renderIdx;
-        const qId = currentQ.id || renderIdx;
-        const ansKey = currentQ.id || `${currentQ.sourceKey}_p1`;
-        const selectedOpt = userAnswers[ansKey];
-        const isSub = submittedQuestions[currentQ.id];
-        const isFlagged = markedQuestions[currentQ.id];
+        const qId = currentQ.id;
+        const selectedOpt = userAnswers[qId];
+        const result = results?.[qId];
+
+        const hasValidServerResult =
+          result?.status === 'completed' &&
+          typeof result?.isCorrect === 'boolean' &&
+          result?.correctAnswer !== null &&
+          result?.correctAnswer !== undefined;
+
+        const isChecking = !!checkingQuestions?.[qId];
+        const checkError = checkErrors?.[qId];
+        const showResult = submitted || hasValidServerResult;
+        const isFlagged = markedQuestions[qId];
+        const isCorrect = hasValidServerResult ? result.isCorrect : null;
 
         return (
           <div
-            key={qId}
+            key={qId || renderIdx}
             id={`question-${qId}`}
             data-scroll-index={actualIdx}
             className="rounded-2xl p-5 sm:p-6 border transition-all space-y-5 scroll-mt-24"
@@ -119,17 +158,19 @@ export const Part1ShortConversations = ({
               audioContent={currentQ.audioContent || currentQ.question}
               requestedVoiceProfile={currentQ.requestedVoiceProfile || 'en-GB-female'}
               transcript={currentQ.transcript}
-              explanation={currentQ.explanation}
+              explanation={hasValidServerResult ? result?.explanation : currentQ.explanation}
               translation={currentQ.translation}
               isDarkMode={isDarkMode}
-              isSubmitted={isSub}
+              isSubmitted={showResult}
             />
 
             {/* Options List matching Reading Part 1 radio card layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 pt-2">
               {(currentQ.options || []).map((opt, idx) => {
-                const optText = typeof opt === 'string' ? opt : (opt.text || opt.content || '');
-                const optKey = typeof opt === 'string' ? String.fromCharCode(65 + idx) : (opt.key || String.fromCharCode(65 + idx));
+                const optText = typeof opt === 'string' ? opt : (opt.text || opt.content || opt.label || '');
+                const optKey = typeof opt === 'string'
+                  ? String.fromCharCode(65 + idx)
+                  : (opt.key || opt.option_key || opt.value || opt.id || String.fromCharCode(65 + idx));
                 const isSelected = selectedOpt === optKey || selectedOpt === idx;
 
                 let cardBg = isDarkMode ? '#1e293b' : '#ffffff';
@@ -142,16 +183,14 @@ export const Part1ShortConversations = ({
                   cardTextColor = isDarkMode ? '#ffffff' : '#0f172a';
                 }
 
-                if (isSub && currentQ.correctAnswer !== undefined && currentQ.correctAnswer !== null) {
-                  const correctKey = typeof currentQ.correctAnswer === 'number'
-                    ? String.fromCharCode(65 + currentQ.correctAnswer)
-                    : String(currentQ.correctAnswer).toUpperCase();
+                if (hasValidServerResult && result.correctAnswer !== null) {
+                  const correctKey = String(result.correctAnswer).toUpperCase();
 
-                  if (optKey.toUpperCase() === correctKey) {
+                  if (String(optKey).toUpperCase() === correctKey) {
                     cardBg = 'rgba(16, 185, 129, 0.15)';
                     cardBorder = '#10b981';
                     cardTextColor = isDarkMode ? '#6ee7b7' : '#047857';
-                  } else if (isSelected && optKey.toUpperCase() !== correctKey) {
+                  } else if (isSelected && !isCorrect) {
                     cardBg = 'rgba(239, 68, 68, 0.15)';
                     cardBorder = '#ef4444';
                     cardTextColor = isDarkMode ? '#fca5a5' : '#b91c1c';
@@ -161,9 +200,9 @@ export const Part1ShortConversations = ({
                 return (
                   <button
                     key={optKey || idx}
-                    disabled={isSub}
-                    onClick={() => onSelectOption(ansKey, optKey)}
-                    className="flex items-center gap-2.5 px-3.5 py-3 rounded-xl border text-left text-xs sm:text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    disabled={showResult || isChecking}
+                    onClick={() => onSelectOption(qId, optKey)}
+                    className="flex items-center gap-2.5 px-3.5 py-3 rounded-xl border text-left text-xs sm:text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                     style={{
                       backgroundColor: cardBg,
                       borderColor: cardBorder,
@@ -173,10 +212,10 @@ export const Part1ShortConversations = ({
                   >
                     <div className={`w-4 h-4 rounded-full border flex items-center justify-center text-[10px] font-bold shrink-0 ${
                       isSelected
-                        ? 'border-blue-500 bg-[#2563eb] text-white'
+                        ? (hasValidServerResult && !isCorrect ? 'border-rose-500 bg-rose-600 text-white' : 'border-blue-500 bg-[#2563eb] text-white')
                         : isDarkMode ? 'border-slate-600 bg-slate-900 text-slate-400' : 'border-slate-400 bg-white text-slate-600'
                     }`}>
-                      {isSelected ? <Check className="w-2.5 h-2.5 stroke-[3]" aria-hidden="true" /> : optKey}
+                      {isSelected ? (hasValidServerResult && !isCorrect ? <X className="w-2.5 h-2.5 stroke-[3]" aria-hidden="true" /> : <Check className="w-2.5 h-2.5 stroke-[3]" aria-hidden="true" />) : optKey}
                     </div>
                     <span className="flex-1 font-semibold">{optText}</span>
                   </button>
@@ -184,34 +223,47 @@ export const Part1ShortConversations = ({
               })}
             </div>
 
-            {/* Post-submit explanation */}
-            {isSub && (
-              (() => {
-                const correctKey = currentQ.correctAnswer !== undefined && currentQ.correctAnswer !== null
-                  ? (typeof currentQ.correctAnswer === 'number'
-                      ? String.fromCharCode(65 + currentQ.correctAnswer)
-                      : String(currentQ.correctAnswer).toUpperCase())
-                  : null;
-                const isCorrectChoice = selectedOpt !== undefined && String(selectedOpt).toUpperCase() === correctKey;
+            {/* Error & Retry banner */}
+            {checkError && (
+              <div className="flex items-center justify-between p-3 rounded-xl bg-rose-50 border border-rose-200 dark:bg-rose-950/40 dark:border-rose-900 text-rose-700 dark:text-rose-300 text-xs font-medium">
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
+                  <span>{checkError}</span>
+                </div>
+                <button
+                  onClick={() => onCheckQuestion && selectedOpt && onCheckQuestion(qId, selectedOpt)}
+                  className="px-3 py-1 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold transition-all shrink-0"
+                >
+                  Retry check
+                </button>
+              </div>
+            )}
 
-                return (
-                  <div className={`p-4 rounded-xl border text-xs leading-relaxed flex items-start gap-2.5 ${
-                    isCorrectChoice
-                      ? isDarkMode ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-800'
-                      : isDarkMode ? 'bg-rose-950/40 border-rose-500/40 text-rose-300' : 'bg-rose-50 border-rose-200 text-rose-800'
-                  }`}>
-                    {isCorrectChoice ? (
-                      <CircleCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" aria-hidden="true" />
-                    ) : (
-                      <CircleCheck className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" aria-hidden="true" />
-                    )}
-                    <div>
-                      <span className="font-bold mr-1.5">{isCorrectChoice ? 'Correct!' : 'Incorrect.'}</span>
-                      {currentQ.explanation || (correctKey ? `Correct answer is Option ${correctKey}.` : 'Answer checked.')}
-                    </div>
-                  </div>
-                );
-              })()
+            {/* Post-submit server evaluation feedback */}
+            {hasValidServerResult && (
+              <div
+                aria-live="polite"
+                className={`p-4 rounded-xl border text-xs leading-relaxed flex items-start gap-2.5 ${
+                  isCorrect
+                    ? isDarkMode ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                    : isDarkMode ? 'bg-rose-950/40 border-rose-500/40 text-rose-300' : 'bg-rose-50 border-rose-200 text-rose-800'
+                }`}
+              >
+                {isCorrect ? (
+                  <CircleCheck className="w-4 h-4 shrink-0 mt-0.5 text-emerald-600" aria-hidden="true" />
+                ) : (
+                  <X className="w-4 h-4 shrink-0 mt-0.5 text-rose-600" aria-hidden="true" />
+                )}
+                <div>
+                  <span className="font-bold mr-1.5">{isCorrect ? 'Correct!' : 'Incorrect.'}</span>
+                  {!isCorrect && (
+                    <span className="font-semibold block sm:inline mt-0.5 sm:mt-0">
+                      Correct answer: Option {String(result.correctAnswer).toUpperCase()}.{' '}
+                    </span>
+                  )}
+                  {result.explanation || (isCorrect ? 'Great job!' : '')}
+                </div>
+              </div>
             )}
 
             {/* Footer Action Bar: Mark & Check on the Right */}
@@ -219,23 +271,37 @@ export const Part1ShortConversations = ({
               <div className="flex items-center gap-2">
                 <BookmarkButton
                   isBookmarked={isFlagged}
-                  onToggle={() => onToggleMark(currentQ.id)}
+                  onToggle={() => onToggleBookmark(qId)}
                   isDarkMode={isDarkMode}
                 />
                 
                 <button
-                  disabled={selectedOpt === undefined || isSub}
-                  onClick={() => onSubmitSingle(currentQ.id)}
+                  disabled={selectedOpt === undefined || showResult || isChecking}
+                  onClick={() => {
+                    if (onCheckQuestion && qId && selectedOpt !== undefined) {
+                      onCheckQuestion(qId, selectedOpt);
+                    }
+                  }}
+                  aria-live="polite"
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 ${
-                    isSub
+                    showResult
                       ? 'bg-slate-700 text-slate-300 cursor-not-allowed'
-                      : selectedOpt !== undefined
+                      : selectedOpt !== undefined && !isChecking
                         ? 'bg-[#2563eb] hover:bg-[#1d4ed8] text-white shadow-blue-500/20'
                         : 'bg-blue-600/50 text-white/70 cursor-not-allowed'
                   }`}
                 >
-                  <Check className="w-3.5 h-3.5" aria-hidden="true" />
-                  <span>{isSub ? 'Checked' : 'Check answer'}</span>
+                  {isChecking ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" aria-hidden="true" />
+                      <span>Checking...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Check className="w-3.5 h-3.5" aria-hidden="true" />
+                      <span>{showResult ? 'Checked' : 'Check answer'}</span>
+                    </>
+                  )}
                 </button>
               </div>
             </div>
@@ -293,3 +359,4 @@ export const Part1ShortConversations = ({
     </div>
   );
 };
+

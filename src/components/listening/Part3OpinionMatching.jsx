@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
-import { Bookmark, Check, User, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useMemo, useEffect, useRef } from 'react';
+import { Bookmark, Check, User, Users, ChevronLeft, ChevronRight, Loader2, AlertCircle } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { AudioPlayer } from './AudioPlayer';
 import TopicHeaderBanner from '../reading/TopicHeaderBanner';
 
@@ -18,8 +19,11 @@ export const Part3OpinionMatching = ({
   onSelectOption,
   markedQuestions = {},
   onToggleMark,
-  submittedSets = {},
-  onSubmitSet,
+  submitted = false,
+  results = null,
+  checkingQuestions = null,
+  checkErrors = null,
+  onCheckQuestion,
   onSelectSet,
   mode = 'full',
   isDarkMode = false,
@@ -27,6 +31,8 @@ export const Part3OpinionMatching = ({
   activeGroup = null,
   onSelectGroup
 }) => {
+  const firedConfettiRef = useRef(new Set());
+
   const currentGroupIdx = useMemo(() => {
     if (!groups || groups.length === 0) return 0;
     const activeKey = activeGroup?.group_key || activeGroup?.key;
@@ -46,7 +52,8 @@ export const Part3OpinionMatching = ({
     <div className="space-y-8">
       {setsToRender.map((currentSet, sIdx) => {
         const actualSetIdx = mode === 'full' ? sIdx : currentSetIndex;
-        const isSetSubmitted = submittedSets[currentSet.id];
+        const statements = currentSet.statements || [];
+        const isSetChecking = statements.some((st) => checkingQuestions?.[st.id]);
         const isSetFlagged = markedQuestions[currentSet.id];
 
         const displayOptions = currentSet.options || [
@@ -57,6 +64,38 @@ export const Part3OpinionMatching = ({
 
         const rawTopicName = currentSet.topic || currentSet.topicName || currentSet.title || 'OPINION MATCHING';
         const topicName = cleanTopicTitle(rawTopicName) || 'OPINION MATCHING';
+
+        // Set-level confetti check
+        useEffect(() => {
+          if (!results || statements.length === 0) return;
+          const answeredStatements = statements.filter((st) => userAnswers[st.id]);
+          if (answeredStatements.length === 0) return;
+
+          const allAnsweredValid = answeredStatements.every((st) => {
+            const res = results[st.id];
+            return res?.status === 'completed' && typeof res?.isCorrect === 'boolean';
+          });
+
+          const allAnsweredCorrect = answeredStatements.every((st) => results[st.id]?.isCorrect === true);
+
+          if (allAnsweredValid && allAnsweredCorrect) {
+            const setEvalHash = answeredStatements.map((st) => `${st.id}:${results[st.id]?.evaluationId}`).join('|');
+            if (!firedConfettiRef.current.has(setEvalHash)) {
+              firedConfettiRef.current.add(setEvalHash);
+              confetti({ particleCount: 80, spread: 80, origin: { y: 0.6 } });
+            }
+          }
+        }, [results, statements, userAnswers]);
+
+        const handleCheckSet = () => {
+          if (!onCheckQuestion) return;
+          statements.forEach((st) => {
+            const val = userAnswers[st.id];
+            if (val && st.id) {
+              onCheckQuestion(st.id, val);
+            }
+          });
+        };
 
         return (
           <div
@@ -87,25 +126,34 @@ export const Part3OpinionMatching = ({
                   requestedVoiceProfile={currentSet.requestedVoiceProfile || 'en-GB-female'}
                   transcript={currentSet.transcript}
                   isDarkMode={isDarkMode}
-                  isSubmitted={isSetSubmitted}
+                  isSubmitted={submitted}
                 />
               </div>
 
               {/* Statements List matching Reading Part 4-5 */}
               <div className="space-y-3 mb-6">
-                {(currentSet.statements || []).map((st, idx) => {
-                  const stKey = st.id || st.sourceKey || `${currentSet.id}_p3_st${idx + 1}`;
+                {statements.map((st, idx) => {
+                  const stKey = st.id;
                   const selectedVal = userAnswers[stKey] || '';
                   const selectedValNorm = String(selectedVal).toLowerCase();
 
-                  const isCorrect = isSetSubmitted && st.correctAnswer
-                    ? String(selectedVal).toLowerCase() === String(st.correctAnswer).toLowerCase()
-                    : null;
+                  const result = results?.[stKey];
+
+                  const hasValidServerResult =
+                    result?.status === 'completed' &&
+                    typeof result?.isCorrect === 'boolean' &&
+                    result?.correctAnswer !== null &&
+                    result?.correctAnswer !== undefined;
+
+                  const isChecking = !!checkingQuestions?.[stKey];
+                  const checkError = checkErrors?.[stKey];
+                  const showResult = submitted || hasValidServerResult;
+                  const isCorrect = hasValidServerResult ? result.isCorrect : null;
 
                   let rowBg = isDarkMode ? 'rgba(30, 41, 59, 0.4)' : '#f8fafc';
                   let rowBorder = isDarkMode ? '#334155' : '#e2e8f0';
 
-                  if (isSetSubmitted && st.correctAnswer) {
+                  if (hasValidServerResult) {
                     if (isCorrect) {
                       rowBg = isDarkMode ? 'rgba(16, 185, 129, 0.15)' : '#ecfdf5';
                       rowBorder = '#10b981';
@@ -135,7 +183,7 @@ export const Part3OpinionMatching = ({
 
                   return (
                     <div
-                      key={stKey}
+                      key={stKey || idx}
                       className="p-3.5 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-all scroll-mt-24 shadow-2xs"
                       style={{
                         backgroundColor: rowBg,
@@ -160,9 +208,26 @@ export const Part3OpinionMatching = ({
                           >
                             {st.text}
                           </p>
-                          {isSetSubmitted && st.correctAnswer && !isCorrect && (
-                            <p className="text-[11px] font-bold text-rose-600 dark:text-rose-400 mt-0.5">
-                              Correct answer: {st.correctAnswer}
+                          {isChecking && (
+                            <p className="text-xs text-blue-500 flex items-center gap-1 mt-0.5">
+                              <Loader2 className="w-3 h-3 animate-spin" aria-hidden="true" /> Checking...
+                            </p>
+                          )}
+                          {checkError && (
+                            <div className="flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 mt-0.5">
+                              <AlertCircle className="w-3 h-3" aria-hidden="true" />
+                              <span>{checkError}</span>
+                              <button
+                                onClick={() => onCheckQuestion && selectedVal && onCheckQuestion(stKey, selectedVal)}
+                                className="ml-1 underline font-bold"
+                              >
+                                Retry check
+                              </button>
+                            </div>
+                          )}
+                          {hasValidServerResult && !isCorrect && (result?.correctAnswer || st.correctAnswer) && (
+                            <p className="text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 mt-1 leading-snug">
+                              ✓ Correct answer: {result?.correctAnswer || st.correctAnswer}
                             </p>
                           )}
                         </div>
@@ -181,10 +246,10 @@ export const Part3OpinionMatching = ({
                           )}
 
                           <select
-                            disabled={isSetSubmitted}
+                            disabled={showResult || isChecking}
                             value={selectedVal}
                             onChange={(e) => onSelectOption(stKey, e.target.value)}
-                            className={`w-full py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer shadow-2xs focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                            className={`w-full py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer shadow-2xs focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 ${
                               selectedValNorm ? 'pl-9 pr-8' : 'px-3.5'
                             } ${dropdownStyle}`}
                           >
@@ -226,14 +291,22 @@ export const Part3OpinionMatching = ({
                   </button>
 
                   <button
-                    onClick={() => onSubmitSet(currentSet.id)}
-                    disabled={isSetSubmitted}
-                    className={`flex items-center gap-1.5 px-5 py-2 rounded-xl text-xs font-bold transition-all border border-blue-500 text-[#2563eb] hover:bg-blue-50 ${
-                      isSetSubmitted ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
+                    onClick={handleCheckSet}
+                    disabled={isSetChecking}
+                    aria-live="polite"
+                    className="flex items-center gap-1.5 px-5 py-2 rounded-xl text-xs font-bold transition-all border border-blue-500 text-[#2563eb] hover:bg-blue-50 disabled:opacity-50"
                   >
-                    <Check className="w-4 h-4" />
-                    <span>{isSetSubmitted ? 'Set Checked' : 'Check this set'}</span>
+                    {isSetChecking ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                        <span>Checking...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Check className="w-4 h-4" aria-hidden="true" />
+                        <span>{submitted ? 'Set Checked' : 'Check this set'}</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
@@ -292,3 +365,4 @@ export const Part3OpinionMatching = ({
     </div>
   );
 };
+

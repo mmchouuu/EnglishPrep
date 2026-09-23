@@ -9,37 +9,6 @@ import { getBrowserSupabaseClient } from '../lib/supabaseClient.js';
 export const EVALUATION_API_MODE = (import.meta.env?.VITE_EVALUATION_API_MODE) || 'supabase';
 
 /**
- * 1. Submit single response (question level)
- */
-export async function submitResponse(payload, client = null) {
-  const { attemptId, questionId, response } = payload;
-  if (!attemptId || !questionId) {
-    throw new Error('Attempt ID and Question ID are required for response submission.');
-  }
-
-  const supabaseClient = client || getBrowserSupabaseClient();
-
-  const { data, error } = await supabaseClient.functions.invoke('submit-practice', {
-    body: {
-      action: 'submit_question',
-      attempt_id: attemptId,
-      question_id: questionId,
-      response: response
-    }
-  });
-
-  if (error) {
-    throw new Error(`Evaluation submission failed: ${error.message}`);
-  }
-
-  if (data?.error) {
-    throw new Error(`[SUBMISSION_ERROR] ${data.error}`);
-  }
-
-  return data;
-}
-
-/**
  * 2. Submit attempt session
  */
 export async function submitAttempt(payload, client = null) {
@@ -73,34 +42,123 @@ export async function submitAttempt(payload, client = null) {
 }
 
 /**
- * 3. Fetch single evaluation record by ID
+ * 3. Fetch single evaluation record by ID (Edge Function query)
  */
 export async function getEvaluation(evaluationId, client = null) {
   if (!evaluationId) throw new Error('Evaluation ID is required.');
   const supabaseClient = client || getBrowserSupabaseClient();
 
-  const { data, error } = await supabaseClient
-    .from('practice_response_evaluations')
-    .select('*')
-    .eq('id', evaluationId)
-    .single();
+  try {
+    const { data: fnData } = await supabaseClient.functions.invoke('submit-practice', {
+      body: {
+        action: 'get_evaluation',
+        evaluation_id: evaluationId
+      }
+    });
 
-  if (error) throw new Error(`Failed to fetch evaluation: ${error.message}`);
-  return data;
+    if (fnData?.evaluation) {
+      return fnData.evaluation;
+    }
+  } catch {}
+
+  return null;
+}
+
+export function normalizeObjectiveResult(serverResponse) {
+  if (!serverResponse || typeof serverResponse !== 'object') {
+    throw new Error('OBJECTIVE_RESPONSE_CONTRACT_ERROR: Server response is null or not an object.');
+  }
+
+  if (serverResponse.success !== true) {
+    throw new Error(`OBJECTIVE_RESPONSE_CONTRACT_ERROR: Response success flag is not true (${serverResponse.error || 'unknown'}).`);
+  }
+
+  const resp = serverResponse.response || {};
+  const evalData = serverResponse.evaluation || {};
+  const solData = serverResponse.solution || {};
+
+  return {
+    success: true,
+    responseId: String(resp.id || serverResponse.responseId || evalData.response_id || 'resp_unknown'),
+    attemptId: String(resp.attempt_id || serverResponse.attemptId || evalData.attempt_id || 'att_unknown'),
+    questionId: String(resp.question_id || serverResponse.questionId || evalData.question_id || 'q_unknown'),
+    evaluationId: String(evalData.id || serverResponse.evaluationId || 'eval_unknown'),
+    status: evalData.status || serverResponse.evaluationStatus || 'completed',
+    isCorrect: typeof evalData.is_correct === 'boolean' ? evalData.is_correct : ((evalData.score || evalData.raw_score || 0) > 0),
+    rawScore: typeof evalData.raw_score === 'number' ? evalData.raw_score : (evalData.score || 0),
+    maxScore: typeof evalData.max_score === 'number' ? evalData.max_score : 1,
+    normalizedScore: typeof evalData.normalized_score === 'number' ? evalData.normalized_score : (evalData.score || 0),
+    feedback: evalData.feedback || null,
+    correctAnswer: solData.correct_answer || null,
+    explanation: solData.explanation || null,
+    solutionData: solData.solution_data || null
+  };
 }
 
 /**
- * 4. Fetch evaluation statuses for all responses in an attempt
+ * 1. Submit single response (question level)
+ */
+export async function submitResponse(payload, client = null) {
+  const { attemptId, questionId, response } = payload;
+  if (!attemptId || !questionId) {
+    throw new Error('Attempt ID and Question ID are required for response submission.');
+  }
+
+  const supabaseClient = client || getBrowserSupabaseClient();
+
+  const { data, error } = await supabaseClient.functions.invoke('submit-practice', {
+    body: {
+      action: 'submit_question',
+      attempt_id: attemptId,
+      question_id: questionId,
+      response: response
+    }
+  });
+
+  if (error) {
+    throw new Error(`Evaluation submission failed: ${error.message}`);
+  }
+
+  if (data?.error) {
+    throw new Error(`[SUBMISSION_ERROR] ${data.error}`);
+  }
+
+  // Handle Subjective (Writing / Speaking) Pending 202 Response Contract
+  if (data?.evaluationStatus === 'pending' || (data?.evaluationId && !data?.evaluation?.is_correct && data?.evaluation?.status !== 'completed')) {
+    return {
+      success: true,
+      evaluationId: data.evaluationId,
+      evaluationStatus: 'pending',
+      responseId: data.responseId,
+      attemptId: data.attemptId,
+      solution: data.solution || null
+    };
+  }
+
+  return normalizeObjectiveResult(data);
+}
+
+/**
+ * 4. Fetch evaluation statuses for all responses in an attempt (Edge Function query)
  */
 export async function getAttemptEvaluationStatus(attemptId, client = null) {
   if (!attemptId) throw new Error('Attempt ID is required.');
   const supabaseClient = client || getBrowserSupabaseClient();
 
-  const { data, error } = await supabaseClient
-    .from('practice_response_evaluations')
-    .select('id, response_id, question_id, status, normalized_score, cefr_level, rubric_result, feedback, updated_at')
-    .eq('attempt_id', attemptId);
+  try {
+    const { data: fnData } = await supabaseClient.functions.invoke('submit-practice', {
+      body: {
+        action: 'get_attempt_evaluations',
+        attempt_id: attemptId
+      }
+    });
 
-  if (error) throw new Error(`Failed to fetch attempt evaluations: ${error.message}`);
-  return data || [];
+    if (fnData?.evaluations) {
+      return fnData.evaluations;
+    }
+  } catch {}
+
+  return [];
 }
+
+

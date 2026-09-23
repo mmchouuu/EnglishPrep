@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import BookmarkButton from './BookmarkButton';
 import TopicHeaderBanner from './TopicHeaderBanner';
-import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Loader2, AlertCircle } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 /**
  * Single Topic Set Card Component for Part 4 Opinion Matching
@@ -13,6 +14,9 @@ function OpinionMatchingTopicSet({
   bookmarks = {},
   submitted = false,
   results = null,
+  checkingQuestions = null,
+  checkErrors = null,
+  onCheckQuestion,
   onSelectAnswer,
   onToggleBookmark,
   isDarkMode = false
@@ -20,15 +24,47 @@ function OpinionMatchingTopicSet({
   const persons = setObj.persons || [];
   const questions = setObj.questions || [];
   const topicName = setObj.topicName || `TOPIC ${setIndex + 1}`;
+  const firedConfettiRef = useRef(new Set());
 
-  const [checkedSet, setCheckedSet] = useState(false);
-  const showResult = submitted || checkedSet;
+  const isSetChecking = questions.some((q) => checkingQuestions?.[q.id]);
+
+  // Check if entire topic set is 100% completed & correct
+  useEffect(() => {
+    if (!results || questions.length === 0) return;
+    const answeredQuestions = questions.filter((q) => userAnswers[q.id]);
+    if (answeredQuestions.length === 0) return;
+
+    const allAnsweredValid = answeredQuestions.every((q) => {
+      const res = results[q.id];
+      return res?.status === 'completed' && typeof res?.isCorrect === 'boolean';
+    });
+
+    const allAnsweredCorrect = answeredQuestions.every((q) => results[q.id]?.isCorrect === true);
+
+    if (allAnsweredValid && allAnsweredCorrect) {
+      const setEvalHash = answeredQuestions.map((q) => `${q.id}:${results[q.id]?.evaluationId}`).join('|');
+      if (!firedConfettiRef.current.has(setEvalHash)) {
+        firedConfettiRef.current.add(setEvalHash);
+        confetti({ particleCount: 80, spread: 80, origin: { y: 0.6 } });
+      }
+    }
+  }, [results, questions, userAnswers]);
 
   const personBadgeStyles = {
     A: { bg: '#eff6ff', color: '#2563eb', border: '#bfdbfe' },
     B: { bg: '#ecfdf5', color: '#10b981', border: '#a7f3d0' },
     C: { bg: '#f5f3ff', color: '#8b5cf6', border: '#ddd6fe' },
     D: { bg: '#fff7ed', color: '#f97316', border: '#fed7aa' }
+  };
+
+  const handleCheckTopic = () => {
+    if (!onCheckQuestion) return;
+    questions.forEach((q) => {
+      const selectedVal = userAnswers[q.id];
+      if (selectedVal && q.id) {
+        onCheckQuestion(q.id, selectedVal);
+      }
+    });
   };
 
   return (
@@ -98,12 +134,25 @@ function OpinionMatchingTopicSet({
             {questions.map((q, idx) => {
               const qId = q.id;
               const selectedVal = userAnswers[qId] || '';
-              const isCorrect = showResult ? (results ? results[qId] : selectedVal === q.correctPerson) : null;
+              const result = results?.[qId];
+
+              const hasValidServerResult =
+                result?.status === 'completed' &&
+                typeof result?.isCorrect === 'boolean' &&
+                result?.correctAnswer !== null &&
+                result?.correctAnswer !== undefined;
+
+              const isChecking = !!checkingQuestions?.[qId];
+              const checkError = checkErrors?.[qId];
+              const showResult = submitted || hasValidServerResult;
+              const isCorrect = hasValidServerResult ? result.isCorrect : null;
 
               let rowBg = isDarkMode ? 'rgba(30, 41, 59, 0.4)' : '#f8fafc';
               let rowBorder = isDarkMode ? '#334155' : '#e2e8f0';
 
-              if (showResult) {
+              const correctPersonVal = result?.correctAnswer || q.correctAnswer || q.answer;
+
+              if (hasValidServerResult) {
                 if (isCorrect) {
                   rowBg = isDarkMode ? 'rgba(16, 185, 129, 0.15)' : '#ecfdf5';
                   rowBorder = '#10b981';
@@ -134,20 +183,27 @@ function OpinionMatchingTopicSet({
                     >
                       {idx + 1}
                     </span>
-                    <span
-                      className="text-xs font-semibold leading-relaxed"
-                      style={{ color: isDarkMode ? '#e2e8f0' : '#1e293b' }}
-                    >
-                      {q.text}
-                    </span>
+                    <div className="flex-1">
+                      <span
+                        className="text-xs font-semibold leading-relaxed block"
+                        style={{ color: isDarkMode ? '#e2e8f0' : '#1e293b' }}
+                      >
+                        {q.text}
+                      </span>
+                      {hasValidServerResult && !isCorrect && correctPersonVal && (
+                        <div className="mt-1 text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400">
+                          ✓ Correct answer: Person {correctPersonVal}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <div className="flex flex-col items-end gap-1 shrink-0">
                     <select
-                      disabled={showResult}
+                      disabled={showResult || isChecking}
                       value={selectedVal}
                       onChange={(e) => onSelectAnswer(qId, e.target.value)}
-                      className="px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 shadow-2xs focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 shadow-2xs focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                       style={{
                         backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
                         borderColor: isDarkMode ? '#334155' : '#cbd5e1',
@@ -168,10 +224,24 @@ function OpinionMatchingTopicSet({
                         </option>
                       ))}
                     </select>
-                    {showResult && !isCorrect && q.correctPerson && (
-                      <span className="text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/80 px-2 py-0.5 rounded-md border border-emerald-300 dark:border-emerald-800">
-                        ✓ Correct: Person {q.correctPerson}
+
+                    {isChecking && (
+                      <span className="text-xs text-blue-500 flex items-center gap-1">
+                        <Loader2 className="w-3 h-3 animate-spin" aria-hidden="true" /> Checking...
                       </span>
+                    )}
+
+                    {checkError && (
+                      <div className="flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400">
+                        <AlertCircle className="w-3 h-3" aria-hidden="true" />
+                        <span>{checkError}</span>
+                        <button
+                          onClick={() => onCheckQuestion && selectedVal && onCheckQuestion(qId, selectedVal)}
+                          className="ml-1 underline font-bold"
+                        >
+                          Retry check
+                        </button>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -190,11 +260,22 @@ function OpinionMatchingTopicSet({
 
             <div className="flex items-center gap-3">
               <button
-                onClick={() => setCheckedSet(true)}
-                className="px-4 py-2 rounded-xl text-xs font-bold border border-blue-500 text-[#2563eb] hover:bg-blue-50 transition-all flex items-center gap-1.5"
+                disabled={isSetChecking}
+                onClick={handleCheckTopic}
+                aria-live="polite"
+                className="px-4 py-2 rounded-xl text-xs font-bold border border-blue-500 text-[#2563eb] hover:bg-blue-50 transition-all flex items-center gap-1.5 disabled:opacity-50"
               >
-                <Check className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Check this topic</span>
+                {isSetChecking ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" aria-hidden="true" />
+                    <span>Checking...</span>
+                  </>
+                ) : (
+                  <>
+                    <Check className="w-3.5 h-3.5" aria-hidden="true" />
+                    <span>Check this topic</span>
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -215,6 +296,9 @@ export default function Part4OpinionMatching({
   bookmarks = {},
   submitted = false,
   results = null,
+  checkingQuestions = null,
+  checkErrors = null,
+  onCheckQuestion,
   onSelectAnswer,
   onToggleBookmark,
   isDarkMode = false,
@@ -278,6 +362,9 @@ export default function Part4OpinionMatching({
           bookmarks={bookmarks}
           submitted={submitted}
           results={results}
+          checkingQuestions={checkingQuestions}
+          checkErrors={checkErrors}
+          onCheckQuestion={onCheckQuestion}
           onSelectAnswer={onSelectAnswer}
           onToggleBookmark={onToggleBookmark}
           isDarkMode={isDarkMode}
@@ -333,3 +420,4 @@ export default function Part4OpinionMatching({
     </div>
   );
 }
+

@@ -7,20 +7,120 @@ import { getBrowserSupabaseClient } from '../lib/supabaseClient.js';
  */
 
 /**
+ * Normalizes UI practice parameters into valid Database Contract parameters for practice_attempts table.
+ *
+ * DB practice_mode CHECK constraint allows EXACTLY:
+ * - 'full_skill' (part_number = null, group_id = null)
+ * - 'by_part'   (part_number = int, group_id = null)
+ * - 'by_club'   (part_number = int/null, group_id = uuid)
+ * - 'by_topic'  (part_number = int, group_id = uuid)
+ */
+export function normalizePracticeScope({ skill, mode, partNumber, groupId, groupType }) {
+  const rawMode = (mode || 'full').toLowerCase().trim();
+  const parsedPart = (partNumber !== null && partNumber !== undefined && partNumber !== '')
+    ? parseInt(partNumber, 10)
+    : null;
+  const validPartNumber = (parsedPart && !isNaN(parsedPart) && parsedPart > 0) ? parsedPart : null;
+  const validGroupId = (groupId && typeof groupId === 'string' && groupId.trim().length > 0) ? groupId.trim() : null;
+
+  // 1. Full Skill / Mock Test across all parts
+  if (rawMode === 'full_skill' || rawMode === 'mock_test' || rawMode === 'mock') {
+    return {
+      skill,
+      dbPracticeMode: 'full_skill',
+      dbPartNumber: null,
+      dbGroupId: null
+    };
+  }
+
+  // 2. Club Mode (Writing Clubs)
+  if (rawMode === 'club' || rawMode === 'by_club' || rawMode === 'byclub' || groupType === 'club') {
+    if (!validGroupId) {
+      throw new Error(`[PRACTICE_SCOPE_ERROR] Group ID (club UUID) is required when practice_mode is 'by_club'.`);
+    }
+    return {
+      skill,
+      dbPracticeMode: 'by_club',
+      dbPartNumber: validPartNumber,
+      dbGroupId: validGroupId
+    };
+  }
+
+  // 3. Topic / Practice Set Mode
+  if (rawMode === 'topic' || rawMode === 'by_topic' || rawMode === 'bytopic' || rawMode === 'practice_set' || rawMode === 'set' || rawMode === 'core') {
+    if (!validGroupId) {
+      throw new Error(`[PRACTICE_SCOPE_ERROR] Group ID is required when practice_mode is 'by_topic'. Cannot silently fallback to default group.`);
+    }
+    return {
+      skill,
+      dbPracticeMode: 'by_topic',
+      dbPartNumber: validPartNumber,
+      dbGroupId: validGroupId
+    };
+  }
+
+  // 4. Default / UI "full" -> Practice by Part
+  // "Full Practice" on UI means user selected a single Part and does all questions for that Part without topic/group filters.
+  return {
+    skill,
+    dbPracticeMode: 'by_part',
+    dbPartNumber: validPartNumber || 1,
+    dbGroupId: null // MUST BE NULL for Full Practice by Part
+  };
+}
+
+/**
+ * Finds an exact matching in_progress practice attempt for the given normalized scope.
+ * Strict contract requirements:
+ * - skill must match
+ * - status === 'in_progress'
+ * - practice_mode === scope.dbPracticeMode
+ * - part_number === scope.dbPartNumber (or both null for full_skill)
+ * - group_id === scope.dbGroupId (if scope.dbGroupId is null, a.group_id MUST be null; if UUID, MUST match UUID)
+ */
+export function findMatchingAttempt(existingAttempts, scope) {
+  if (!Array.isArray(existingAttempts) || !scope) return null;
+  return existingAttempts.find(a => {
+    if (a.skill !== scope.skill) return false;
+    if (a.status !== 'in_progress') return false;
+    if (a.practice_mode !== scope.dbPracticeMode) return false;
+
+    const matchPart = scope.dbPartNumber === null
+      ? (a.part_number === null || a.part_number === undefined)
+      : (Number(a.part_number) === Number(scope.dbPartNumber));
+
+    if (!matchPart) return false;
+
+    const matchGroup = scope.dbGroupId === null
+      ? (a.group_id === null || a.group_id === undefined)
+      : (a.group_id === scope.dbGroupId);
+
+    return matchGroup;
+  }) || null;
+}
+
+/**
  * 1. Create a new practice attempt for the current authenticated user
  */
 export async function createAttempt(userId, skill, practiceMode = 'full_skill', partNumber = null, groupId = null, client = null) {
   if (!userId) throw new Error(`User ID is required to create a practice attempt.`);
   const supabaseClient = client || getBrowserSupabaseClient();
 
+  const scope = normalizePracticeScope({
+    skill,
+    mode: practiceMode,
+    partNumber,
+    groupId
+  });
+
   const { data, error } = await supabaseClient
     .from('practice_attempts')
     .insert({
       user_id: userId,
-      skill,
-      practice_mode: practiceMode,
-      part_number: partNumber,
-      group_id: groupId,
+      skill: scope.skill,
+      practice_mode: scope.dbPracticeMode,
+      part_number: scope.dbPartNumber,
+      group_id: scope.dbGroupId,
       status: 'in_progress'
     })
     .select()

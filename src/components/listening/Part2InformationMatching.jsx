@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
-import { Bookmark, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useMemo, useEffect, useRef } from 'react';
+import { Bookmark, Check, ChevronLeft, ChevronRight, Loader2, AlertCircle } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { AudioPlayer } from './AudioPlayer';
 import TopicHeaderBanner from '../reading/TopicHeaderBanner';
 
@@ -18,8 +19,11 @@ export const Part2InformationMatching = ({
   onSelectOption,
   markedQuestions = {},
   onToggleMark,
-  submittedSets = {},
-  onSubmitSet,
+  submitted = false,
+  results = null,
+  checkingQuestions = null,
+  checkErrors = null,
+  onCheckQuestion,
   onSelectSet,
   mode = 'full',
   isDarkMode = false,
@@ -27,6 +31,8 @@ export const Part2InformationMatching = ({
   activeGroup = null,
   onSelectGroup
 }) => {
+  const firedConfettiRef = useRef(new Set());
+
   const currentGroupIdx = useMemo(() => {
     if (!groups || groups.length === 0) return 0;
     const activeKey = activeGroup?.group_key || activeGroup?.key;
@@ -46,10 +52,43 @@ export const Part2InformationMatching = ({
     <div className="space-y-8">
       {setsToRender.map((currentSet, sIdx) => {
         const actualSetIdx = mode === 'full' ? sIdx : currentSetIndex;
-        const isSetSubmitted = submittedSets[currentSet.id];
+        const items = currentSet.items || [];
+        const isSetChecking = items.some((item) => checkingQuestions?.[item.id]);
         const isSetFlagged = markedQuestions[currentSet.id];
         const rawTopicName = currentSet.topic || currentSet.topicName || currentSet.title || 'INFORMATION MATCHING';
         const topicName = cleanTopicTitle(rawTopicName) || 'INFORMATION MATCHING';
+
+        // Set-level confetti check
+        useEffect(() => {
+          if (!results || items.length === 0) return;
+          const answeredItems = items.filter((item) => userAnswers[item.id]);
+          if (answeredItems.length === 0) return;
+
+          const allAnsweredValid = answeredItems.every((item) => {
+            const res = results[item.id];
+            return res?.status === 'completed' && typeof res?.isCorrect === 'boolean';
+          });
+
+          const allAnsweredCorrect = answeredItems.every((item) => results[item.id]?.isCorrect === true);
+
+          if (allAnsweredValid && allAnsweredCorrect) {
+            const setEvalHash = answeredItems.map((item) => `${item.id}:${results[item.id]?.evaluationId}`).join('|');
+            if (!firedConfettiRef.current.has(setEvalHash)) {
+              firedConfettiRef.current.add(setEvalHash);
+              confetti({ particleCount: 80, spread: 80, origin: { y: 0.6 } });
+            }
+          }
+        }, [results, items, userAnswers]);
+
+        const handleCheckSet = () => {
+          if (!onCheckQuestion) return;
+          items.forEach((item) => {
+            const val = userAnswers[item.id];
+            if (val && item.id) {
+              onCheckQuestion(item.id, val);
+            }
+          });
+        };
 
         return (
           <div
@@ -80,30 +119,44 @@ export const Part2InformationMatching = ({
                   requestedVoiceProfile={currentSet.requestedVoiceProfile || 'en-GB-female'}
                   transcript={currentSet.transcript}
                   isDarkMode={isDarkMode}
-                  isSubmitted={isSetSubmitted}
+                  isSubmitted={submitted}
                 />
               </div>
 
               {/* Matching Statements / Questions rows matching Reading Part 4-5 UI */}
               <div className="space-y-3 mb-6">
-                {(currentSet.items || []).map((item, idx) => {
-                  const itemKey = item.id || item.sourceKey || `${currentSet.id}_p2_item${idx + 1}`;
+                {items.map((item, idx) => {
+                  const itemKey = item.id;
                   const selectedValue = userAnswers[itemKey] || '';
                   const isItemFlagged = markedQuestions[itemKey];
 
-                  const isCorrect = isSetSubmitted && item.correctAnswer ? String(selectedValue).toUpperCase() === String(item.correctAnswer).toUpperCase() : null;
+                  const result = results?.[itemKey];
 
-                  const correctOptObj = (currentSet.options || []).find(
-                    (o) => String(o.key).toUpperCase() === String(item.correctAnswer).toUpperCase()
-                  );
+                  const hasValidServerResult =
+                    result?.status === 'completed' &&
+                    typeof result?.isCorrect === 'boolean' &&
+                    result?.correctAnswer !== null &&
+                    result?.correctAnswer !== undefined;
+
+                  const isChecking = !!checkingQuestions?.[itemKey];
+                  const checkError = checkErrors?.[itemKey];
+                  const showResult = submitted || hasValidServerResult;
+                  const isCorrect = hasValidServerResult ? result.isCorrect : null;
+
+                  const rawCorrectAnswerKey = result?.correctAnswer || item.correctAnswer;
+                  const correctOptObj = (hasValidServerResult || showResult) && rawCorrectAnswerKey
+                    ? (currentSet.options || []).find(
+                        (o) => String(o.key).toUpperCase() === String(rawCorrectAnswerKey).toUpperCase()
+                      )
+                    : null;
                   const correctLabel = correctOptObj
                     ? (correctOptObj.label || correctOptObj.text || '').replace(/^[A-Z]\.\s*/i, '').trim()
-                    : item.correctAnswer;
+                    : rawCorrectAnswerKey;
 
                   let rowBg = isDarkMode ? 'rgba(30, 41, 59, 0.4)' : '#f8fafc';
                   let rowBorder = isDarkMode ? '#334155' : '#e2e8f0';
 
-                  if (isSetSubmitted && item.correctAnswer) {
+                  if (hasValidServerResult) {
                     if (isCorrect) {
                       rowBg = isDarkMode ? 'rgba(16, 185, 129, 0.15)' : '#ecfdf5';
                       rowBorder = '#10b981';
@@ -115,7 +168,7 @@ export const Part2InformationMatching = ({
 
                   return (
                     <div
-                      key={itemKey}
+                      key={itemKey || idx}
                       className="p-3.5 rounded-xl border flex flex-col md:flex-row md:items-center justify-between gap-3 transition-all scroll-mt-24 shadow-2xs"
                       style={{
                         backgroundColor: rowBg,
@@ -140,9 +193,26 @@ export const Part2InformationMatching = ({
                           >
                             {/^What does Person/i.test(item.prompt) || !item.prompt ? `Person ${String.fromCharCode(65 + idx)}` : item.prompt}
                           </p>
-                          {isSetSubmitted && item.correctAnswer && !isCorrect && (
-                            <p className="text-[11px] font-bold text-rose-600 dark:text-rose-400 mt-0.5 leading-snug">
-                              Correct answer: {correctLabel}
+                          {isChecking && (
+                            <p className="text-xs text-blue-500 flex items-center gap-1 mt-0.5">
+                              <Loader2 className="w-3 h-3 animate-spin" aria-hidden="true" /> Checking...
+                            </p>
+                          )}
+                          {checkError && (
+                            <div className="flex items-center gap-1 text-[11px] text-rose-600 dark:text-rose-400 mt-0.5">
+                              <AlertCircle className="w-3 h-3" aria-hidden="true" />
+                              <span>{checkError}</span>
+                              <button
+                                onClick={() => onCheckQuestion && selectedValue && onCheckQuestion(itemKey, selectedValue)}
+                                className="ml-1 underline font-bold"
+                              >
+                                Retry check
+                              </button>
+                            </div>
+                          )}
+                          {hasValidServerResult && !isCorrect && correctLabel && (
+                            <p className="text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 mt-1 leading-snug">
+                              ✓ Correct answer: {correctLabel}
                             </p>
                           )}
                         </div>
@@ -151,10 +221,10 @@ export const Part2InformationMatching = ({
                       <div className="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end shrink-0">
                         {/* Option Dropdown matching Reading Part 4-5 */}
                         <select
-                          disabled={isSetSubmitted}
+                          disabled={showResult || isChecking}
                           value={selectedValue}
                           onChange={(e) => onSelectOption(itemKey, e.target.value)}
-                          className="px-3.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 shadow-2xs focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-[380px] md:w-[420px]"
+                          className="px-3.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 shadow-2xs focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-[380px] md:w-[420px] disabled:opacity-50"
                           style={{
                             backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
                             borderColor: isDarkMode ? '#334155' : '#cbd5e1',
@@ -216,14 +286,22 @@ export const Part2InformationMatching = ({
                   </button>
 
                   <button
-                    onClick={() => onSubmitSet(currentSet.id)}
-                    disabled={isSetSubmitted}
-                    className={`flex items-center gap-1.5 px-5 py-2 rounded-xl text-xs font-bold transition-all border border-blue-500 text-[#2563eb] hover:bg-blue-50 ${
-                      isSetSubmitted ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
+                    onClick={handleCheckSet}
+                    disabled={isSetChecking}
+                    aria-live="polite"
+                    className="flex items-center gap-1.5 px-5 py-2 rounded-xl text-xs font-bold transition-all border border-blue-500 text-[#2563eb] hover:bg-blue-50 disabled:opacity-50"
                   >
-                    <Check className="w-4 h-4" />
-                    <span>{isSetSubmitted ? 'Set Checked' : 'Check this set'}</span>
+                    {isSetChecking ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                        <span>Checking...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Check className="w-4 h-4" aria-hidden="true" />
+                        <span>{submitted ? 'Set Checked' : 'Check this set'}</span>
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
@@ -282,3 +360,4 @@ export const Part2InformationMatching = ({
     </div>
   );
 };
+

@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { getBrowserSupabaseClient } from '../lib/supabaseClient.js';
 import { getQuestions, getGroups } from '../services/aptisService.js';
-import { createAttempt, getUserAttempts, getAttemptDetails, saveResponse, toggleBookmark as toggleBookmarkApi } from '../services/practiceService.js';
+import { createAttempt, getUserAttempts, getAttemptDetails, saveResponse, toggleBookmark as toggleBookmarkApi, normalizePracticeScope, findMatchingAttempt } from '../services/practiceService.js';
 import { submitAttempt } from '../services/submissionBoundary.js';
+import { submitQuestion } from '../services/submissionService.js';
+import { normalizeObjectiveResult } from '../services/evaluationApiClient.js';
 import {
   adaptPart1Data,
   adaptPart2Data,
@@ -11,11 +13,7 @@ import {
 } from '../adapters/readingAdapter.js';
 
 /**
- * Custom React Hook for Reading Practice (Phase 6B1)
- * Enforces Strict RLS Auth Status Isolation:
- * - authStatus: 'loading' | 'unauthenticated' | 'authenticated'
- * - Does NOT fetch Reading questions until authStatus === 'authenticated'
- * - Displays Auth Required state when unauthenticated (never misinterprets as empty DB)
+ * Custom React Hook for Reading Practice (Phase 6B1 / Phase 2B2)
  */
 export function useReadingPractice({
   selectedPart = '1',
@@ -41,11 +39,13 @@ export function useReadingPractice({
   const [activeGroup, setActiveGroup] = useState(null);
   const [adaptedData, setAdaptedData] = useState(null);
 
-  // User interactions
+  // User interactions & Server Checking State Machine
   const [userAnswers, setUserAnswers] = useState({});
   const [bookmarks, setBookmarks] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState({});
+  const [checkingQuestions, setCheckingQuestions] = useState({});
+  const [checkErrors, setCheckErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [saveStatus, setSaveStatus] = useState('idle'); // 'idle' | 'saving' | 'saved' | 'error'
@@ -124,7 +124,6 @@ export function useReadingPractice({
     let isCancelled = false;
 
     async function fetchData() {
-      // STRICT RULE: Do not query questions before auth completes or if unauthenticated
       if (authStatus !== 'authenticated' || !authUser) {
         setLoading(false);
         setIsEmpty(false);
@@ -141,7 +140,6 @@ export function useReadingPractice({
           throw new Error('Supabase client is not available. Please check configuration.');
         }
 
-        // Fetch groups for part
         const fetchedGroups = await getGroups('reading', dbPartNumber, null, client).catch(() => []);
         
         if (isCancelled) return;
@@ -150,7 +148,7 @@ export function useReadingPractice({
         let selectedGroup = null;
         if (groupKeyParam) {
           selectedGroup = fetchedGroups.find(g => g.group_key === groupKeyParam) || null;
-        } else if (fetchedGroups.length > 0) {
+        } else if (fetchedGroups.length > 0 && (practiceMode === 'topic' || practiceMode === 'practice_set')) {
           selectedGroup = fetchedGroups[0];
         }
         setActiveGroup(selectedGroup);
@@ -223,7 +221,7 @@ export function useReadingPractice({
       setBookmarks({});
     }
     setSubmitted(false);
-    setResults(null);
+    setResults({});
     setSubmitError(null);
   }, [draftStorageKey]);
 
@@ -236,24 +234,31 @@ export function useReadingPractice({
     } catch {}
   }, [draftStorageKey, userAnswers, bookmarks]);
 
-  // 4. Initialize / Resume Practice Attempt ONLY WHEN authStatus === 'authenticated'
+  // 4. Initialize / Resume Practice Attempt
   useEffect(() => {
     let isCancelled = false;
 
     async function initAttempt() {
       if (authStatus !== 'authenticated' || !authUser || loading || rawQuestions.length === 0) return;
+
+      const isTopicOrSetMode = (practiceMode === 'topic' || practiceMode === 'practice_set' || practiceMode === 'by_topic');
+      const targetGroupId = isTopicOrSetMode ? (activeGroup ? activeGroup.id : null) : null;
+
+      if (isTopicOrSetMode && !targetGroupId) return;
+
+      const scope = normalizePracticeScope({
+        skill: 'reading',
+        mode: practiceMode,
+        partNumber: dbPartNumber,
+        groupId: targetGroupId
+      });
+
       setAttemptLoading(true);
 
       try {
         const client = getBrowserSupabaseClient();
         const existingAttempts = await getUserAttempts(authUser.id, client).catch(() => []);
-        
-        const matching = existingAttempts.find(
-          a => a.skill === 'reading' &&
-               a.status === 'in_progress' &&
-               a.part_number === dbPartNumber &&
-               a.practice_mode === practiceMode
-        );
+        const matching = findMatchingAttempt(existingAttempts, scope);
 
         if (isCancelled) return;
 
@@ -273,7 +278,7 @@ export function useReadingPractice({
             'reading',
             practiceMode,
             dbPartNumber,
-            activeGroup ? activeGroup.id : null,
+            targetGroupId,
             client
           );
           if (!isCancelled) {
@@ -281,7 +286,6 @@ export function useReadingPractice({
           }
         }
       } catch (err) {
-        // Non-blocking attempt initialization catch
       } finally {
         if (!isCancelled) setAttemptLoading(false);
       }
@@ -341,7 +345,47 @@ export function useReadingPractice({
     }
   }, [authUser]);
 
-  // 7. Submission Handler
+  // 7. Server Question Checker (Phase 2B2 & 2B2.1)
+  const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+  const handleCheckQuestion = useCallback(async (qId, responseVal) => {
+    if (!attempt || !attempt.id) {
+      setError('Active practice attempt is required for checking.');
+      return;
+    }
+
+    if (!qId || typeof qId !== 'string' || !UUID_REGEX.test(qId.trim())) {
+      const errKey = qId || 'invalid';
+      setCheckErrors(prev => ({
+        ...prev,
+        [errKey]: 'Invalid question ID: Must be a valid UUID. Cannot submit source key or group ID.'
+      }));
+      if (qId) setCheckingQuestions(prev => ({ ...prev, [qId]: false }));
+      return;
+    }
+
+    const valToSubmit = responseVal !== undefined ? responseVal : userAnswers[qId];
+    if (valToSubmit === undefined || valToSubmit === null || valToSubmit === '') {
+      return;
+    }
+
+    if (checkingQuestions[qId]) return;
+
+    setCheckingQuestions(prev => ({ ...prev, [qId]: true }));
+    setCheckErrors(prev => ({ ...prev, [qId]: null }));
+
+    try {
+      const client = getBrowserSupabaseClient();
+      const normalizedDto = await submitQuestion(attempt.id, qId, valToSubmit, client);
+      setResults(prev => ({ ...(prev || {}), [qId]: normalizedDto }));
+    } catch (err) {
+      setCheckErrors(prev => ({ ...prev, [qId]: err.message || 'Server check failed' }));
+    } finally {
+      setCheckingQuestions(prev => ({ ...prev, [qId]: false }));
+    }
+  }, [attempt, userAnswers, checkingQuestions]);
+
+  // 8. Submission Handler
   const handleConfirmSubmit = useCallback(async () => {
     setSubmitting(true);
     setSubmitError(null);
@@ -350,7 +394,7 @@ export function useReadingPractice({
       if (attempt) {
         const client = getBrowserSupabaseClient();
         const res = await submitAttempt(attempt.id, client);
-        setResults(res.question_results || res.evaluations || res.results || {});
+        setResults(prev => ({ ...(prev || {}), ...(res.evaluations || res.results || {}) }));
       }
       setSubmitted(true);
     } catch (err) {
@@ -376,12 +420,16 @@ export function useReadingPractice({
     bookmarks,
     submitted,
     results,
+    checkingQuestions,
+    checkErrors,
     submitting,
     submitError,
     saveStatus,
     handleSelectAnswer,
     handleUpdateOrdering,
     handleToggleBookmark,
+    handleCheckQuestion,
     handleConfirmSubmit
   };
 }
+

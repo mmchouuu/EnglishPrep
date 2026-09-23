@@ -73,7 +73,8 @@ export function damerauLevenshteinDistance(a: string, b: string): number {
  */
 export function isFuzzyExcluded(text: string): boolean {
   const clean = text.trim();
-  // Numbers, dates, times, currency, codes, email, proper names
+  if (clean.length <= 2) return true; // Single or 2-char keys (A, B, C, D, 1, 2, A1, etc.)
+  if (/^[A-Za-z0-9_-]{1,4}$/.test(clean)) return true; // Short option codes/keys
   if (/^\d+$/.test(clean)) return true; // Pure number
   if (/^\$?\d+([\.,]\d+)?\s*(dollars|USD|VND|EUR|GBP|£|€)?$/i.test(clean)) return true; // Money
   if (/^\d{1,2}:\d{2}(\s*(am|pm))?$/i.test(clean)) return true; // Time
@@ -83,88 +84,59 @@ export function isFuzzyExcluded(text: string): boolean {
   return false;
 }
 
+export function extractCorrectAnswer(raw: unknown): string | string[] | null {
+  if (raw === null || raw === undefined) return null;
+  let curr = raw;
+  if (typeof curr === 'string') {
+    const trimmed = curr.trim();
+    if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+      try {
+        curr = JSON.parse(trimmed);
+      } catch (_) {
+        return trimmed;
+      }
+    } else {
+      return trimmed;
+    }
+  }
+
+  if (typeof curr === 'object' && curr !== null) {
+    if (Array.isArray(curr)) {
+      return curr.map(item => String(item).trim());
+    }
+    const c = curr as Record<string, unknown>;
+    if (c.correct_option !== undefined) return extractCorrectAnswer(c.correct_option);
+    if (c.correct_answer !== undefined) return extractCorrectAnswer(c.correct_answer);
+    if (c.correct_person !== undefined) return extractCorrectAnswer(c.correct_person);
+    if (c.correct_heading !== undefined) return extractCorrectAnswer(c.correct_heading);
+    if (c.answer !== undefined) return extractCorrectAnswer(c.answer);
+    if (c.option_key !== undefined) return extractCorrectAnswer(c.option_key);
+    if (c.match !== undefined) return extractCorrectAnswer(c.match);
+    if (Array.isArray(c.ordered_keys)) {
+      return (c.ordered_keys as unknown[]).map(item => String(item).trim());
+    }
+  }
+
+  return String(curr).trim();
+}
+
 /**
- * Match a short user answer against correct and acceptable answers.
+ * Evaluates short text answers with optional acceptable variants and spelling tolerance.
  */
 export function matchShortAnswer(
-  userAnswer: unknown,
-  correctAnswer: unknown,
+  userResponse: string,
+  correctAnswer: string,
   acceptableAnswers: string[] = [],
   config: AnswerMatchingGradingConfig = {}
 ): AnswerMatchingResultDTO {
   const caseSensitive = config.case_sensitive ?? false;
   const punctuationSensitive = config.punctuation_sensitive ?? false;
-  const toleranceConfig = config.spelling_tolerance ?? {
-    enabled: true,
-    max_edit_distance: 1,
-    max_token_length_for_tolerance: 12
-  };
 
-  const unwrapValue = (val: unknown): string | string[] | null => {
-    if (val === null || val === undefined) return null;
-    let curr = val;
-    if (typeof curr === 'string') {
-      const trimmed = curr.trim();
-      if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
-        try {
-          curr = JSON.parse(trimmed);
-        } catch (_) {
-          return trimmed;
-        }
-      } else {
-        return trimmed;
-      }
-    }
-    if (typeof curr === 'object' && curr !== null) {
-      const c = curr as Record<string, unknown>;
-      if (c.correct_option !== undefined) return unwrapValue(c.correct_option);
-      if (c.correct_answer !== undefined) return unwrapValue(c.correct_answer);
-      if (c.correct_person !== undefined) return unwrapValue(c.correct_person);
-      if (c.correct_heading !== undefined) return unwrapValue(c.correct_heading);
-      if (c.answer !== undefined) return unwrapValue(c.answer);
-      if (c.option_key !== undefined) return unwrapValue(c.option_key);
-      if (c.match !== undefined) return unwrapValue(c.match);
-      if (Array.isArray(c.ordered_keys)) return (c.ordered_keys as unknown[]).map(k => String(k));
-      if (Array.isArray(curr)) return (curr as unknown[]).map(k => String(k));
-    }
-    return String(curr);
-  };
+  const normUser = normalizeText(userResponse, caseSensitive, punctuationSensitive);
+  const normCorrect = normalizeText(correctAnswer, caseSensitive, punctuationSensitive);
 
-  const unwrappedUser = unwrapValue(userAnswer);
-  const unwrappedCorrect = unwrapValue(correctAnswer);
-
-  if (Array.isArray(unwrappedUser) || Array.isArray(unwrappedCorrect)) {
-    const userArr = Array.isArray(unwrappedUser) ? unwrappedUser : String(unwrappedUser || '').split(',').map(s => s.trim()).filter(Boolean);
-    const targetArr = Array.isArray(unwrappedCorrect) ? unwrappedCorrect : String(unwrappedCorrect || '').split(',').map(s => s.trim()).filter(Boolean);
-    const isMatch = userArr.length > 0 && userArr.length === targetArr.length && userArr.every((v, i) => v === targetArr[i]);
-    return {
-      isCorrect: isMatch,
-      matchType: isMatch ? 'exact' : 'incorrect',
-      score: isMatch ? 1.0 : 0.0,
-      spellingIssues: []
-    };
-  }
-
-  const strUser = typeof unwrappedUser === 'string' ? unwrappedUser : null;
-  const strCorrect = typeof unwrappedCorrect === 'string' ? unwrappedCorrect : null;
-
-  const normUser = normalizeText(strUser, caseSensitive, punctuationSensitive);
-  const normCorrect = normalizeText(strCorrect, caseSensitive, punctuationSensitive);
-  const normAcceptable = (acceptableAnswers || []).map(a => normalizeText(a, caseSensitive, punctuationSensitive));
-
-  const spellingIssues: SpellingIssue[] = [];
-
-  if (!normUser) {
-    return {
-      isCorrect: false,
-      matchType: 'incorrect',
-      score: 0,
-      spellingIssues: []
-    };
-  }
-
-  // 1. Exact normalized match with correct_answer
-  if (normCorrect && normUser === normCorrect) {
+  // 1. Exact match
+  if (normUser === normCorrect) {
     return {
       isCorrect: true,
       matchType: 'exact',
@@ -173,54 +145,166 @@ export function matchShortAnswer(
     };
   }
 
-  // 2. Exact match with acceptable_answers
-  if (normAcceptable.includes(normUser)) {
-    return {
-      isCorrect: true,
-      matchType: 'acceptable_variant',
-      score: 1.0,
-      spellingIssues: []
-    };
-  }
-
-  // Check if answer is numeric or excluded from fuzzy matching
-  const excluded = isFuzzyExcluded(normUser) || isFuzzyExcluded(normCorrect);
-
-  // 3. Spelling tolerance check (if enabled and not excluded)
-  if (normCorrect && !excluded && toleranceConfig.enabled) {
-    const dist = damerauLevenshteinDistance(normUser, normCorrect);
-    if (dist <= toleranceConfig.max_edit_distance && normUser.length <= toleranceConfig.max_token_length_for_tolerance) {
-      spellingIssues.push({
-        original: String(userAnswer).trim(),
-        suggestion: String(correctAnswer).trim(),
-        reason: `Minor typo detected (edit distance: ${dist}).`
-      });
-
+  // 2. Acceptable variant match
+  for (const alt of acceptableAnswers) {
+    const normAlt = normalizeText(alt, caseSensitive, punctuationSensitive);
+    if (normUser === normAlt) {
       return {
         isCorrect: true,
-        matchType: 'spelling_tolerance',
+        matchType: 'acceptable_variant',
         score: 1.0,
-        spellingIssues
+        spellingIssues: []
       };
     }
   }
 
-  // 4. Incorrect - record diagnostic spelling issue if typo exists
-  if (normCorrect && !excluded) {
+  // 3. Spelling tolerance check
+  const toleranceConfig = config.spelling_tolerance ?? {
+    enabled: true,
+    max_edit_distance: 1,
+    max_token_length_for_tolerance: 12
+  };
+
+  const toleranceEnabled = toleranceConfig.enabled ?? true;
+  const maxEditDist = toleranceConfig.max_edit_distance ?? 1;
+  const maxTokenLen = toleranceConfig.max_token_length_for_tolerance ?? 12;
+
+  if (
+    toleranceEnabled &&
+    normUser.length > 0 &&
+    normUser.length <= maxTokenLen &&
+    !isFuzzyExcluded(userResponse) &&
+    !isFuzzyExcluded(correctAnswer)
+  ) {
     const dist = damerauLevenshteinDistance(normUser, normCorrect);
-    if (dist <= 3) {
-      spellingIssues.push({
-        original: String(userAnswer).trim(),
-        suggestion: String(correctAnswer).trim(),
-        reason: `Spelling error (edit distance: ${dist}).`
-      });
+    if (dist <= maxEditDist && dist > 0) {
+      const issue: SpellingIssue = {
+        original: userResponse.trim(),
+        suggestion: correctAnswer.trim(),
+        reason: `Single edit distance typo (${dist})`
+      };
+      return {
+        isCorrect: true,
+        matchType: 'spelling_tolerance',
+        score: 1.0,
+        spellingIssues: [issue]
+      };
     }
   }
 
+  // 4. Incorrect
   return {
     isCorrect: false,
     matchType: 'incorrect',
     score: 0.0,
-    spellingIssues
+    spellingIssues: []
   };
 }
+
+export interface ObjectiveGradingResultDTO {
+  isCorrect: boolean;
+  rawScore: number;
+  maxScore: number;
+  normalizedScore: number;
+  feedback: string;
+  extractedCorrectAnswer: string | string[];
+}
+
+export function evaluateObjectiveAnswer(
+  questionType: string,
+  userResponse: unknown,
+  rawCorrectAnswer: unknown,
+  acceptableAnswers: string[] = [],
+  config: AnswerMatchingGradingConfig = {}
+): ObjectiveGradingResultDTO {
+  const target = extractCorrectAnswer(rawCorrectAnswer);
+  if (target === null) {
+    throw new Error('UNSUPPORTED_ANSWER_SHAPE');
+  }
+
+  if (questionType === 'sentence_ordering') {
+    const targetArr = Array.isArray(target) ? target : String(target).split(',').map(s => s.trim()).filter(Boolean);
+
+    let userArr: string[] = [];
+    if (Array.isArray(userResponse)) {
+      userArr = userResponse.map(s => String(s).trim());
+    } else if (typeof userResponse === 'string') {
+      const trimmed = userResponse.trim();
+      if (trimmed.startsWith('[')) {
+        try {
+          const parsed = JSON.parse(trimmed);
+          if (Array.isArray(parsed)) userArr = parsed.map(s => String(s).trim());
+        } catch (_) {
+          userArr = [trimmed];
+        }
+      } else {
+        userArr = [trimmed];
+      }
+    }
+
+    if (targetArr.length === 0) {
+      throw new Error('UNSUPPORTED_ANSWER_SHAPE');
+    }
+
+    let correctPositionCount = 0;
+    const maxScore = targetArr.length;
+    for (let i = 0; i < maxScore; i++) {
+      if (i < userArr.length && userArr[i] === targetArr[i]) {
+        correctPositionCount++;
+      }
+    }
+
+    const rawScore = correctPositionCount;
+    const normalizedScore = maxScore > 0 ? (rawScore / maxScore) * 100 : 0;
+    const isCorrect = rawScore === maxScore && maxScore > 0;
+    const feedback = isCorrect ? 'exact' : (rawScore > 0 ? 'partial' : 'incorrect');
+
+    return {
+      isCorrect,
+      rawScore,
+      maxScore,
+      normalizedScore,
+      feedback,
+      extractedCorrectAnswer: targetArr
+    };
+  }
+
+  // String question types (multiple_choice, opinion_matching, heading_matching, listening_multiple_choice, listening_matching)
+  let userStr = '';
+  if (typeof userResponse === 'string') {
+    userStr = userResponse.trim();
+  } else if (typeof userResponse === 'object' && userResponse !== null) {
+    const uObj = userResponse as Record<string, unknown>;
+    userStr = String(uObj.text || uObj.value || uObj.option || uObj.answer || '').trim();
+  } else {
+    userStr = String(userResponse || '').trim();
+  }
+
+  const targetStr = Array.isArray(target) ? target.join(',') : target;
+
+  const isKeyBasedType = [
+    'multiple_choice',
+    'opinion_matching',
+    'heading_matching',
+    'listening_multiple_choice',
+    'listening_matching'
+  ].includes(questionType);
+
+  const matchRes = matchShortAnswer(
+    userStr,
+    targetStr,
+    acceptableAnswers,
+    isKeyBasedType ? { ...config, spelling_tolerance: { enabled: false } } : config
+  );
+  const isCorrect = matchRes.isCorrect && matchRes.score === 1.0;
+
+  return {
+    isCorrect,
+    rawScore: isCorrect ? 1.0 : 0.0,
+    maxScore: 1.0,
+    normalizedScore: isCorrect ? 100.0 : 0.0,
+    feedback: matchRes.matchType,
+    extractedCorrectAnswer: targetStr
+  };
+}
+

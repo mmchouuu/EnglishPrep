@@ -64,12 +64,15 @@ export function ReadingPractice({ isDarkMode = false }) {
     bookmarks,
     submitted,
     results,
+    checkingQuestions,
+    checkErrors,
     submitting,
     submitError,
     saveStatus,
     handleSelectAnswer,
     handleUpdateOrdering,
     handleToggleBookmark,
+    handleCheckQuestion,
     handleConfirmSubmit
   } = useReadingPractice({
     selectedPart,
@@ -319,8 +322,11 @@ export function ReadingPractice({ isDarkMode = false }) {
                   bookmarks={bookmarks}
                   submitted={submitted}
                   results={results}
+                  checkingQuestions={checkingQuestions}
+                  checkErrors={checkErrors}
                   onSelectOption={handleSelectAnswer}
                   onToggleBookmark={handleToggleBookmark}
+                  onCheckQuestion={handleCheckQuestion}
                   isDarkMode={isDarkMode}
                 />
               )}
@@ -333,8 +339,11 @@ export function ReadingPractice({ isDarkMode = false }) {
                   bookmarks={bookmarks}
                   submitted={submitted}
                   results={results}
+                  checkingQuestions={checkingQuestions}
+                  checkErrors={checkErrors}
                   onUpdateOrdering={handleUpdateOrdering}
                   onToggleBookmark={handleToggleBookmark}
+                  onCheckQuestion={handleCheckQuestion}
                   isDarkMode={isDarkMode}
                   mode={practiceMode}
                   groups={groups}
@@ -350,8 +359,11 @@ export function ReadingPractice({ isDarkMode = false }) {
                   bookmarks={bookmarks}
                   submitted={submitted}
                   results={results}
+                  checkingQuestions={checkingQuestions}
+                  checkErrors={checkErrors}
                   onSelectAnswer={handleSelectAnswer}
                   onToggleBookmark={handleToggleBookmark}
+                  onCheckQuestion={handleCheckQuestion}
                   isDarkMode={isDarkMode}
                   mode={practiceMode}
                   groups={groups}
@@ -367,8 +379,11 @@ export function ReadingPractice({ isDarkMode = false }) {
                   bookmarks={bookmarks}
                   submitted={submitted}
                   results={results}
+                  checkingQuestions={checkingQuestions}
+                  checkErrors={checkErrors}
                   onSelectAnswer={handleSelectAnswer}
                   onToggleBookmark={handleToggleBookmark}
+                  onCheckQuestion={handleCheckQuestion}
                   isDarkMode={isDarkMode}
                   mode={practiceMode}
                   groups={groups}
