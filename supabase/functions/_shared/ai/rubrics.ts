@@ -111,12 +111,14 @@ export function mapScoreToCEFR(normalizedScore: number, skill: AptisSkill, partN
     level = 'B1';
   } else if (normalizedScore >= 30) {
     level = 'A2';
-  } else {
+  } else if (normalizedScore >= 15) {
     level = 'A1';
+  } else {
+    level = 'A0';
   }
 
   // Cap at part ceiling (C2 is strictly excluded)
-  const cefrRanks: Record<CEFRLevel, number> = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5 };
+  const cefrRanks: Record<CEFRLevel, number> = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4, C1: 5 };
   if (cefrRanks[level] > cefrRanks[ceiling]) {
     return ceiling;
   }

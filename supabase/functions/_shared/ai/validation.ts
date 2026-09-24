@@ -24,7 +24,7 @@ export function validateAIEvaluationResult(rawJson: unknown): ValidationResult {
     const cefrStr = String(obj.cefrLevel).toUpperCase();
     if (cefrStr === 'C2') {
       errors.push('[SECURITY_VIOLATION] C2 level is strictly prohibited for Aptis tests.');
-    } else if (!['A1', 'A2', 'B1', 'B2', 'C1'].includes(cefrStr)) {
+    } else if (!['A0', 'A1', 'A2', 'B1', 'B2', 'C1'].includes(cefrStr)) {
       errors.push(`Invalid CEFR level '${obj.cefrLevel}'`);
     }
   }

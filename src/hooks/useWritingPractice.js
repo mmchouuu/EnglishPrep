@@ -550,7 +550,7 @@ export function useWritingPractice({
             setItemEvaluations(prev => ({ ...prev, [qKey]: pendingWithId }));
 
             let pollCount = 0;
-            const maxPolls = 15;
+            const maxPolls = 60; // 90 seconds max timeout for AI completion
             const pollInterval = setInterval(async () => {
               pollCount++;
               try {

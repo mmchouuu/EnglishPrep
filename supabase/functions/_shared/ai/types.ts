@@ -5,7 +5,7 @@
 
 export type AptisSkill = 'reading' | 'listening' | 'writing' | 'speaking';
 
-export type CEFRLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1'; // C2 strictly excluded per requirements
+export type CEFRLevel = 'A0' | 'A1' | 'A2' | 'B1' | 'B2' | 'C1'; // C2 strictly excluded per requirements
 
 export type EvaluationStatus = 'pending' | 'processing' | 'needs_review' | 'completed' | 'failed';
 

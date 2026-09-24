@@ -41,8 +41,7 @@ export const Navbar = ({ darkMode, setDarkMode }) => {
     { id: 'listening', label: 'Listening', path: '/listening/part-1', prefix: '/listening' },
     { id: 'reading', label: 'Reading', path: '/reading/part-1', prefix: '/reading' },
     { id: 'writing', label: 'Writing', path: '/writing/part-1', prefix: '/writing' },
-    { id: 'speaking', label: 'Speaking', path: '/speaking/part-1', prefix: '/speaking' },
-    { id: 'admin', label: 'Test Database', path: '/test-database', prefix: '/test-database' }
+    { id: 'speaking', label: 'Speaking', path: '/speaking/part-1', prefix: '/speaking' }
   ];
 
   const checkIsActive = (item) => {

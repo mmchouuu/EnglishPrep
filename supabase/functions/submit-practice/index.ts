@@ -272,9 +272,11 @@ Deno.serve(async (req) => {
       }
 
       // Upsert User Response
-      const userText = typeof response === 'string' ? response : (response?.text || response?.content || '');
+      const userText = typeof response === 'string' ? response : (response?.text || response?.transcript || response?.content || '');
       const recPath = typeof response === 'object' ? (response?.recording_path || null) : null;
-      const wCount = typeof response === 'object' ? (response?.word_count || null) : null;
+      const wCount = typeof response === 'object' && typeof response?.word_count === 'number'
+        ? response.word_count
+        : (userText ? userText.trim().split(/\s+/).filter(Boolean).length : null);
 
       const { data: respRecord, error: rErr } = await supabaseAdmin
         .from('practice_responses')
@@ -444,6 +446,18 @@ Deno.serve(async (req) => {
 
       const newVersion = (existingEval?.version ?? 0) + 1;
       const supersedesId = existingEval?.id ?? null;
+
+      // Clean up any stale active (pending/processing) evaluations for this response to satisfy idx_active_evaluation_per_response unique constraint
+      await supabaseAdmin
+        .from('practice_response_evaluations')
+        .update({
+          status: 'failed',
+          evaluation_status: 'failed',
+          error_code: 'SUPERSEDED',
+          error_message: 'Evaluation superseded by new user submission.'
+        })
+        .eq('response_id', respRecord.id)
+        .in('status', ['pending', 'processing']);
 
       const { data: pendingEval, error: pErr } = await supabaseAdmin
         .from('practice_response_evaluations')

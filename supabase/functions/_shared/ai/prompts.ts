@@ -33,7 +33,7 @@ Candidate Response:
 Instructions:
 Evaluate the candidate response across relevant criteria (Task Fulfilment, Grammar, Vocabulary, Coherence/Organisation, Spelling & Punctuation).
 Identify spelling errors without altering the user's response.
-Provide feedback, strengths, improvements, normalized score (0-100), and CEFR level (A1-C1).
+Provide feedback, strengths, improvements, normalized score (0-100), and CEFR level (A0-C1).
 
 Return JSON matching this exact structure:
 {

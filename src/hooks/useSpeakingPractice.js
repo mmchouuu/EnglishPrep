@@ -451,33 +451,60 @@ export function useSpeakingPractice({
             setItemEvaluations(prev => ({ ...prev, [qKey]: pendingWithId }));
 
             let pollCount = 0;
-            const maxPolls = 10;
-            let resolved = false;
+            const maxPolls = 60; // 90 seconds max timeout for AI completion
+            const solutionData = { model_answer: getSmartSpeakingSampleAnswer(qMeta.prompt || qMeta.question) };
 
-            for (let i = 0; i < maxPolls; i++) {
-              await new Promise(r => setTimeout(r, 1200));
+            const pollInterval = setInterval(async () => {
+              pollCount++;
               try {
                 const latest = await getEvaluation(evalId, client).catch(() => null);
-                if (latest && ['completed', 'failed', 'needs_review'].includes(latest.status)) {
-                  setItemEvaluations(prev => ({ ...prev, [qKey]: latest }));
-                  resolved = true;
-                  return latest;
+                if (latest) {
+                  const fullEval = { ...latest, solution: solutionData || latest.rubric_result?.solution };
+                  setItemEvaluations(prev => ({ ...prev, [qKey]: fullEval }));
+                  if (['completed', 'failed', 'needs_review'].includes(latest.status)) {
+                    clearInterval(pollInterval);
+                  }
                 }
-              } catch { }
-            }
 
-            if (!resolved) {
-              const timeoutEval = {
-                id: evalId,
-                status: 'failed',
-                error_code: 'TIMEOUT',
-                error_message: 'Thời gian chờ AI đánh giá quá lâu. Vui lòng bấm Chấm lại.',
-                question_id: qKey,
-                solution: { model_answer: getSmartSpeakingSampleAnswer(qMeta.prompt || qMeta.question) }
-              };
-              setItemEvaluations(prev => ({ ...prev, [qKey]: timeoutEval }));
-              return timeoutEval;
-            }
+                if (pollCount >= maxPolls) {
+                  clearInterval(pollInterval);
+                  setItemEvaluations(prev => {
+                    const current = prev[qKey];
+                    if (current && ['completed', 'failed', 'needs_review'].includes(current.status)) {
+                      return prev;
+                    }
+                    return {
+                      ...prev,
+                      [qKey]: {
+                        id: evalId,
+                        status: 'failed',
+                        error_code: 'TIMEOUT',
+                        error_message: 'Thời gian chờ AI đánh giá quá lâu. Vui lòng bấm Chấm lại.',
+                        question_id: qKey,
+                        solution: solutionData
+                      }
+                    };
+                  });
+                }
+              } catch {
+                if (pollCount >= maxPolls) {
+                  clearInterval(pollInterval);
+                  setItemEvaluations(prev => ({
+                    ...prev,
+                    [qKey]: {
+                      id: evalId,
+                      status: 'failed',
+                      error_code: 'POLL_ERROR',
+                      error_message: 'Không thể kết nối đến máy chủ đánh giá. Vui lòng bấm Chấm lại.',
+                      question_id: qKey,
+                      solution: solutionData
+                    }
+                  }));
+                }
+              }
+            }, 1500);
+
+            return res;
           } else if (res?.evaluation || res?.status === 'completed') {
             const completedEval = res.evaluation || res;
             setItemEvaluations(prev => ({ ...prev, [qKey]: completedEval }));

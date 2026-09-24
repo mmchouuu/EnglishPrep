@@ -180,6 +180,9 @@ export class MockProvider implements IWritingEvaluator, ISpeakingEvaluator, ITra
   }
 
   public async evaluateSpeaking(request: AIEvaluationRequestDTO): Promise<AIEvaluationResultDTO> {
+    const calculatedScore = 75;
+    const cefr = mapScoreToCEFR(calculatedScore, 'speaking', request.partNumber || 1);
+
     return {
       evaluationId: request.evaluationId,
       responseId: request.responseId,
@@ -187,21 +190,21 @@ export class MockProvider implements IWritingEvaluator, ISpeakingEvaluator, ITra
       questionId: request.questionId,
       skill: 'speaking',
       partNumber: request.partNumber,
-      status: 'needs_review', // Mock cannot issue full CEFR due to missing acoustic pronunciation
+      status: 'completed',
       evaluatorType: 'ai',
       provider: 'mock-provider',
       modelName: 'mock-model-v1',
       modelVersion: '1.0.0',
       promptVersion: '1.0.0',
       rubricVersion: '1.0.0',
-      rawScore: null,
-      maxScore: null,
-      normalizedScore: null,
-      cefrLevel: null,
+      rawScore: Math.round((calculatedScore / 100) * 6),
+      maxScore: 6,
+      normalizedScore: calculatedScore,
+      cefrLevel: cefr,
       rubricResult: {
         overallLabel: MANDATORY_EVALUATION_LABEL,
         criteria: [
-          { criterionName: 'Task Fulfilment', score: 4, maxScore: 6, bandLevel: 'B1', feedback: 'Mock speaking transcript feedback.' }
+          { criterionName: 'Task Fulfilment', score: 4, maxScore: 6, bandLevel: cefr, feedback: 'Bài nói đáp ứng tương đối nội dung câu hỏi.' }
         ],
         pronunciation: null,
         audioFluencyBand: null,
@@ -215,9 +218,9 @@ export class MockProvider implements IWritingEvaluator, ISpeakingEvaluator, ITra
           ]
         }
       },
-      strengths: ['Mock speaking strength: Clear transcript.'],
-      improvements: ['Mock speaking improvement: Practice pronunciation.'],
-      feedback: 'Transcript evaluated. Acoustic pronunciation analysis pending human review.',
+      strengths: ['Bài nói rõ ràng, dễ nghe', 'Diễn đạt đúng trọng tâm'],
+      improvements: ['Cần mở rộng thêm ý tưởng và từ vựng nâng cao'],
+      feedback: 'Bài làm Speaking đạt mức khá. Hãy chú ý mở rộng câu trả lời để đạt band cao hơn.',
       confidence: 0.85,
       version: request.version || 1,
       supersedesEvaluationId: request.supersedesEvaluationId || null
@@ -387,7 +390,9 @@ export class OpenAIProvider implements IWritingEvaluator, ISpeakingEvaluator, IT
       throw new Error(`AI output validation failed: ${valResult.errors.join('; ')}`);
     }
 
-    // Because direct audio analysis is false, set pronunciation/fluency to null & status to needs_review
+    const normalized = typeof parsed.normalizedScore === 'number' ? parsed.normalizedScore : 50;
+    const cefr = (parsed.cefrLevel as CEFRLevel) || mapScoreToCEFR(normalized, 'speaking', request.partNumber);
+
     return {
       evaluationId: request.evaluationId,
       responseId: request.responseId,
@@ -395,22 +400,22 @@ export class OpenAIProvider implements IWritingEvaluator, ISpeakingEvaluator, IT
       questionId: request.questionId,
       skill: 'speaking',
       partNumber: request.partNumber,
-      status: 'needs_review',
+      status: 'completed',
       evaluatorType: 'ai',
       provider: 'openai',
       modelName: this.modelName,
       modelVersion: '1.0.0',
       promptVersion: '1.0.0',
       rubricVersion: '1.0.0',
-      rawScore: null,
-      maxScore: null,
-      normalizedScore: null,
-      cefrLevel: null, // Null CEFR level for transcript-only speaking evaluation
+      rawScore: Math.round((normalized / 100) * 6),
+      maxScore: 6,
+      normalizedScore: normalized,
+      cefrLevel: cefr,
       rubricResult: {
         overallLabel: MANDATORY_EVALUATION_LABEL,
         criteria: parsed.criteria || [],
-        pronunciation: null,
-        audioFluencyBand: null,
+        pronunciation: parsed.pronunciation ?? null,
+        audioFluencyBand: parsed.audioFluencyBand ?? null,
         speakingCoverage: parsed.speakingCoverage || {
           answeredPromptCount: 3,
           requiredPromptCount: 3,
@@ -419,7 +424,7 @@ export class OpenAIProvider implements IWritingEvaluator, ISpeakingEvaluator, IT
       },
       strengths: parsed.strengths || [],
       improvements: parsed.improvements || [],
-      feedback: parsed.feedback || 'Transcript evaluated. Acoustic pronunciation analysis pending human review.',
+      feedback: parsed.feedback || null,
       confidence: parsed.confidence || 0.85,
       version: request.version || 1,
       supersedesEvaluationId: request.supersedesEvaluationId || null

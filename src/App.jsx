@@ -129,8 +129,8 @@ export default function App() {
             <Route path=":partId" element={<PageWrapper Component={WritingPractice} />} />
           </Route>
 
-          {/* Test Database */}
-          <Route path="test-database" element={<PageWrapper Component={AdminCMS} />} />
+          {/* Test Database (Temporarily hidden) */}
+          <Route path="test-database" element={<Navigate to="/" replace />} />
 
           {/* Login Route */}
           <Route path="login" element={<PageWrapper Component={LoginPage} />} />
