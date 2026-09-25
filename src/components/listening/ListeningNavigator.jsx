@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import { Flag, Search, ChevronDown } from 'lucide-react';
+import { Flag, Search, ChevronDown, X } from 'lucide-react';
 import ReadingTimerProgressWidget from '../reading/ReadingTimerProgressWidget';
 import NavigatorActionButtons from '../common/NavigatorActionButtons';
+import { MobileDraggableNavigatorWidget } from '../common/MobileDraggableNavigatorWidget';
 
 export const ListeningNavigator = ({
   part = 1,
@@ -25,6 +26,7 @@ export const ListeningNavigator = ({
   const [jumpInput, setJumpInput] = useState('');
   const [filterBookmarked, setFilterBookmarked] = useState(false);
   const [expandedTopics, setExpandedTopics] = useState({});
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const toggleTopic = (key) => {
     setExpandedTopics((prev) => ({
@@ -245,198 +247,257 @@ export const ListeningNavigator = ({
     return `Part ${part}`;
   }, [part]);
 
+  // Shared Navigator Card Content component
+  const renderNavigatorCardContent = () => (
+    <>
+      {/* Header */}
+      <div className="flex items-center justify-between gap-2 shrink-0">
+        <h3 className="text-sm sm:text-base font-extrabold tracking-tight" style={{ color: isDarkMode ? '#ffffff' : '#0f172a' }}>
+          {titleText}
+        </h3>
+        {isMobileOpen && (
+          <button
+            onClick={() => setIsMobileOpen(false)}
+            className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
+      </div>
+
+      {/* Jump to question input */}
+      <form onSubmit={handleJump} className="space-y-1 shrink-0">
+        <div className="flex items-center gap-1.5">
+          <input
+            type="text"
+            placeholder="e.g. 25"
+            value={jumpInput}
+            onChange={(e) => setJumpInput(e.target.value)}
+            className="flex-1 px-2.5 py-1.5 rounded-xl text-xs font-semibold border outline-none transition-all focus:border-blue-500"
+            style={{
+              backgroundColor: isDarkMode ? '#1e293b' : '#f8fafc',
+              borderColor: isDarkMode ? '#334155' : '#cbd5e1',
+              color: isDarkMode ? '#ffffff' : '#0f172a'
+            }}
+          />
+          <button
+            type="submit"
+            className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#2563eb] hover:bg-[#1d4ed8] text-white shadow-xs transition-all flex items-center gap-1 shrink-0"
+          >
+            <Search className="w-3.5 h-3.5" aria-hidden="true" />
+            <span>Go</span>
+          </button>
+        </div>
+      </form>
+
+      {/* Status Legend */}
+      <div
+        className="flex items-center justify-between text-[11px] font-semibold py-1.5 border-y shrink-0"
+        style={{
+          borderColor: isDarkMode ? '#1e293b' : '#e2e8f0',
+          color: isDarkMode ? '#cbd5e1' : '#334155'
+        }}
+      >
+        <div className="flex items-center gap-1">
+          <span
+            className="w-3 h-3 rounded border"
+            style={{
+              borderColor: isDarkMode ? '#334155' : '#cbd5e1',
+              backgroundColor: isDarkMode ? '#0f172a' : '#ffffff'
+            }}
+          />
+          <span>Not answered</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <span className="w-3 h-3 rounded bg-[#2563eb]" />
+          <span>Answered</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <span className="w-3 h-3 rounded border border-rose-500 bg-rose-500/20" />
+          <span>Flagged</span>
+        </div>
+      </div>
+
+      {/* Topic Accordions List */}
+      <div className="space-y-3 flex-1 overflow-y-auto overflow-x-hidden pr-1 min-h-[140px] max-h-[calc(100vh-20rem)]">
+        {topicGroups.map((topic) => {
+          const isExpanded = expandedTopics[topic.key] !== false;
+
+          return (
+            <div key={topic.key} className="space-y-1.5">
+              {/* Topic Accordion Header */}
+              <div className="flex items-center justify-between gap-2">
+                <button
+                  onClick={() => toggleTopic(topic.key)}
+                  className="flex-1 text-left text-xs font-extrabold transition-colors hover:text-[#2563eb] truncate focus:outline-none"
+                  style={{ color: isDarkMode ? '#e2e8f0' : '#1e293b' }}
+                  title={topic.name}
+                >
+                  {topic.name}
+                </button>
+
+                <button
+                  onClick={() => toggleTopic(topic.key)}
+                  className="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 focus:outline-none"
+                >
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${isExpanded ? 'transform rotate-180' : ''}`}
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
+
+              {/* Topic Items Grid */}
+              {isExpanded && (
+                <div className="grid grid-cols-7 gap-2 pt-1">
+                  {topic.items.map((item, idx) => {
+                    const itemIdx = part === 1 ? item.globalIdx : (item.setIdx !== undefined ? item.setIdx : item.globalSetIdx);
+                    const qDisplayNum = item.qNum || (idx + 1);
+                    const itemId = item?.id || itemIdx;
+                    const isActive = item.setIdx !== undefined ? item.setIdx === currentSetIndex : itemIdx === activeIndex;
+                    const isFlagged = !!markedQuestions[itemId] || (item.setId ? !!markedQuestions[item.setId] : false);
+                    const ansKey = `${itemId}_p1`;
+                    const isAns = (userAnswers[ansKey] !== undefined && userAnswers[ansKey] !== '') ||
+                      (userAnswers[itemId] !== undefined && userAnswers[itemId] !== '') ||
+                      !!submittedQuestions[itemId] ||
+                      (item.setId ? !!submittedQuestions[item.setId] : false);
+
+                    if (filterBookmarked && !isFlagged) return null;
+
+                    let btnBg = isDarkMode ? '#1e293b' : '#ffffff';
+                    let btnBorder = isDarkMode ? '#334155' : '#cbd5e1';
+                    let btnTextColor = isDarkMode ? '#cbd5e1' : '#0f172a';
+
+                    if (isAns) {
+                      btnBg = '#2563eb';
+                      btnBorder = '#2563eb';
+                      btnTextColor = '#ffffff';
+                    }
+
+                    if (isFlagged) {
+                      btnBg = 'rgba(244, 63, 94, 0.15)';
+                      btnBorder = '#f43f5e';
+                      btnTextColor = isDarkMode ? '#fda4af' : '#e11d48';
+                    }
+
+                    if (isActive && !isAns && !isFlagged) {
+                      btnBg = isDarkMode ? '#334155' : '#e2e8f0';
+                      btnBorder = isDarkMode ? '#64748b' : '#94a3b8';
+                      btnTextColor = isDarkMode ? '#ffffff' : '#0f172a';
+                    }
+
+                    return (
+                      <button
+                        key={`${itemId}-${qDisplayNum}`}
+                        onClick={() => {
+                          if (topic.groupKey && onSelectGroup) {
+                            onSelectGroup(topic.groupKey);
+                          }
+                          if (part === 1 && onSelectIndex) onSelectIndex(item.globalIdx !== undefined ? item.globalIdx : itemIdx);
+                          else if (onSelectSet) onSelectSet(item.setIdx !== undefined ? item.setIdx : item.globalSetIdx);
+
+                          setIsMobileOpen(false);
+
+                          // Smooth scroll to target element
+                          const targetEl = document.getElementById(`question-${itemId}`) || document.getElementById(`set-${item.setId || itemId}`);
+                          if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }
+                        }}
+                        className="w-9 h-9 rounded-xl text-xs font-extrabold border flex items-center justify-center transition-all focus:outline-none min-w-0 hover:scale-105 shadow-2xs"
+                        style={{
+                          backgroundColor: btnBg,
+                          borderColor: btnBorder,
+                          color: btnTextColor
+                        }}
+                      >
+                        {qDisplayNum}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Refactored Reusable NavigatorActionButtons Component */}
+      <NavigatorActionButtons
+        flaggedCount={flaggedCount}
+        filterBookmarked={filterBookmarked}
+        onToggleFilterBookmarked={() => {
+          setFilterBookmarked(!filterBookmarked);
+          if (onReviewFlagged) onReviewFlagged();
+        }}
+        onSubmitAll={() => {
+          setIsMobileOpen(false);
+          if (onSubmitAll) onSubmitAll();
+        }}
+        isDarkMode={isDarkMode}
+      />
+    </>
+  );
+
   return (
-    <aside className="w-full lg:w-80 shrink-0 space-y-3 lg:sticky lg:top-20">
-      {/* Top Timer & Progress Widget */}
-      <ReadingTimerProgressWidget
-        timeStr="00:00:00"
+    <>
+      {/* 1. Mobile Draggable Floating Pill Widget (Right Edge) - Visible on lg:hidden */}
+      <MobileDraggableNavigatorWidget
+        onOpenDrawer={() => setIsMobileOpen(true)}
         answeredCount={answeredCount}
         totalCount={totalCount}
+        timeStr="00:00:00"
         isDarkMode={isDarkMode}
       />
 
-      {/* QUESTION NAVIGATOR CARD */}
-      <div
-        className="p-4 sm:p-5 rounded-2xl border transition-all flex flex-col max-h-[calc(100vh-10rem)] shadow-xs space-y-3 overflow-hidden"
-        style={{
-          backgroundColor: isDarkMode ? '#111827' : '#ffffff',
-          borderColor: isDarkMode ? '#29364a' : '#d8e2ef',
-          color: isDarkMode ? '#ffffff' : '#0f172a'
-        }}
-      >
-        {/* Header */}
-        <h3 className="text-sm sm:text-base font-extrabold tracking-tight shrink-0" style={{ color: isDarkMode ? '#ffffff' : '#0f172a' }}>
-          {titleText}
-        </h3>
-
-        {/* Jump to question input */}
-        <form onSubmit={handleJump} className="space-y-1 shrink-0">
-          <div className="flex items-center gap-1.5">
-            <input
-              type="text"
-              placeholder="e.g. 25"
-              value={jumpInput}
-              onChange={(e) => setJumpInput(e.target.value)}
-              className="flex-1 px-2.5 py-1.5 rounded-xl text-xs font-semibold border outline-none transition-all focus:border-blue-500"
-              style={{
-                backgroundColor: isDarkMode ? '#1e293b' : '#f8fafc',
-                borderColor: isDarkMode ? '#334155' : '#cbd5e1',
-                color: isDarkMode ? '#ffffff' : '#0f172a'
-              }}
+      {/* 2. Mobile Slide-Over Drawer Modal (Image 3) */}
+      {isMobileOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
+            onClick={() => setIsMobileOpen(false)}
+          />
+          <div
+            className="fixed inset-y-0 right-0 z-50 w-[88vw] max-w-sm shadow-2xl p-4 sm:p-5 flex flex-col space-y-3 overflow-y-auto animate-in slide-in-from-right duration-200"
+            style={{
+              backgroundColor: isDarkMode ? '#111827' : '#ffffff',
+              color: isDarkMode ? '#ffffff' : '#0f172a'
+            }}
+          >
+            {/* Top Timer & Progress Widget inside mobile drawer */}
+            <ReadingTimerProgressWidget
+              timeStr="00:00:00"
+              answeredCount={answeredCount}
+              totalCount={totalCount}
+              isDarkMode={isDarkMode}
             />
-            <button
-              type="submit"
-              className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#2563eb] hover:bg-[#1d4ed8] text-white shadow-xs transition-all flex items-center gap-1 shrink-0"
-            >
-              <Search className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Go</span>
-            </button>
-          </div>
-        </form>
 
-        {/* Status Legend */}
-        <div
-          className="flex items-center justify-between text-[11px] font-semibold py-1.5 border-y shrink-0"
-          style={{
-            borderColor: isDarkMode ? '#1e293b' : '#e2e8f0',
-            color: isDarkMode ? '#cbd5e1' : '#334155'
-          }}
-        >
-          <div className="flex items-center gap-1">
-            <span
-              className="w-3 h-3 rounded border"
-              style={{
-                borderColor: isDarkMode ? '#334155' : '#cbd5e1',
-                backgroundColor: isDarkMode ? '#0f172a' : '#ffffff'
-              }}
-            />
-            <span>Not answered</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <span className="w-3 h-3 rounded bg-[#2563eb]" />
-            <span>Answered</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <span className="w-3 h-3 rounded border border-rose-500 bg-rose-500/20" />
-            <span>Flagged</span>
+            {renderNavigatorCardContent()}
           </div>
         </div>
+      )}
 
-        {/* Topic Accordions List (Reading Part 4 & 5 UI Layout Style) */}
-        <div className="space-y-3 flex-1 overflow-y-auto pr-1 min-h-[140px] max-h-[320px]">
-          {topicGroups.map((topic) => {
-            const isExpanded = expandedTopics[topic.key] !== false;
-
-            return (
-              <div key={topic.key} className="space-y-1.5">
-                {/* Topic Accordion Header */}
-                <div className="flex items-center justify-between gap-2">
-                  <button
-                    onClick={() => toggleTopic(topic.key)}
-                    className="flex-1 text-left text-xs font-extrabold transition-colors hover:text-[#2563eb] truncate focus:outline-none"
-                    style={{ color: isDarkMode ? '#e2e8f0' : '#1e293b' }}
-                    title={topic.name}
-                  >
-                    {topic.name}
-                  </button>
-
-                  <button
-                    onClick={() => toggleTopic(topic.key)}
-                    className="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 focus:outline-none"
-                  >
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform ${isExpanded ? 'transform rotate-180' : ''}`}
-                      aria-hidden="true"
-                    />
-                  </button>
-                </div>
-
-                {/* Topic Items Grid */}
-                {isExpanded && (
-                  <div className="grid grid-cols-7 gap-2 pt-1">
-                    {topic.items.map((item, idx) => {
-                      const itemIdx = part === 1 ? item.globalIdx : (item.setIdx !== undefined ? item.setIdx : item.globalSetIdx);
-                      const qDisplayNum = item.qNum || (idx + 1);
-                      const itemId = item?.id || itemIdx;
-                      const isActive = item.setIdx !== undefined ? item.setIdx === currentSetIndex : itemIdx === activeIndex;
-                      const isFlagged = !!markedQuestions[itemId] || (item.setId ? !!markedQuestions[item.setId] : false);
-                      const ansKey = `${itemId}_p1`;
-                      const isAns = (userAnswers[ansKey] !== undefined && userAnswers[ansKey] !== '') ||
-                        (userAnswers[itemId] !== undefined && userAnswers[itemId] !== '') ||
-                        !!submittedQuestions[itemId] ||
-                        (item.setId ? !!submittedQuestions[item.setId] : false);
-
-                      if (filterBookmarked && !isFlagged) return null;
-
-                      let btnBg = isDarkMode ? '#1e293b' : '#ffffff';
-                      let btnBorder = isDarkMode ? '#334155' : '#cbd5e1';
-                      let btnTextColor = isDarkMode ? '#cbd5e1' : '#0f172a';
-
-                      if (isAns) {
-                        btnBg = '#2563eb';
-                        btnBorder = '#2563eb';
-                        btnTextColor = '#ffffff';
-                      }
-
-                      if (isFlagged) {
-                        btnBg = 'rgba(244, 63, 94, 0.15)';
-                        btnBorder = '#f43f5e';
-                        btnTextColor = isDarkMode ? '#fda4af' : '#e11d48';
-                      }
-
-                      if (isActive && !isAns && !isFlagged) {
-                        btnBg = isDarkMode ? '#334155' : '#e2e8f0';
-                        btnBorder = isDarkMode ? '#64748b' : '#94a3b8';
-                        btnTextColor = isDarkMode ? '#ffffff' : '#0f172a';
-                      }
-
-                      return (
-                        <button
-                          key={`${itemId}-${qDisplayNum}`}
-                          onClick={() => {
-                            if (topic.groupKey && onSelectGroup) {
-                              onSelectGroup(topic.groupKey);
-                            }
-                            if (part === 1 && onSelectIndex) onSelectIndex(item.globalIdx !== undefined ? item.globalIdx : itemIdx);
-                            else if (onSelectSet) onSelectSet(item.setIdx !== undefined ? item.setIdx : item.globalSetIdx);
-
-                            // Smooth scroll to target element
-                            const targetEl = document.getElementById(`question-${itemId}`) || document.getElementById(`set-${item.setId || itemId}`);
-                            if (targetEl) {
-                              targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }
-                          }}
-                          className="w-9 h-9 rounded-xl text-xs font-extrabold border flex items-center justify-center transition-all focus:outline-none min-w-0 hover:scale-105 shadow-2xs"
-                          style={{
-                            backgroundColor: btnBg,
-                            borderColor: btnBorder,
-                            color: btnTextColor
-                          }}
-                        >
-                          {qDisplayNum}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Refactored Reusable NavigatorActionButtons Component */}
-        <NavigatorActionButtons
-          flaggedCount={flaggedCount}
-          filterBookmarked={filterBookmarked}
-          onToggleFilterBookmarked={() => {
-            setFilterBookmarked(!filterBookmarked);
-            if (onReviewFlagged) onReviewFlagged();
-          }}
-          onSubmitAll={onSubmitAll}
+      {/* 3. Desktop Sidebar Navigator Layout - Visible on lg:block */}
+      <aside className="hidden lg:block w-80 shrink-0 space-y-3 sticky top-20">
+        <ReadingTimerProgressWidget
+          timeStr="00:00:00"
+          answeredCount={answeredCount}
+          totalCount={totalCount}
           isDarkMode={isDarkMode}
         />
-      </div>
-    </aside>
+
+        <div
+          className="p-4 sm:p-5 rounded-2xl border transition-all flex flex-col max-h-[calc(100vh-10rem)] shadow-xs space-y-3 overflow-hidden"
+          style={{
+            backgroundColor: isDarkMode ? '#111827' : '#ffffff',
+            borderColor: isDarkMode ? '#29364a' : '#d8e2ef',
+            color: isDarkMode ? '#ffffff' : '#0f172a'
+          }}
+        >
+          {renderNavigatorCardContent()}
+        </div>
+      </aside>
+    </>
   );
 };
 
